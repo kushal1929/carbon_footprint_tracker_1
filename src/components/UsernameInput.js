@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { collection, doc, setDoc, getFirestore, getDoc } from 'firebase/firestore';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const UsernameInput = () => {
   const navigate = useNavigate();
   const { email } = useParams();
   const [username, setUsername] = useState('');
+  const [notification, setNotification] = useState('');
 
   const handleUsernameSubmit = async () => {
     try {
@@ -21,6 +24,7 @@ const UsernameInput = () => {
           email: email,
           // Other fields related to the user can be added here
         });
+        toast.success('Registration successful!');
         navigate('/home');
       }
     } catch (error) {

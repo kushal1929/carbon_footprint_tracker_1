@@ -11,28 +11,28 @@ export default function Home() {
 
   const handleLogout = () => {
     sessionStorage.removeItem('Auth Token');
+    sessionStorage.removeItem('User Email'); // Clear user email on logout
     sessionStorage.clear();
     navigate('/login');
   };
 
   useEffect(() => {
-    const auth = getAuth();
-    const user = auth.currentUser;
-    if (!user) {
-      navigate('/login');
+    const userEmail = sessionStorage.getItem('User Email');
+
+    if (!userEmail) {
+      navigate('/login'); // Redirect to login if user email is not found
       return;
     }
 
     const db = getFirestore();
     const usersCollection = collection(db, 'users');
-    const userQuery = query(usersCollection, where('email', '==', sessionStorage.getItem('User Email')));
+    const userQuery = query(usersCollection, where('email', '==', userEmail));
 
     getDocs(userQuery)
       .then((querySnapshot) => {
         if (!querySnapshot.empty) {
           querySnapshot.forEach((doc) => {
-            const userData = doc.data();
-            setUsername(userData.username || '');
+            setUsername(doc.id || '');
           });
         } else {
           console.log('User not found in Firestore');
@@ -56,7 +56,7 @@ export default function Home() {
 
   return (
     <div>
-      <h1>Welcome, {username}</h1>
+      <h1>Welcome, {username}!</h1>
       <button onClick={handleLogout}>Log out</button>
     </div>
   );
