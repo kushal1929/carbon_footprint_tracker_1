@@ -27,7 +27,20 @@ function App() {
           if (error.code === 'auth/wrong-password' || error.code === 'auth/user-not-found') {
             alert('Please check your email or password, it is invalid!');
           } else {
-            console.error('Login error:', error.message);
+            function convertErrorCode(errorCode) {
+              // Assuming the error code format is 'auth/{error-message}'
+              const parts = errorCode.split('/');
+              if (parts.length === 2 && parts[0] === 'auth') {
+                  const errorMessage = parts[1].replace(/-/g, ' ').charAt(0).toUpperCase() + parts[1].replace(/-/g, ' ').slice(1);
+                  return errorMessage;
+              } else {
+                  return 'Unknown error';
+              }
+          }
+          
+          //function call to print error message
+          const errorMessage = convertErrorCode(error.code);
+          alert(errorMessage+'\n'+error.message);
           }
         });
     }
@@ -39,11 +52,22 @@ function App() {
           sessionStorage.setItem('Auth Token', response._tokenResponse.refreshToken);
         })
         .catch((error) => {
-          if (error.code === 'auth/email-already-in-use') {
-            alert('User already exists. Please login or use a different email.');
-          } else {
-            console.error('Registration error:', error.message);
-          }
+
+          function convertErrorCode(errorCode) {
+            // Assuming the error code format is 'auth/{error-message}'
+            const parts = errorCode.split('/');
+            if (parts.length === 2 && parts[0] === 'auth') {
+                const errorMessage = parts[1].replace(/-/g, ' ').charAt(0).toUpperCase() + parts[1].replace(/-/g, ' ').slice(1);
+                return errorMessage;
+            } else {
+                return 'Unknown error';
+            }
+        }
+        
+        //function call to print error message
+        const errorMessage = convertErrorCode(error.code);
+        alert(errorMessage+'\n'+error.message);
+        
         });
     }
   };
