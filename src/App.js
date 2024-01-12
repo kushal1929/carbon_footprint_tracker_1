@@ -1,4 +1,5 @@
 import './App.css';
+import './Prelogin.css';
 import Form from './components/common/Form';
 import Home from './components/Home';
 import UsernameInput from './components/UsernameInput'; 
@@ -10,6 +11,7 @@ import {
 import { useState } from 'react';
 import { signInWithEmailAndPassword,createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
 import { app } from './firebaseconfig';
+import Prelogin from './Prelogin';
 
 function App() {
   const [email, setEmail] = useState('');
@@ -66,6 +68,9 @@ function App() {
   return (
     <div className="App">
       <Routes>
+        <Route path="/" exact
+          element={<Prelogin/>}/>
+          
         <Route
           path='/login'
           element={
