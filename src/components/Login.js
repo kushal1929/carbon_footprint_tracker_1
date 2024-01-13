@@ -1,8 +1,14 @@
+import Form from './common/Form';
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
-import Button from './Button';
-import './Form.css'
+import Button from './common/Button';
+import {
+    Routes,
+    Route,
+    useNavigate
+  } from "react-router-dom";
+
 
 export default function BasicTextFields({ title, setPassword, setEmail, handleAction, password }) {
   const [confirmPassword, setConfirmPassword] = React.useState('');
@@ -15,57 +21,10 @@ export default function BasicTextFields({ title, setPassword, setEmail, handleAc
     }
   };
 
-  return (/*
-    <div>
-      <div className="heading-container">
-        <h3>{title} Form</h3>
-      </div>
+    
 
-      <Box
-        component="form"
-        sx={{
-          '& > :not(style)': { m: 1, width: '25ch' },
-        }}
-        noValidate
-        autoComplete="off"
-      >
-        <TextField
-          id="email"
-          label="Enter the Email"
-          variant="outlined"
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <TextField
-          id="password"
-          label="Enter the Password"
-          variant="outlined"
-          type="password"
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        {title === 'Register' && (
-          <TextField
-            id="confirm-password"
-            label="Confirm Password"
-            variant="outlined"
-            type="password"
-            onChange={(e) => setConfirmPassword(e.target.value)}
-          />
-        )}
-      </Box>
-
-      <Button title={title} handleAction={handleRegister} />
-    </div>  */
-
-    /*
-  Heads up! 👋
-
-  Plugins:
-    - @tailwindcss/forms
-*/
-
-
-
-<section className="relative flex flex-wrap lg:h-screen lg:items-center">
+return(
+    <section className="relative flex flex-wrap lg:h-screen lg:items-center">
   <div className="w-full px-4 py-12 sm:px-6 sm:py-16 lg:w-1/2 lg:px-8 lg:py-24">
     <div className="mx-auto max-w-lg text-center">
       <h1 className="text-2xl font-bold sm:text-3xl">Get started today!</h1>
@@ -163,6 +122,7 @@ export default function BasicTextFields({ title, setPassword, setEmail, handleAc
     />
   </div>
 </section>
-    
-  );
+
+)
 }
+

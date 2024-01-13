@@ -12,6 +12,8 @@ import { useState } from 'react';
 import { signInWithEmailAndPassword,createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
 import { app } from './firebaseconfig';
 import Prelogin from './Prelogin';
+import Login from './components/Login'
+import Register from './components/Register'
 
 function App() {
   const [email, setEmail] = useState('');
@@ -74,7 +76,7 @@ function App() {
         <Route
           path='/login'
           element={
-            <Form
+            <Login 
               title="Login"
               setEmail={setEmail}
               setPassword={setPassword}
@@ -85,7 +87,7 @@ function App() {
         <Route
           path='/register'
           element={
-            <Form
+            <Register
               title="Register"
               setEmail={setEmail}
               setPassword={setPassword}
