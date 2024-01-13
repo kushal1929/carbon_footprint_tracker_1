@@ -3,6 +3,8 @@ import './Prelogin.css';
 import Form from './components/common/Form';
 import Home from './components/Home';
 import UsernameInput from './components/UsernameInput'; 
+import EatingHabits from './components/EatingHabits';
+import CarbonFootprintCalculator from './components/carbon';
 import {
   Routes,
   Route,
@@ -101,6 +103,14 @@ function App() {
           }
         />
         <Route path='/home' element={<Home />} />
+        <Route
+          path='/carbon-footprint-calc'
+          element={<CarbonFootprintCalculator />}
+        />
+        <Route
+          path='/eating-habits'
+          element={<EatingHabits />}
+        />
       </Routes>
     </div>
   );

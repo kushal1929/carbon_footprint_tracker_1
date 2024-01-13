@@ -16,6 +16,14 @@ export default function Home() {
     navigate('/login');
   };
 
+  const handleNavigateToCarbon = () => {
+    navigate('/carbon-footprint-calc');
+  };
+
+  const handleNavigateToEatingHabits = () => {
+    navigate('/eating-habits');
+  };
+
   useEffect(() => {
     const userEmail = sessionStorage.getItem('User Email');
 
@@ -57,6 +65,9 @@ export default function Home() {
   return (
     <div>
       <h1>Welcome, {username}!</h1>
+
+      <button onClick={handleNavigateToCarbon}>Calculate Carbon Footprint</button>
+      <button onClick={handleNavigateToEatingHabits}>Eating Habits</button>
       <button onClick={handleLogout}>Log out</button>
     </div>
   );
