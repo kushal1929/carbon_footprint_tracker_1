@@ -201,7 +201,8 @@ html{
       overflow: hidden; 
       padding: 1.9vw 2vw; 
       height: 4vw;
-  
+      border-color: #000000;
+      border-width: 0.2vw;
       display: flex;
       align-items: center;
       justify-content: center;
