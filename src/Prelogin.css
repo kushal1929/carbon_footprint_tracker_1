@@ -8,7 +8,6 @@ html{
     height:100%;
   }
   .App{
-    display:flex;
     height:100%;
   }
   
@@ -18,7 +17,7 @@ html{
     flex-grow: 1;
     flex-direction: column;
     justify-content: center;
-    
+    height:100%;
     
     } 
   
@@ -38,7 +37,7 @@ html{
   .element .white-rectangle { 
     background-color: #ffffff; 
     border-radius: 66px; 
-    height: 90%; 
+    height: 93%; 
     margin-left: 2%;
     margin-right: 2%;
     margin-top: 2%;
@@ -115,8 +114,8 @@ html{
       flex-grow:0;
       flex-shrink:1;
       height: auto;
-  
-  
+      
+      
       align-items: stretch; 
       display: flex; 
       flex-direction: column; 
@@ -124,6 +123,7 @@ html{
   
     .phrase .text1{
       height: 2vw;
+      margin:revert-layer;
     }
     .phrase .text2{
       height: 2vw;
