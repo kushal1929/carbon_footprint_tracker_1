@@ -23,8 +23,7 @@ return(
       <h1 className="text-2xl font-bold sm:text-3xl">Get started today!</h1>
 
       <p className="mt-4 text-gray-500">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Et libero nulla eaque error neque
-        ipsa culpa autem, at itaque nostrum!
+      Start Your Green Odyssey! Measure. Improve. Thrive. Ecolibrium - Your Personal Guide to a Greener, Healthier Tomorrow!
       </p>
     </div>
 
@@ -98,8 +97,11 @@ return(
       <div className="flex items-center justify-between">
         <p className="text-sm text-gray-500">
           No account?
-          <a className="underline" href="">Sign up</a>
+          <a className="underline" href="/register">Sign up</a>
         </p>
+        <a className="text-sm text-gray-500" href="/forgot-password">
+      Forgot Password?
+        </a>
           
         
         <Button title={title} handleAction={handleRegister} />
