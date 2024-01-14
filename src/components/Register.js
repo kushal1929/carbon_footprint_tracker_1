@@ -48,16 +48,15 @@ return(
             </a>
 
             <h1 className="mt-6 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl">
-            Welcome to Squid 🦑
+            Welcome to ECOLIBRIUM! 🦑
             </h1>
 
             <p className="mt-4 leading-relaxed text-gray-500">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi nam dolorum aliquam,
-            quibusdam aperiam voluptatum.
+            Start Your Green Odyssey! Measure. Improve. Thrive. Ecolibrium - Your Personal Guide to a Greener, Healthier Tomorrow!
             </p>
 
             <form action="#" className="mt-8 grid grid-cols-6 gap-6">
-            <div className="col-span-6 sm:col-span-3">
+            {/* <div className="col-span-6 sm:col-span-3">
                 <label htmlFor="FirstName" className="block text-sm font-medium text-gray-700">
                 First Name
                 </label>
@@ -81,7 +80,7 @@ return(
                 name="last_name"
                 className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
                 />
-            </div>
+            </div> */}
 
             <div className="col-span-6">
                 <label htmlFor="Email" className="block text-sm font-medium text-gray-700"> Email </label>
