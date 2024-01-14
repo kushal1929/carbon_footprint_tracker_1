@@ -28,7 +28,7 @@ html{
       } 
     
   .element .image-background { 
-    background-image: url(../public/images/image_1.png); 
+    background-image: url(../../public/images/image_1.png); 
     background-position: 50% 50%; 
     background-size: cover; 
     height: 100%; width: 100%;
@@ -241,7 +241,7 @@ html{
     .box { height: 60vw; width: 40vw; } 
   
     .box .front_img {
-      background-image: url(../public/images/front_img.png); 
+      background-image: url(../../public/images/front_img.png); 
       background-position: 50% 50%;  
       background-repeat: no-repeat;
       background-size: contain;

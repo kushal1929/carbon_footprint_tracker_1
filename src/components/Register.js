@@ -1,13 +1,7 @@
-import Form from './common/Form';
+import './common/Tailwind.css';
 import * as React from 'react';
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
 import Button from './common/Button';
-import {
-    Routes,
-    Route,
-    useNavigate
-  } from "react-router-dom";
+
 
 
 export default function BasicTextFields({ title, setPassword, setEmail, handleAction, password }) {
