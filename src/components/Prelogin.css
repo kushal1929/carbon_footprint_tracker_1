@@ -8,7 +8,6 @@ html{
     height:100%;
   }
   .App{
-    display:flex;
     height:100%;
   }
   
@@ -18,7 +17,7 @@ html{
     flex-grow: 1;
     flex-direction: column;
     justify-content: center;
-    
+    height:100%;
     
     } 
   
@@ -29,7 +28,7 @@ html{
       } 
     
   .element .image-background { 
-    background-image: url(../public/images/image_1.png); 
+    background-image: url(../../public/images/image_1.png); 
     background-position: 50% 50%; 
     background-size: cover; 
     height: 100%; width: 100%;
@@ -38,7 +37,7 @@ html{
   .element .white-rectangle { 
     background-color: #ffffff; 
     border-radius: 66px; 
-    height: 90%; 
+    height: 93%; 
     margin-left: 2%;
     margin-right: 2%;
     margin-top: 2%;
@@ -115,8 +114,8 @@ html{
       flex-grow:0;
       flex-shrink:1;
       height: auto;
-  
-  
+      
+      
       align-items: stretch; 
       display: flex; 
       flex-direction: column; 
@@ -124,6 +123,7 @@ html{
   
     .phrase .text1{
       height: 2vw;
+      margin:revert-layer;
     }
     .phrase .text2{
       height: 2vw;
@@ -201,7 +201,8 @@ html{
       overflow: hidden; 
       padding: 1.9vw 2vw; 
       height: 4vw;
-  
+      border-color: #000000;
+      border-width: 0.2vw;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -240,7 +241,7 @@ html{
     .box { height: 60vw; width: 40vw; } 
   
     .box .front_img {
-      background-image: url(../public/images/front_img.png); 
+      background-image: url(../../public/images/front_img.png); 
       background-position: 50% 50%;  
       background-repeat: no-repeat;
       background-size: contain;
