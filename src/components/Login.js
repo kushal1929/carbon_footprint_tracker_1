@@ -23,7 +23,7 @@ return(
       <h1 className="text-2xl font-bold sm:text-3xl">Get started today!</h1>
 
       <p className="mt-4 text-gray-500">
-      Start Your Green Odyssey! Measure. Improve. Thrive. Ecolibrium - Your Personal Guide to a Greener, Healthier Tomorrow!
+      Continue Your Green Odyssey! Measure. Improve. Thrive. Ecolibrium - Your Personal Guide to a Greener, Healthier Tomorrow!
       </p>
     </div>
 

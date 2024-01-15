@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { getAuth, sendPasswordResetEmail } from 'firebase/auth';
+import Button from '@mui/material/Button';
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState('');
@@ -60,14 +61,15 @@ const ForgotPassword = () => {
           </div>
         </div>
 
-        <div className="flex items-center justify-between">
-          <button
+        <div className="flex justify-center">
+          <Button
+          variant='contained'
             type="button"
             className="inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white"
             onClick={handleResetPassword}
           >
             Reset Password
-          </button>
+          </Button>
         </div>
       </form>
     </div>

@@ -6,6 +6,7 @@ import { app } from '../firebaseconfig';
 import { Line } from 'react-chartjs-2';
 import "chart.js/auto";
 import Header from './common/Header'
+import './common/Tailwind.css';
 
 export default function Home() {
   const navigate = useNavigate();
@@ -133,19 +134,12 @@ export default function Home() {
 
 
   return (
-    <>
-    <Header />
     <div>
       <h1>Welcome, {username}!</h1>
-      {chartData.labels && chartData.labels.length > 0 ? 
-        (
-        <Line data={chartData} />
-        ) : (<p>No data available for chart</p>)
-      }
+
       <button onClick={handleNavigateToCarbon}>Calculate Carbon Footprint</button>
       <button onClick={handleNavigateToEatingHabits}>Eating Habits</button>
       <button onClick={handleLogout}>Log out</button>
     </div>
-    </>
   );
 }
