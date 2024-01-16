@@ -15,6 +15,5 @@
 <h2>Monthly Eating Habits Survey</h2>
 <p>Users are prompted to share information about their eating habits on a monthly basis, refining the carbon footprint calculation and enabling personalized recommendations.</p>
 
-
-
-User Account and History: Users can create accounts to track their carbon footprint history, monitor progress over time, and set goals for reducing their environmental impact.
+<h2>User Account and History</h2>
+<p>Users can create accounts to track their carbon footprint history, monitor progress over time, and set goals for reducing their environmental impact.</p>
