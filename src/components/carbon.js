@@ -35,7 +35,7 @@ export const CarbonFootprintCalculator = () => {
             CNG,
             AutoLPG,
             totalCarbonFootprint,
-            timestamp: new Date().toISOString(),
+            timestamp: new Date(),
         };
 
         const userEmail = sessionStorage.getItem('User Email');
