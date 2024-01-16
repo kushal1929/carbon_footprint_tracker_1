@@ -137,11 +137,13 @@ export default function Home() {
     <Header />
     <div>
       <h1>Welcome, {username}!</h1>
+      <div>
       {chartData.labels && chartData.labels.length > 0 ? 
         (
         <Line data={chartData} />
         ) : (<p>No data available for chart</p>)
       }
+      </div>
       <button onClick={handleNavigateToCarbon}>Calculate Carbon Footprint</button>
       <button onClick={handleNavigateToEatingHabits}>Eating Habits</button>
       <button onClick={handleLogout}>Log out</button>
