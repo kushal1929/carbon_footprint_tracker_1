@@ -13,7 +13,8 @@ import { signInWithEmailAndPassword,createUserWithEmailAndPassword, getAuth } fr
 import { app } from './firebaseconfig';
 import Prelogin from './components/Prelogin';
 import Login from './components/Login'
-import Register from './components/Register'
+import Register from './components/Register';
+import ForgotPassword from './components/ForgotPassword';
 
 function App() {
   const [email, setEmail] = useState('');
@@ -96,6 +97,7 @@ function App() {
             />
           }
         />
+        <Route path='/forgot-password' element={<ForgotPassword />} />
         <Route
           path='/register/:email'
           element={
