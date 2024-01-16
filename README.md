@@ -1,70 +1,20 @@
-# Getting Started with Create React App
+<h1>Ecolibrium</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h2>Overview</h2>
+<p>Ecolibrium is a web application designed to empower users to calculate, visualize, and track their carbon footprint. The app provides an intuitive interface for users to input various lifestyle choices, including transportation and eating habits, enabling them to estimate and monitor their environmental impact. Users can explore graphical representations of their carbon footprint over time and receive tailored recommendations to reduce their ecological footprint.</p>
 
-## Available Scripts
+<h2>Features</h2>
+<p>Carbon Footprint Calculation: Users can easily input details about their daily activities, such as transportation, energy usage, and eating habits, to calculate their carbon footprint.</p>
 
-In the project directory, you can run:
+<h2>Personalized Suggestions</h2>
+<p>Based on user input, Ecolibrium offers customized suggestions for reducing carbon footprint. These recommendations cover areas like sustainable transportation, energy conservation, and eco-friendly dietary choices.</p>
 
-### `npm start`
+<h2>Graphical Representation</h2>
+<p>Ecolibrium generates interactive graphs to visually represent the user's carbon footprint over time, fostering a better understanding of the impact of their choices on the environment.</p>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<h2>Monthly Eating Habits Survey</h2>
+<p>Users are prompted to share information about their eating habits on a monthly basis, refining the carbon footprint calculation and enabling personalized recommendations.</p>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+User Account and History: Users can create accounts to track their carbon footprint history, monitor progress over time, and set goals for reducing their environmental impact.
