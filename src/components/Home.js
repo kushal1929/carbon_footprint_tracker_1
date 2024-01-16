@@ -18,7 +18,7 @@ export default function Home() {
     sessionStorage.removeItem('Auth Token');
     sessionStorage.removeItem('User Email'); // Clear user email on logout
     sessionStorage.clear();
-    navigate('/login');
+    navigate('/');
   };
 
   const handleNavigateToCarbon = () => {
