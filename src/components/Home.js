@@ -5,6 +5,7 @@ import { collection, query, where, getFirestore, getDocs, orderBy } from 'fireba
 import { app } from '../firebaseconfig';
 import { Line } from 'react-chartjs-2';
 import "chart.js/auto";
+import Header from './common/Header'
 
 export default function Home() {
   const navigate = useNavigate();
@@ -132,6 +133,8 @@ export default function Home() {
 
 
   return (
+    <>
+    <Header />
     <div>
       <h1>Welcome, {username}!</h1>
       {chartData.labels && chartData.labels.length > 0 ? 
@@ -143,5 +146,6 @@ export default function Home() {
       <button onClick={handleNavigateToEatingHabits}>Eating Habits</button>
       <button onClick={handleLogout}>Log out</button>
     </div>
+    </>
   );
 }
