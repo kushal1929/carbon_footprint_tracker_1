@@ -6,6 +6,8 @@ import { app } from '../firebaseconfig';
 import { Line } from 'react-chartjs-2';
 import "chart.js/auto";
 import Header from './common/Header'
+import Home_card from './common/Home_card';
+import './common/Tailwind.css';
 
 export default function Home() {
   const navigate = useNavigate();
@@ -135,19 +137,27 @@ export default function Home() {
   return (
     <>
     <Header />
-    <div>
-      <h1>Welcome, {username}!</h1>
-      <div>
+    <div className='flex justify-center py-6'>
+      <h1
+        className="w-fit bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-5xl"
+      >
+        Welcome, {username}!
+      </h1>
+    </div>
+    <div className="relative flex flex-wrap lg:h-3/5 lg:flex-start">
+      <div className='flex justify-center w-full lg:w-1/2 px-5 mt-5' >
       {chartData.labels && chartData.labels.length > 0 ? 
         (
         <Line data={chartData} />
         ) : (<p>No data available for chart</p>)
       }
       </div>
-      <button onClick={handleNavigateToCarbon}>Calculate Carbon Footprint</button>
-      <button onClick={handleNavigateToEatingHabits}>Eating Habits</button>
-      <button onClick={handleLogout}>Log out</button>
+      <div className='flex flex-row items-start w-full lg:w-1/2 gap-x-4 px-5 mt-10 mb-20 items-stretch '>
+        <Home_card/>
+        <Home_card/>
+      </div>
     </div>
+      
     </>
   );
 }
