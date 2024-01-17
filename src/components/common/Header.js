@@ -42,7 +42,7 @@ const handleLogout = () => {
   
 
   return (
-    <header className="bg-white">
+    <header className="bg-white border-solid border-b-4">
       <nav className="mx-auto flex items-center justify-between p-6 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">
           <a href="#" className="-m-1.5 p-1.5">
