@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getFirestore, doc, addDoc, collection ,query,where,getDocs,setDoc} from 'firebase/firestore';
+import Header from './common/Header'
 
 export const EatingHabits = () => {
     const [foodType, setFoodType] = useState('');
@@ -70,6 +71,8 @@ export const EatingHabits = () => {
     
 
     return (
+        <>
+        <Header/>
         <div>
             <h1>Eating Habits</h1>
             <h2>Do you eat any of the following food often?</h2>
@@ -220,7 +223,7 @@ export const EatingHabits = () => {
             <p>Selected Options: {selectedOptions.join(', ')}</p>
             <button onClick={saveEatingHabits}>Save Eating Habits</button>
         </div>
-
+        </>
     );
 };
 
