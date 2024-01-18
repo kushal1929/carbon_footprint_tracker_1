@@ -145,14 +145,30 @@ export default function Home() {
       </h1>
     </div>
     <div className="relative flex flex-wrap lg:h-3/5 lg:flex-start">
-      <div className='flex justify-center w-full lg:w-1/2 px-5 mt-5' >
+      <div className='flex justify-center items-center w-full lg:w-1/2 px-5 mt-5' >
       {chartData.labels && chartData.labels.length > 0 ? 
         (
-        <Line data={chartData} />
+        <Line data={chartData}
+          options={{
+            plugins: {
+              legend: {
+                position: 'bottom',
+                labels:{
+                  boxHeight:20,
+                  boxWidth:50,
+                  padding:40,
+                  font:{
+                    size:20,
+                  }
+                }
+              },
+            },
+          }} 
+        />
         ) : (<p>No data available for chart</p>)
       }
       </div>
-      <div className='flex flex-row items-start w-full lg:w-1/2 gap-x-4 px-5 mt-10 mb-20 items-stretch '>
+      <div className='flex flex-row items-start w-full lg:w-1/2 gap-x-6 px-10 mt-10 mb-20 items-stretch '>
         <Home_card/>
         <Home_card/>
       </div>
