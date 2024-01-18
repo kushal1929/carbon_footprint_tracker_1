@@ -15,6 +15,7 @@ import Prelogin from './components/Prelogin';
 import Login from './components/Login'
 import Register from './components/Register';
 import ForgotPassword from './components/ForgotPassword';
+import ConsumptionData from './components/ConsumptionData';
 
 function App() {
   const [email, setEmail] = useState('');
@@ -105,6 +106,7 @@ function App() {
           }
         />
         <Route path='/home' element={<Home />} />
+        <Route path="/consumption-data" element={<ConsumptionData />} />
         <Route
           path='/carbon-footprint-calc'
           element={<CarbonFootprintCalculator />}

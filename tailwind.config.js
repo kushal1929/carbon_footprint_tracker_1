@@ -6,6 +6,7 @@ module.exports = {
     "./src/components/common/Header.js",
     "./src/components/Home.js",
     "./src/components/common/Home_card.js",
+    "./src/components/ConsumptionData.js",
     
   ],
   theme: {

@@ -9,6 +9,7 @@ import {
     doc,
     setDoc,
 } from 'firebase/firestore';
+import Header from './common/Header';
 
 export const CarbonFootprintCalculator = () => {
     const [electric, setElectric] = useState();
@@ -49,13 +50,18 @@ export const CarbonFootprintCalculator = () => {
                 setUsername(userDoc.id || '');
 
                 const userDocRef = doc(usersCollection, userDoc.id);
-                const consumptionDataCollection = collection(userDocRef, 'consumptionData');
-                const currentMonth = new Date().toLocaleString('default', { month: 'long' });
-                const currentMonthDocRef = doc(consumptionDataCollection, currentMonth);
+
+                // Include year in the current month
+                const currentDate = new Date();
+                const currentMonthYear = currentDate.toLocaleString('default', { month: 'long', year: 'numeric' });
+                const currentMonthRef = collection(userDocRef, currentMonthYear);
+
+                // Use consumptionHome as the document id
+                const consumptionHomeRef = doc(currentMonthRef, 'consumptionHome');
 
                 try {
-                    await setDoc(currentMonthDocRef, newCarbonData);
-                    console.log('Carbon footprint data saved to Firestore for the current month ',newCarbonData);
+                    await setDoc(consumptionHomeRef, newCarbonData);
+                    console.log('Carbon footprint data saved to Firestore for the current month ', newCarbonData);
                     navigate('/home');
                 } catch (error) {
                     console.error('Error saving carbon footprint data to Firestore:', error);
@@ -65,7 +71,7 @@ export const CarbonFootprintCalculator = () => {
                 console.log('User not found in Firestore');
                 alert('User not found in Firestore');
             }
-        } catch (error) {
+        }  catch (error) {
             console.error('Error fetching user data:', error);
             alert('Error fetching user data:', error.message);
         }
