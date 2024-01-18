@@ -113,7 +113,7 @@ const handleLogout = () => {
           </Popover>
 
           <a href="/carbon-footprint-calc" className="text-sm font-semibold leading-6 text-gray-900">
-            Carbon Footprint
+            Carbon Footprint Calculator
           </a>
           <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
             Personalized Action Plan
