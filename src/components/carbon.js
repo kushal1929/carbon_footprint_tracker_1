@@ -237,6 +237,7 @@ export const CarbonFootprintCalculator = () => {
                         onChange={(e) => setHeatingOil(Number(e.target.value))} />
                 </label>
                 <br />
+                <br />
                 <button onClick={saveHomeCarbonFootprintData}>Calculate CarbonFootPrint Produced from Home</button>
                 <br />
                 {totalCarbonFootprintHome !== null && (
