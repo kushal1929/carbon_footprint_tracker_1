@@ -5,6 +5,7 @@ module.exports = {
     "./src/components/Register.js",
     "./src/components/common/Header.js",
     "./src/components/Home.js",
+    "./src/components/Prelogin_2.js",
     "./src/components/common/Home_card.js",
     
   ],

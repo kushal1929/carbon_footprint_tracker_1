@@ -1,5 +1,5 @@
 import './Prelogin.css';
-
+import Prelogin_2 from './Prelogin_2';
 import * as React from "react";
 
 
@@ -47,8 +47,11 @@ export const Element = () => {
 
 function Prelogin() {
 
-  return (   
+  return (  
+    <> 
       <Element/>
+      <Prelogin_2/>
+    </>
   );
 }
 
