@@ -7,10 +7,14 @@ module.exports = {
     "./src/components/Home.js",
     "./src/components/Prelogin_2.js",
     "./src/components/common/Home_card.js",
+    "./src/components/Prelogin.js",
     
   ],
   theme: {
-    extend: {},
+    fontFamily: {
+      PJSbold: ["PlusJakartaSans-Bold", "sans-serif"],
+      WorkSans: ["WorkSans-Regular", "sans-serif"],
+    },
   },
   plugins: [],
 }
