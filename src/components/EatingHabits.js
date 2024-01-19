@@ -47,14 +47,19 @@ export const EatingHabits = () => {
                 setUsername(userDoc.id || '');
 
                 const userDocRef = doc(usersCollection, userDoc.id);
-                const eatingHabitsCollection= collection(userDocRef, 'eatingHabits');
-                const currentMonth = new Date().toLocaleString('default', { month: 'long' });
-                const currentMonthDocRef = doc(eatingHabitsCollection, currentMonth);
+
+                // Include year in the current month
+                const currentDate = new Date();
+                const currentMonthYear = currentDate.toLocaleString('default', { month: 'long', year: 'numeric' });
+                const currentMonthRef = collection(userDocRef, currentMonthYear);
+
+                // Use consumptionHome as the document id
+                const consumptionFoodRef = doc(currentMonthRef, 'consumptionFood');
 
                 try {
-                    await setDoc(currentMonthDocRef,newEatingHabit);
+                    await setDoc(consumptionFoodRef,newEatingHabit);
                     console.log('Carbon footprint data saved to Firestore for the current month');
-                    navigate('/home');
+                    //navigate('/home');
                 } catch (error) {
                     console.error('Error saving carbon footprint data to Firestore:', error);
                     alert(error.message);

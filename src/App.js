@@ -1,20 +1,22 @@
 import './App.css';
 import Home from './components/Home';
-import UsernameInput from './components/UsernameInput'; 
+import UsernameInput from './components/UsernameInput';
 import EatingHabits from './components/EatingHabits';
 import CarbonFootprintCalculator from './components/carbon';
+import CarbonFootprintCalculatorVehicle from './components/vehicle';
 import {
   Routes,
   Route,
   useNavigate
 } from "react-router-dom";
 import { useState } from 'react';
-import { signInWithEmailAndPassword,createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
+import { signInWithEmailAndPassword, createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
 import { app } from './firebaseconfig';
 import Prelogin from './components/Prelogin';
 import Login from './components/Login'
 import Register from './components/Register';
 import ForgotPassword from './components/ForgotPassword';
+import ConsumptionData from './components/ConsumptionData';
 
 function App() {
   const [email, setEmail] = useState('');
@@ -38,16 +40,16 @@ function App() {
               // Assuming the error code format is 'auth/{error-message}'
               const parts = errorCode.split('/');
               if (parts.length === 2 && parts[0] === 'auth') {
-                  const errorMessage = parts[1].replace(/-/g, ' ').charAt(0).toUpperCase() + parts[1].replace(/-/g, ' ').slice(1);
-                  return errorMessage;
+                const errorMessage = parts[1].replace(/-/g, ' ').charAt(0).toUpperCase() + parts[1].replace(/-/g, ' ').slice(1);
+                return errorMessage;
               } else {
-                  return 'Unknown error';
+                return 'Unknown error';
               }
-          }
-          
-          //function call to print error message
-          const errorMessage = convertErrorCode(error.code);
-          alert(errorMessage+'\n'+error.message);
+            }
+
+            //function call to print error message
+            const errorMessage = convertErrorCode(error.code);
+            alert(errorMessage + '\n' + error.message);
           }
         });
     }
@@ -71,13 +73,12 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" exact
-          element={<Prelogin/>}/>
-          
+        <Route path="/" exact element={<Prelogin />} />
+
         <Route
-          path='/login'
+          path="/login"
           element={
-            <Login 
+            <Login
               title="Login"
               setEmail={setEmail}
               setPassword={setPassword}
@@ -86,7 +87,7 @@ function App() {
           }
         />
         <Route
-          path='/register'
+          path="/register"
           element={
             <Register
               title="Register"
@@ -97,22 +98,16 @@ function App() {
             />
           }
         />
-        <Route path='/forgot-password' element={<ForgotPassword />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/register/:email" element={<UsernameInput />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/consumption-data" element={<ConsumptionData />} />
         <Route
-          path='/register/:email'
-          element={
-            <UsernameInput />
-          }
-        />
-        <Route path='/home' element={<Home />} />
-        <Route
-          path='/carbon-footprint-calc'
+          path="/carbon-footprint-calc"
           element={<CarbonFootprintCalculator />}
         />
-        <Route
-          path='/eating-habits'
-          element={<EatingHabits />}
-        />
+        <Route path="/eating-habits" element={<EatingHabits />} />
+        <Route path="/vehicle" element={<CarbonFootprintCalculatorVehicle />} />
       </Routes>
     </div>
   );

@@ -4,6 +4,9 @@ module.exports = {
     "./src/components/Login.js",
     "./src/components/Register.js",
     "./src/components/common/Header.js",
+    "./src/components/Home.js",
+    "./src/components/common/Home_card.js",
+    "./src/components/ConsumptionData.js",
     
   ],
   theme: {
