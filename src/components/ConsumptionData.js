@@ -6,6 +6,7 @@ import Header from "./common/Header";
 import CarbonFootprintCalculatorVehicle from "./vehicle";
 import CarbonFootprintCalculatorPublicVehicle from "./public_transport";
 import { CarbonFootprintCalculatorExpenditure } from "./expenditure";
+import Flight from "./Flight";
 import "./common/Tailwind.css";
 
 const ConsumptionData = () => {
@@ -24,11 +25,15 @@ const ConsumptionData = () => {
   };
 
   const handleNavigateToPublicVehicle = () => {
-    setActiveSection("public_vehicle")
+    setActiveSection("public_vehicle");
   };
 
   const handleNavigateToExpenditure = () => {
     setActiveSection("expenditure");
+  };
+
+  const handleNavigateToFlight = () => {
+    setActiveSection("Flight");
   };
 
   return (
@@ -61,38 +66,42 @@ const ConsumptionData = () => {
                 height={48}
               />
             </button>
-            
+
             <button onClick={handleNavigateToVehicle}>
               Private Vehicles
-            <img
-              className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
-              src="https://tailwindui.com/img/logos/158x48/tuple-logo-gray-900.svg"
-              alt="Tuple"
-              width={158}
-              height={48}
-            />
+              <img
+                className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
+                src="https://tailwindui.com/img/logos/158x48/tuple-logo-gray-900.svg"
+                alt="Tuple"
+                width={158}
+                height={48}
+              />
             </button>
 
             <button onClick={handleNavigateToPublicVehicle}>
               Public Vehicles
-            <img
-              className="col-span-2 max-h-12 w-full object-contain sm:col-start-2 lg:col-span-1"
-              src="https://tailwindui.com/img/logos/158x48/savvycal-logo-gray-900.svg"
-              alt="SavvyCal"
-              width={158}
-              height={48}
-            />
+              <img
+                className="col-span-2 max-h-12 w-full object-contain sm:col-start-2 lg:col-span-1"
+                src="https://tailwindui.com/img/logos/158x48/savvycal-logo-gray-900.svg"
+                alt="SavvyCal"
+                width={158}
+                height={48}
+              />
             </button>
 
             <button onClick={handleNavigateToExpenditure}>
               Expenditure
-            <img
-              className="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
-              src="https://tailwindui.com/img/logos/158x48/statamic-logo-gray-900.svg"
-              alt="Statamic"
-              width={158}
-              height={48}
-            />
+              <img
+                className="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
+                src="https://tailwindui.com/img/logos/158x48/statamic-logo-gray-900.svg"
+                alt="Statamic"
+                width={158}
+                height={48}
+              />
+            </button>
+
+            <button onClick={handleNavigateToFlight}>
+              Flights
             </button>
           </div>
         </div>
@@ -102,9 +111,10 @@ const ConsumptionData = () => {
 
           {activeSection === "carbon" && <CarbonFootprintCalculator />}
           {activeSection === "eating" && <EatingHabits />}
-          {activeSection === "vehicle" && <CarbonFootprintCalculatorVehicle/>}
-          {activeSection === "public_vehicle" && <CarbonFootprintCalculatorPublicVehicle/>}
-          {activeSection === "expenditure" && <CarbonFootprintCalculatorExpenditure/>}
+          {activeSection === "vehicle" && <CarbonFootprintCalculatorVehicle />}
+          {activeSection === "public_vehicle" && (<CarbonFootprintCalculatorPublicVehicle />)}
+          {activeSection === "expenditure" && (<CarbonFootprintCalculatorExpenditure />)}
+          {activeSection === "Flight" && (<Flight />)}
         </div>
       </div>
     </div>
