@@ -78,7 +78,7 @@ export const CarbonFootprintCalculatorVehicle = () => {
         let vehicleCarbonFootprint_car = 0;
         let vehicleCarbonFootprint_motorcycle = 0;
 
-        let vehicleCarbonFootprint = 0;
+        //let vehicleCarbonFootprint = 0;
         if (vehicleFuel === "Petrol") {
         vehicleCarbonFootprint_car =(1 / vehicleMPG) * FuelFactor_Petrol * vehicleDistance_car;
         } 
@@ -95,7 +95,7 @@ export const CarbonFootprintCalculatorVehicle = () => {
 
     return (
       <div>
-        <h1>Carbon Footprint Calculator {username}</h1>
+        <h1>Private Vehicle CarbonFootPrint</h1>
         <label>
           Enter MPG consumed:
           <input
