@@ -20,17 +20,18 @@ export const Element = () => {
           <div className="w-full relative flex flex-wrap lg:h-full lg:w-[97%] lg:items-start lg:pl-16">
             
             <div className="flex items-center flex-col w-full h-full lg:w-1/2 lg:items-start lg:mt-[8%]">
-                <div className="text-5xl font-PJSbold lg:text-[6vw]">ECOLIBRIUM</div>
-                <p className="mt-[12%] text-lg lg:text-[2vw] text-gray-500 font-WorkSans">
+                <div className="text-5xl font-PJSbold lg:text-[6vw] animate-fade animate-once animate-duration-[3000ms] animate-ease-out animate-alternate">
+                  ECOLIBRIUM</div>
+                <p className="mt-[12%] text-lg lg:text-[2vw] text-gray-500 font-WorkSans animate-fade animate-delay-500 animate-once animate-duration-[3000ms] animate-ease-out animate-alternate">
                 Transforming tomorrow,
                 </p>
-                <p className="mt-1 text-lg lg:text-[2vw] text-gray-500 font-WorkSans">
+                <p className="mt-1 text-lg lg:text-[2vw] text-gray-500 font-WorkSans animate-fade animate-delay-500 animate-once animate-duration-[3000ms] animate-ease-out animate-alternate">
                 one footprint at a time.
                 </p>
                 <div className='flex mt-[8%]'>
-                  <button onClick={gotoRegister} className='w-36 px-4 py-2 mr-8 text-white uppercase bg-black border-2 border-transparent rounded-lg text-md hover:bg-white hover:text-black hover:border-black'>
+                  <button onClick={gotoRegister} className='w-36 px-4 py-2 mr-8 text-white uppercase bg-black border-2 border-transparent rounded-lg text-md hover:bg-white hover:text-black hover:border-black animate-fade-up animate-delay-500 animate-once animate-duration-[3000ms] animate-ease-out animate-alternate'>
                           Signup</button>
-                  <button onClick={gotoLogin} className='w-36 px-4 py-2 text-black uppercase bg-transparent border-2 border-black rounded-lg hover:bg-gray-800 hover:text-white text-md'>
+                  <button onClick={gotoLogin} className='w-36 px-4 py-2 text-black uppercase bg-transparent border-2 border-black rounded-lg hover:bg-gray-800 hover:text-white text-md animate-fade-up animate-delay-500 animate-once animate-duration-[3000ms] animate-ease-out animate-alternate'>
                           Login</button>
                 </div>
 
@@ -40,7 +41,7 @@ export const Element = () => {
               <img
                 alt="HomePage"
                 src={require("../assets/front_img.png")}
-                className="absolute inset-0 h-full w-full object-contain"
+                className="absolute inset-0 h-full w-full object-contain animate-fade animate-once animate-duration-[3000ms] animate-ease-out animate-alternate"
               />
             </div>
           

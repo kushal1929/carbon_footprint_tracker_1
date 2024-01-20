@@ -16,6 +16,8 @@ module.exports = {
       WorkSans: ["WorkSans-Regular", "sans-serif"],
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwindcss-animated')
+  ],
 }
 
