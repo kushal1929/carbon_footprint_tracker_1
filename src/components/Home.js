@@ -1,70 +1,91 @@
-import React, { useEffect, useState , useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { getAuth } from 'firebase/auth';
-import { collection, query, where, getFirestore, getDocs, orderBy } from 'firebase/firestore';
-import { app } from '../firebaseconfig';
-import { Line } from 'react-chartjs-2';
+import React, { useEffect, useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
+import { getAuth } from "firebase/auth";
+import {
+  collection,
+  query,
+  where,
+  getFirestore,
+  getDocs,
+  orderBy,
+} from "firebase/firestore";
+import { app } from "../firebaseconfig";
+import { Line } from "react-chartjs-2";
 import "chart.js/auto";
-import Header from './common/Header'
-import Home_card from './common/Home_card';
-import './common/Tailwind.css';
+import Header from "./common/Header";
+import Home_card from "./common/Home_card";
+import "./common/Tailwind.css";
 
 export default function Home() {
   const navigate = useNavigate();
-  const [username, setUsername] = useState('');
+  const [username, setUsername] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [chartData, setChartData] = useState({});
 
   const handleLogout = () => {
-    sessionStorage.removeItem('Auth Token');
-    sessionStorage.removeItem('User Email'); // Clear user email on logout
+    sessionStorage.removeItem("Auth Token");
+    sessionStorage.removeItem("User Email"); // Clear user email on logout
     sessionStorage.clear();
-    navigate('/login');
+    navigate("/");
   };
 
   const handleNavigateToCarbon = () => {
-    navigate('/carbon-footprint-calc');
+    navigate("/carbon-footprint-calc");
   };
 
   const handleNavigateToEatingHabits = () => {
-    navigate('/eating-habits');
+    navigate("/eating-habits");
+  };
+
+  const handleNavigateToVehicle = () => {
+    navigate("/vehicle");
+  };
+
+  const handleNavigateToPublicVehicle = () => {
+    navigate("/public-vehicle");
+  };
+
+  const handleNavigateToExpenditure = () => {
+    navigate("/expenditure");
+  };
+
+  const handleNavigateToFlight = () => {
+    navigate("/Flight");
   };
 
   useEffect(() => {
-    const userEmail = sessionStorage.getItem('User Email');
+    const userEmail = sessionStorage.getItem("User Email");
 
     if (!userEmail) {
-      navigate('/login'); // Redirect to login if user email is not found
+      navigate("/login"); // Redirect to login if user email is not found
       return;
     }
 
     const db = getFirestore();
-    const usersCollection = collection(db, 'users');
-    const userQuery = query(usersCollection, where('email', '==', userEmail));
+    const usersCollection = collection(db, "users");
+    const userQuery = query(usersCollection, where("email", "==", userEmail));
 
     getDocs(userQuery)
       .then((querySnapshot) => {
         if (!querySnapshot.empty) {
           querySnapshot.forEach((doc) => {
-            setUsername(doc.id || '');
+            setUsername(doc.id || "");
           });
         } else {
-          console.log('User not found in Firestore');
+          console.log("User not found in Firestore");
         }
         setLoading(false);
       })
       .catch((error) => {
-        console.error('Error fetching user data:', error);
+        console.error("Error fetching user data:", error);
         setError(error);
         setLoading(false);
       });
   }, [navigate]);
 
-
   const isFirstRender = useRef(true);
   useEffect(() => {
-
     if (isFirstRender.current) {
       isFirstRender.current = false;
       return;
@@ -72,20 +93,26 @@ export default function Home() {
 
     const fetchConsumptionData = async () => {
       try {
-
         const db = getFirestore();
-        const consumptionDataCollection = collection(db, 'users', username, 'consumptionData');
-        const consumptionDataQuery = query(consumptionDataCollection, orderBy("timestamp","asc"));
+        const consumptionDataCollection = collection(
+          db,
+          "users",
+          username,
+          "consumptionData"
+        );
+        const consumptionDataQuery = query(
+          consumptionDataCollection,
+          orderBy("timestamp", "asc")
+        );
         const consumptionDataSnapshot = await getDocs(consumptionDataQuery);
 
         if (consumptionDataSnapshot.empty) {
-          console.log('No matching documents for consumption data.');
-        }
-        else{
+          console.log("No matching documents for consumption data.");
+        } else {
           const months = [];
           const totalCarbonFootprintValues = [];
 
-          consumptionDataSnapshot.docs.forEach(doc => {
+          consumptionDataSnapshot.docs.forEach((doc) => {
             //console.log(doc.id);
             //console.log(doc.data());
             const data = doc.data();
@@ -100,24 +127,21 @@ export default function Home() {
 
           setChartData({
             labels: months,
-            datasets: 
-            [
+            datasets: [
               {
-                label: 'Total Carbon Footprint',
+                label: "Total Carbon Footprint",
                 data: totalCarbonFootprintValues,
                 fill: false,
-                borderColor: 'rgba(75,192,192,1)',
+                borderColor: "rgba(75,192,192,1)",
                 borderWidth: 2,
               },
             ],
           });
-
-      } 
-    }
-    catch (error) {
-      console.error('Error fetching consumption data:', error);
-    }
-  };
+        }
+      } catch (error) {
+        console.error("Error fetching consumption data:", error);
+      }
+    };
 
     fetchConsumptionData();
   }, [username]);
@@ -129,10 +153,6 @@ export default function Home() {
   if (error) {
     return <p>Error fetching user data: {error.message}</p>;
   }
-
-
-  
-
 
   return (
     <>
