@@ -11,10 +11,10 @@ import {
 } from "firebase/firestore";
 
 export const CarbonFootprintCalculatorVehicle = () => {
-    const [vehicleMPG, setVehicleMPG] = useState(0);
-    const [vehicleFuel, setVehicleFuel] = useState(0);
-    const [vehicleDistance_car, setVehicleDistance_car] = useState(0);
-    const [vehicleDistance_motorcycle, setVehicleDistance_motorcycle] =useState(0);
+    const [vehicleMPG, setVehicleMPG] = useState('');
+    const [vehicleFuel, setVehicleFuel] = useState("Petrol");
+    const [vehicleDistance_car, setVehicleDistance_car] = useState('');
+    const [vehicleDistance_motorcycle, setVehicleDistance_motorcycle] =useState('');
     let [vehicleCarbonFootprint, setVehicleCarbonFootprint] = useState(null);
     const [username, setUsername] = useState("");
 
@@ -71,19 +71,21 @@ export const CarbonFootprintCalculatorVehicle = () => {
     }
     const handleVehicleCalculate = () => {
         // Calculate vehicle carbon footprint based on the selected vehicle type
-        const FuelFactor_Petrol = 2.31;
-        const FuelFactor_Diesel = 2.68;
-        const emission_factor = 0.5;
+        const FuelFactor_Petrol = 12.2;
+        const FuelFactor_Diesel = 14.2;
+        const emission_factor = 0.2;
+        const kmpl_to_mpg=2.35;
+        const km_to_miles=0.62137;
 
         let vehicleCarbonFootprint_car = 0;
         let vehicleCarbonFootprint_motorcycle = 0;
 
-        //let vehicleCarbonFootprint = 0;
+        let vehicleCarbonFootprint = 0;
         if (vehicleFuel === "Petrol") {
-        vehicleCarbonFootprint_car =(1 / vehicleMPG) * FuelFactor_Petrol * vehicleDistance_car;
+            vehicleCarbonFootprint_car =(1/ vehicleMPG/kmpl_to_mpg) * FuelFactor_Petrol * vehicleDistance_car*km_to_miles;
         } 
         else if (vehicleFuel === "Diesel"){
-            vehicleCarbonFootprint_car =(1 / vehicleMPG) * FuelFactor_Diesel * vehicleDistance_car;
+            vehicleCarbonFootprint_car =(1 / vehicleMPG/kmpl_to_mpg) * FuelFactor_Diesel * vehicleDistance_car*km_to_miles;
         }
 
         vehicleCarbonFootprint_motorcycle = vehicleDistance_motorcycle * emission_factor;
@@ -97,7 +99,7 @@ export const CarbonFootprintCalculatorVehicle = () => {
       <div>
         <h1>Private Vehicle CarbonFootPrint</h1>
         <label>
-          Enter MPG consumed:
+          Enter mileage in Km/L consumed:
           <input
             type="number"
             value={vehicleMPG}
@@ -111,13 +113,13 @@ export const CarbonFootprintCalculatorVehicle = () => {
             value={vehicleFuel}
             onChange={(e) => setVehicleFuel(e.target.value)}
           >
-            <option value="petrol">Petrol</option>
-            <option value="diesel">Diesel</option>
+            <option value="Petrol">Petrol</option>
+            <option value="Diesel">Diesel</option>
           </select>
         </label>
         <br />
         <label>
-          Distance Traveled(in miles) by car:
+          Distance Traveled(in km) by car:
           <input
             type="number"
             value={vehicleDistance_car}
@@ -126,7 +128,7 @@ export const CarbonFootprintCalculatorVehicle = () => {
         </label>
         <br />
         <label>
-          Distance Traveled(in miles) by motorcycle:
+          Distance Traveled(in km) by motorcycle:
           <input
             type="number"
             value={vehicleDistance_motorcycle}

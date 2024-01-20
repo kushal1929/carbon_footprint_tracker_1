@@ -12,8 +12,8 @@ import {
 
 export const CarbonFootprintCalculatorPublicVehicle = () => {
 
-    const [LocalBus,setLocalBus] = useState();
-    const [National_Rail,setNation_Rail]=useState();
+    const [LocalBus,setLocalBus] = useState('');
+    const [National_Rail,setNation_Rail]=useState('');
     let [PublicVehicleCarbonFootprint,setPublicVehicleCarbonFootprint]=useState(null);
     const [username, setUsername] = useState("");
 
@@ -84,8 +84,9 @@ export const CarbonFootprintCalculatorPublicVehicle = () => {
     const handlePublicVehicleCalculate = ()=>{
         const LocalBus_Factor = 0.2;
         const National_Rail_Factor =0.07;
+        const km_to_miles=0.62137;
 
-        const totalPublicVehicleCarbonFootprint = LocalBus*LocalBus_Factor + National_Rail_Factor*National_Rail;
+        const totalPublicVehicleCarbonFootprint = (LocalBus*LocalBus_Factor + National_Rail_Factor*National_Rail)*km_to_miles;
 
         setPublicVehicleCarbonFootprint(totalPublicVehicleCarbonFootprint);
         calculateCarbonFootprintPublicVehicle(totalPublicVehicleCarbonFootprint);
@@ -95,7 +96,7 @@ export const CarbonFootprintCalculatorPublicVehicle = () => {
         <div>
             <h1>Public Vehicle CarbonFootPrint</h1>
             <label>
-                Enter the distance covered in LocalBus(in miles):
+                Enter the distance covered in LocalBus(in km):
                 <input
                     type="number"
                     value={LocalBus}
@@ -104,7 +105,7 @@ export const CarbonFootprintCalculatorPublicVehicle = () => {
             </label>
             <br/>
             <label>
-                Enter the distance covered in National Rail(in miles):
+                Enter the distance covered in National Rail(in km):
                 <input
                     type="number"
                     value={National_Rail}

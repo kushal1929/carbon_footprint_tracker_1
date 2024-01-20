@@ -39,6 +39,10 @@ export default function Home() {
     navigate('/public-vehicle');
   }
   
+  const handleNavigateToExpenditure = () => {
+    navigate('expenditure');
+  };
+  
   useEffect(() => {
     const userEmail = sessionStorage.getItem('User Email');
 

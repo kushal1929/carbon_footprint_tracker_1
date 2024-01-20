@@ -11,12 +11,12 @@ import {
 } from 'firebase/firestore';
 
 export const CarbonFootprintCalculator = () => {
-    const [electric, setElectric] = useState();
-    const [NaturalGas, setNaturalGas] = useState();
-    const [BioMass, setBioMass] = useState();
-    const [LPG, setLPG] = useState();
-    const [Coal, setCoal] = useState();
-    const [HeatingOil, setHeatingOil] = useState();
+    const [electric, setElectric] = useState('');
+    const [NaturalGas, setNaturalGas] = useState('');
+    const [BioMass, setBioMass] = useState('');
+    const [LPG, setLPG] = useState('');
+    const [Coal, setCoal] = useState('');
+    const [HeatingOil, setHeatingOil] = useState('');
     let [totalCarbonFootprint, setTotalCarbonFootprint] = useState(null);
     const [username, setUsername] = useState('');
 

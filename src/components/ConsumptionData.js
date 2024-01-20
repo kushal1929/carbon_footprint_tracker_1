@@ -5,6 +5,7 @@ import EatingHabits from "./EatingHabits";
 import Header from "./common/Header";
 import CarbonFootprintCalculatorVehicle from "./vehicle";
 import CarbonFootprintCalculatorPublicVehicle from "./public_transport";
+import { CarbonFootprintCalculatorExpenditure } from "./expenditure";
 import "./common/Tailwind.css";
 
 const ConsumptionData = () => {
@@ -24,6 +25,10 @@ const ConsumptionData = () => {
 
   const handleNavigateToPublicVehicle = () => {
     setActiveSection("public_vehicle")
+  };
+
+  const handleNavigateToExpenditure = () => {
+    setActiveSection("expenditure");
   };
 
   return (
@@ -79,6 +84,8 @@ const ConsumptionData = () => {
             />
             </button>
 
+            <button onClick={handleNavigateToExpenditure}>
+              Expenditure
             <img
               className="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
               src="https://tailwindui.com/img/logos/158x48/statamic-logo-gray-900.svg"
@@ -86,6 +93,7 @@ const ConsumptionData = () => {
               width={158}
               height={48}
             />
+            </button>
           </div>
         </div>
         <div>
@@ -96,6 +104,7 @@ const ConsumptionData = () => {
           {activeSection === "eating" && <EatingHabits />}
           {activeSection === "vehicle" && <CarbonFootprintCalculatorVehicle/>}
           {activeSection === "public_vehicle" && <CarbonFootprintCalculatorPublicVehicle/>}
+          {activeSection === "expenditure" && <CarbonFootprintCalculatorExpenditure/>}
         </div>
       </div>
     </div>

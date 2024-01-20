@@ -5,6 +5,7 @@ import EatingHabits from './components/EatingHabits';
 import CarbonFootprintCalculator from './components/carbon';
 import CarbonFootprintCalculatorVehicle from './components/vehicle';
 import CarbonFootprintCalculatorPublicVehicle from './components/public_transport';
+import { CarbonFootprintCalculatorExpenditure } from './components/expenditure';
 import {
   Routes,
   Route,
@@ -110,6 +111,7 @@ function App() {
         <Route path="/eating-habits" element={<EatingHabits />} />
         <Route path="/vehicle" element={<CarbonFootprintCalculatorVehicle />} />
         <Route path="/public-vehicle" element={ <CarbonFootprintCalculatorPublicVehicle/>}/>
+        <Route path="/expenditure" element={<CarbonFootprintCalculatorExpenditure/>} />
       </Routes>
     </div>
   );
