@@ -75,7 +75,7 @@ const EatingHabits = () => {
             console.log(
               "Eating habits data saved to Firestore for the current month"
             );
-            navigate("/home");
+//            navigate("/home");
           } catch (error) {
             console.error(
               "Error saving eating habits data to Firestore:",
