@@ -17,14 +17,14 @@ export const CarbonFootprintCalculator = () => {
     const [LPG, setLPG] = useState('');
     const [Coal, setCoal] = useState('');
     const [HeatingOil, setHeatingOil] = useState('');
-    let [totalCarbonFootprint, setTotalCarbonFootprint] = useState(null);
+    let [homeCarbonFootprint, setHomeCarbonFootprint] = useState(null);
     const [username, setUsername] = useState('');
 
     const db = getFirestore();
     const usersCollection = collection(db, 'users');
     const navigate = useNavigate();
 
-    const calculateCarbonFootprint = async (totalCarbonFootprint) => {
+    const calculateCarbonFootprint = async (homeCarbonFootprint) => {
         const newCarbonData = {
             electric,
             NaturalGas,
@@ -32,7 +32,7 @@ export const CarbonFootprintCalculator = () => {
             LPG,
             Coal,
             HeatingOil,
-            totalCarbonFootprint,
+            homeCarbonFootprint,
             timestamp: new Date(),
         };
 
@@ -47,7 +47,7 @@ export const CarbonFootprintCalculator = () => {
                 setUsername(userDoc.id || '');
 
                 const userDocRef = doc(usersCollection, userDoc.id);
-
+            
                 // Include year in the current month
                 const currentDate = new Date();
                 const currentMonthYear = currentDate.toLocaleString('default', { month: 'long', year: 'numeric' });
@@ -59,6 +59,7 @@ export const CarbonFootprintCalculator = () => {
                 try {
                     await setDoc(consumptionHomeRef, newCarbonData);
                     console.log('Carbon footprint data saved to Firestore for the current month ', newCarbonData);
+                    await calculateAndStoreTotal(currentMonthRef,currentMonthYear,userDocRef);
                    // navigate('/home');
                 } catch (error) {
                     console.error('Error saving carbon footprint data to Firestore:', error);
@@ -73,6 +74,50 @@ export const CarbonFootprintCalculator = () => {
             alert('Error fetching user data:', error.message);
         }
     };
+
+    const calculateAndStoreTotal = async (currentMonthRef,currentMonthYear,userDocRef) => {
+        const totalDocRef = collection(userDocRef, 'Total');
+        const totalMYDocRef=doc(totalDocRef,currentMonthYear)
+
+        const querySnapshot = await getDocs(currentMonthRef);
+    
+        let totalHome = 0;
+        let totalFood = 0;
+        let totalVehicle = 0;
+        let totalFlight = 0;
+        let totalPublicVehicle = 0;
+        let totalExpenditure = 0;
+    
+        querySnapshot.forEach((doc) => {
+          const data = doc.data();
+          totalHome += data.homeCarbonFootprint || 0;
+          totalFood += data.foodCarbonFootprint || 0;
+          totalVehicle += data.vehicleCarbonFootprint || 0;
+          totalFlight += data.flightCarbonFootprint || 0;
+          totalPublicVehicle += data.PublicVehicleCarbonFootprint || 0;
+          totalExpenditure += data.ExpenditureCarbonFootprint || 0;
+        });
+    
+        const totalDocData = {
+          totalHome,
+          totalFood,
+          totalVehicle,
+          totalFlight,
+          totalPublicVehicle,
+          totalExpenditure,
+          totalCarbonFootprint:
+            totalHome + totalFood + totalVehicle + totalFlight + totalPublicVehicle + totalExpenditure,
+            timestamp: new Date(),
+        };
+    
+        try {
+          await setDoc(totalMYDocRef, totalDocData);
+          console.log('Total carbon footprint data saved to Firestore for the current month ', totalDocData);
+        } catch (error) {
+          console.error('Error saving total carbon footprint data to Firestore:', error);
+          alert(error.message);
+        }
+      };
 
     const handleCalculate = (e) => {
 
@@ -91,7 +136,7 @@ export const CarbonFootprintCalculator = () => {
             Coal * CoalFactor +
             HeatingOil * HeatingOilFactor;
 
-        setTotalCarbonFootprint(totalFootprint);
+        setHomeCarbonFootprint(totalFootprint);
         calculateCarbonFootprint(totalFootprint);
 
     };
@@ -155,8 +200,8 @@ export const CarbonFootprintCalculator = () => {
             <br />
             <button onClick={handleCalculate}>Calculate</button>
             <br />
-            {totalCarbonFootprint !== null && (
-                <p>Your estimated carbon footprint is: {totalCarbonFootprint} kgCO2 per month</p>
+            {homeCarbonFootprint !== null && (
+                <p>Your estimated carbon footprint is: {homeCarbonFootprint} kgCO2 per month</p>
             )}
             {calculateCarbonFootprint}
         </div>

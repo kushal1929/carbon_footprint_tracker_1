@@ -98,7 +98,7 @@ export default function Home() {
           db,
           "users",
           username,
-          "consumptionData"
+          "Total"
         );
         const consumptionDataQuery = query(
           consumptionDataCollection,
