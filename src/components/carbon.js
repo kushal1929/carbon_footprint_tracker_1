@@ -202,8 +202,6 @@ export const CarbonFootprintCalculator = () => {
             <br />
             {homeCarbonFootprint !== null && (
                 <p>Your estimated carbon footprint is: {homeCarbonFootprint} kgCO2 per month</p>
-            {homeCarbonFootprint !== null && (
-                <p>Your estimated carbon footprint is: {homeCarbonFootprint} kgCO2 per month</p>
             )}
             {calculateCarbonFootprint}
         </div>
