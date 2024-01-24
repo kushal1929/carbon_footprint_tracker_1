@@ -17,8 +17,7 @@ export const CarbonFootprintCalculator = () => {
     const [LPG, setLPG] = useState('');
     const [Coal, setCoal] = useState('');
     const [HeatingOil, setHeatingOil] = useState('');
-    const [NumberOfPeople,setNumberOfPeople] = useState('');
-    let [homeCarbonFootprint, setHomeCarbonFootprint] = useState(null);
+    let [totalCarbonFootprint, setTotalCarbonFootprint] = useState(null);
     const [username, setUsername] = useState('');
 
     const db = getFirestore();
@@ -33,8 +32,7 @@ export const CarbonFootprintCalculator = () => {
             LPG,
             Coal,
             HeatingOil,
-            NumberOfPeople,
-            homeCarbonFootprint,
+            totalCarbonFootprint,
             timestamp: new Date(),
         };
 
@@ -61,7 +59,6 @@ export const CarbonFootprintCalculator = () => {
                 try {
                     await setDoc(consumptionHomeRef, newCarbonData);
                     console.log('Carbon footprint data saved to Firestore for the current month ', newCarbonData);
-                    await calculateAndStoreTotal(currentMonthRef,currentMonthYear,userDocRef);
                    // navigate('/home');
                 } catch (error) {
                     console.error('Error saving carbon footprint data to Firestore:', error);
@@ -138,138 +135,75 @@ export const CarbonFootprintCalculator = () => {
             Coal * CoalFactor +
             HeatingOil * HeatingOilFactor)/NumberOfPeople;
 
-        setHomeCarbonFootprint(totalFootprint);
+        setTotalCarbonFootprint(totalFootprint);
         calculateCarbonFootprint(totalFootprint);
 
     };
 
     return (
-      <div className="flex flex-wrap flex-col items-center space-y-4 py-4">
-        <div className="w-fit bg-gradient-to-r from-green-700 via-yellow-500 via-orange-400 to-green-600 bg-clip-text font-extrabold text-transparent sm:text-5xl">
-          Carbon Footprint Calculator
+        <div>
+            <h1>Carbon Footprint Calculator {username}</h1>
+            <label>
+                Enter unit of electricity (in kWh) consumed in one month:
+                <input
+                    type="number"
+                    value={electric}
+                    onChange={(e) => setElectric(Number(e.target.value))}
+                />
+            </label>
+            <br />
+            <label>
+                Enter unit of Natural Gas(in kWh) consumed in one month:
+                <input
+                    type="number"
+                    value={NaturalGas}
+                    onChange={(e) => setNaturalGas(Number(e.target.value))}
+                />
+            </label>
+            <br />
+            <label>
+                Enter unit of BioMass(in kg) consumed in one month:
+                <input
+                    type="number"
+                    value={BioMass}
+                    onChange={(e) => setBioMass(Number(e.target.value))}
+                />
+            </label>
+            <br />
+            <label>
+                Enter the amount LPG(in kg) consumed this month:
+                <input
+                    type="number"
+                    value={LPG}
+                    onChange={(e) => setLPG(Number(e.target.value))}
+                />
+            </label>
+            <br />
+            <label>
+                Enter weight of coal(in kg) used for domestic purpose this month:
+                <input
+                    type="number"
+                    value={Coal}
+                    onChange={(e) => setCoal(Number(e.target.value))}
+                />
+            </label>
+            <br />
+            <label>
+                Enter the amount of HeatingOil(in liters) consumed:
+                <input
+                    type="number"
+                    value={HeatingOil}
+                    onChange={(e) => setHeatingOil(Number(e.target.value))}
+                />
+            </label>
+            <br />
+            <button onClick={handleCalculate}>Calculate</button>
+            <br />
+            {totalCarbonFootprint !== null && (
+                <p>Your estimated carbon footprint is: {totalCarbonFootprint} kgCO2 per month</p>
+            )}
+            {calculateCarbonFootprint}
         </div>
-        <br />
-        <div className="flex flex-row items-center mb-4">
-          <span>Number of family member :</span>
-          <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
-            <input
-              type="number"
-              value={NumberOfPeople}
-              placeholder="Family Member's"
-              className="block rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
-              onChange={(e) => setNumberOfPeople(Number(e.target.value))}
-            />
-          </label>
-        </div>
-
-        <br />
-
-        <div className="flex flex-row items-center mb-4">
-          <span>Electricity (in kwh) :</span>
-          <label
-            htmlFor="Electricity"
-            className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2"
-          >
-            <input
-              type="number"
-              value={electric}
-              placeholder="in kwh"
-              className="block rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
-              onChange={(e) => setElectric(Number(e.target.value))}
-            />
-          </label>
-        </div>
-
-        <br />
-        <div className="flex flex-row items-center mb-4">
-          <span>NaturalGas(in kwh) :</span>
-          <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
-            <input
-              type="number"
-              value={NaturalGas}
-              placeholder="in kwh"
-              className="block rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
-              onChange={(e) => setNaturalGas(Number(e.target.value))}
-            />
-          </label>
-        </div>
-
-        <br />
-
-        <div className="flex flex-row items-center mb-4">
-          <span>BioMass(in kg) :</span>
-          <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
-            <input
-              type="number"
-              value={BioMass}
-              placeholder="in kg"
-              className="block rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
-              onChange={(e) => setBioMass(Number(e.target.value))}
-            />
-          </label>
-        </div>
-
-        <br />
-
-        <div className="flex flex-row items-center mb-4">
-          <span>Coal :</span>
-          <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
-            <input
-              type="number"
-              value={Coal}
-              placeholder="in kg"
-              className="block rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
-              onChange={(e) => setCoal(Number(e.target.value))}
-            />
-          </label>
-        </div>
-
-        <br />
-
-        <div className="flex flex-row items-center mb-4">
-          <span>HeatingOil :</span>
-          <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
-            <input
-              type="number"
-              value={HeatingOil}
-              placeholder="in liters"
-              className="block rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
-              onChange={(e) => setHeatingOil(Number(e.target.value))}
-            />
-          </label>
-        </div>
-
-        <br />
-
-        <div className="flex flex-row items-center mb-4">
-          <span>LPG :</span>
-          <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
-            <input
-              type="number"
-              value={LPG}
-              placeholder="in kg"
-              className="block rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
-              onChange={(e) => setLPG(Number(e.target.value))}
-            />
-          </label>
-        </div>
-        <br />
-        <button onClick={handleCalculate}>
-          <a className="group inline-block rounded bg-gradient-to-r from-green-700 via-yellow-500 via-orange-400 to-green-600 p-[2px] hover:text-white focus:outline-none focus:ring active:text-opacity-75">
-            <span className="block rounded-sm bg-white px-8 py-3 text-sm font-medium group-hover:bg-transparent">
-              Calculate
-            </span>
-          </a>
-        </button>
-        <br />
-        {homeCarbonFootprint !== null && (
-          <p>
-            Your estimated carbon footprint is: {homeCarbonFootprint} kgCO2 per
-            month
-          </p>
-        )}
-        {calculateCarbonFootprint}
-      </div>
     );
 };
 

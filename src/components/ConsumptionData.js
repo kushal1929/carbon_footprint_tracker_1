@@ -40,19 +40,18 @@ const ConsumptionData = () => {
   return (
     <div>
       <Header />
-      <div>
       
         <div
-          className="flex flex-wrap w-full rounded-lg border border-gray-100 text-sm text-gray-500"
+          className="flex flex-wrap w-full rounded-lg border border-gray-100 text-sm text-gray-500 my-[3%]"
         >
-          <button className="flex grow" onClick={handleNavigateToCarbon}>
+          <button className="flex grow lime-200" onClick={handleNavigateToCarbon}>
             <div className="flex grow items-center justify-center gap-2 p-4" style={{
-                backgroundColor: activeSection === "carbon" ? "lightgreen" : "lightgrey",
+                backgroundColor: activeSection === "carbon" ? "lightgreen" : "rgb(233,233,233)",
               }}>
 
               <FaHouse size={30}/>
 
-              <p className="leading-none">
+              <p className="hidden sm:leading-none sm:block">
                 <strong className="block font-medium"> Home Footprint </strong>
                 <small className="mt-1">Carbon Footprint at home </small>
               </p>
@@ -62,22 +61,22 @@ const ConsumptionData = () => {
           <button className="flex grow" onClick={handleNavigateToEatingHabits}>
             <div  style={{
                 backgroundColor: activeSection === "eating" ? "lightgreen" : "lightgrey",
-              }} className="flex grow items-center justify-center p-4">
+              }} className="flex grow items-center justify-center gap-2 p-4">
             
               <FaBowlRice size={30}/>
-              <p className="leading-none">
+              <p className="hidden sm:leading-none sm:block">
                 <strong className="block font-medium"> Eating Footprint </strong>
                 <small className="mt-1">Carbon Footprint in Eating Habits </small>
               </p>
             </div>
           </button>
 
-          <button className="flex grow" onClick={handleNavigateToVehicle}>
+          <button className="flex grow " onClick={handleNavigateToVehicle}>
             <div className="flex grow items-center justify-center gap-2 p-4" style={{
                 backgroundColor: activeSection === "vehicle" ? "lightgreen" : "lightgrey",
               }}>
               <FaCar size={30}/>
-              <p className="leading-none">
+              <p className="hidden sm:leading-none sm:block">
                 <strong className="block font-medium"> Vehicle Footprint </strong>
                 <small className="mt-1">Carbon Footprint of Private Vehicles </small>
               </p>
@@ -89,7 +88,7 @@ const ConsumptionData = () => {
                 backgroundColor: activeSection === "public_vehicle" ? "lightgreen" : "lightgrey",
               }}>
               <FaBusSimple size={30}/>
-              <p className="leading-none">
+              <p className="hidden sm:leading-none sm:block">
                 <strong className="block font-medium"> Public Transport </strong>
                 <small className="mt-1">Carbon Footprint on Public Vehicles </small>
               </p>
@@ -101,7 +100,7 @@ const ConsumptionData = () => {
                 backgroundColor: activeSection === "Flight" ? "darkgrey" : "lightgrey",
               }}>
               <FaPlane size={30}/>
-              <p className="leading-none">
+              <p className="hidden sm:leading-none sm:block">
                 <strong className="block font-medium"> Flight footprint </strong>
                 <small className="mt-1">Carbon Footprint on Flights </small>
               </p>
@@ -113,7 +112,7 @@ const ConsumptionData = () => {
                 backgroundColor: activeSection === "expenditure" ? "lightgreen" : "lightgrey",
               }}>
               <FaDollarSign size={30}/>
-              <p className="leading-none">
+              <p className="hidden sm:leading-none sm:block">
                 <strong className="block font-medium"> Expenditure </strong>
                 <small className="mt-1">Carbon Footprint based on Expenditure </small>
               </p>
@@ -122,7 +121,6 @@ const ConsumptionData = () => {
           
         </div>
       
-    </div>
       
         <div>
           {/* <button onClick={handleNavigateToCarbon}>Calculate Carbon Footprint</button>
