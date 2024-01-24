@@ -1,42 +1,55 @@
-import './Prelogin.css';
-
+import { useNavigate } from 'react-router-dom';
+import Prelogin_2 from './Prelogin_2';
 import * as React from "react";
-
+import './common/Tailwind.css'
 
 
 export const Element = () => { 
+
+  const navigate=useNavigate();
+  const gotoLogin = () => {
+    navigate('/login');
+  };
+  const gotoRegister = () => {
+    navigate('/register');
+  };
+  
   return (
-     <div className="element"> 
-      <div className="image-background"> 
-        <div className="white-rectangle" > 
+    <div className="h-screen max-w-screen bg-cover bg-[url('../../assets/image_1.png')]">
+        <div className='absolute flex items-center h-[90%] w-[95%] my-[3%] mr-[3%] ml-[2%] rounded-[66px] bg-white'>           
+          <div className="w-full relative flex flex-wrap lg:h-full lg:w-[97%] lg:items-start lg:pl-16">
+            
+            <div className="flex items-center flex-col w-full h-full lg:w-1/2 lg:items-start lg:mt-[8%]">
+                <div className="text-5xl font-PJSbold lg:text-[6vw] animate-fade animate-once animate-duration-[3000ms] animate-ease-out animate-alternate">
+                  ECOLIBRIUM</div>
+                <p className="mt-[12%] text-lg lg:text-[2vw] text-gray-500 font-WorkSans animate-fade animate-delay-500 animate-once animate-duration-[3000ms] animate-ease-out animate-alternate">
+                Transforming tomorrow,
+                </p>
+                <p className="mt-1 text-lg lg:text-[2vw] text-gray-500 font-WorkSans animate-fade animate-delay-500 animate-once animate-duration-[3000ms] animate-ease-out animate-alternate">
+                one footprint at a time.
+                </p>
+                <div className='flex mt-[8%]'>
+                  <button onClick={gotoRegister} className='w-36 px-4 py-2 mr-8 text-white uppercase bg-black border-2 border-transparent rounded-lg text-md hover:bg-white hover:text-black hover:border-black animate-fade-up animate-delay-500 animate-once animate-duration-[3000ms] animate-ease-out animate-alternate'>
+                          Signup</button>
+                  <button onClick={gotoLogin} className='w-36 px-4 py-2 text-black uppercase bg-transparent border-2 border-black rounded-lg hover:bg-gray-800 hover:text-white text-md animate-fade-up animate-delay-500 animate-once animate-duration-[3000ms] animate-ease-out animate-alternate'>
+                          Login</button>
+                </div>
 
-          <div class="left-half">
-            <div className='heading'>
-              <div className='text'>ECOLIBRIUM</div>
             </div>
-            <div className='phrase'>
-              <p className='text1'> 
-                <span className="text11"> Transforming tomorrow, <br /> </span> 
-              </p> 
-              <p className="text2"> 
-                <span className="text22">one footprint at a time.</span> 
-              </p>
-            </div>
-            <div className='buttons'>
-              <button className='signup' onClick={() => window.location.href = '/register'}><div className='signup_text'>Signup</div></button>
-              <button className='login' onClick={() => window.location.href = '/login'}><div className='login_text'>Login</div></button>
-            </div>
-          </div>
-          <div class="right-half">
-            <div className="box"> 
-              <div className='front_img'/>
-            </div>
-          </div>
 
+            <div className="relative h-0 w-full lg:h-full lg:w-1/2">
+              <img
+                alt="HomePage"
+                src={require("../assets/front_img.png")}
+                className="absolute inset-0 h-full w-full object-contain animate-fade animate-once animate-duration-[3000ms] animate-ease-out animate-alternate"
+              />
+            </div>
+          
+          </div>      
         </div>
-      </div>
-    <div className='page2'></div> 
-    </div> ); 
+    </div>
+
+     ); 
   };
 
 
@@ -47,8 +60,11 @@ export const Element = () => {
 
 function Prelogin() {
 
-  return (   
+  return (  
+    <> 
       <Element/>
+      <Prelogin_2/>
+    </>
   );
 }
 

@@ -2,3 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 @tailwind forms;
+
+@font-face {
+    font-family: "PlusJakartaSans-Bold";
+    src: url("../../../public/fonts/PlusJakartaSans-Bold.ttf");
+  }
+
+@font-face {
+    font-family: "WorkSans-Regular";
+    src: url("../../../public/fonts/WorkSans-Regular.ttf");
+}
+  

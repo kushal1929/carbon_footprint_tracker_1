@@ -11,13 +11,12 @@ import {
 } from 'firebase/firestore';
 
 export const CarbonFootprintCalculator = () => {
-    const [electric, setElectric] = useState();
-    const [LPG, setLPG] = useState();
-    const [Coal, setCoal] = useState();
-    const [Petrol, setPetrol] = useState();
-    const [Diesel, setDiesel] = useState();
-    const [CNG, setCNG] = useState();
-    const [AutoLPG, setAutoLPG] = useState();
+    const [electric, setElectric] = useState('');
+    const [NaturalGas, setNaturalGas] = useState('');
+    const [BioMass, setBioMass] = useState('');
+    const [LPG, setLPG] = useState('');
+    const [Coal, setCoal] = useState('');
+    const [HeatingOil, setHeatingOil] = useState('');
     let [totalCarbonFootprint, setTotalCarbonFootprint] = useState(null);
     const [username, setUsername] = useState('');
 
@@ -28,14 +27,13 @@ export const CarbonFootprintCalculator = () => {
     const calculateCarbonFootprint = async (totalCarbonFootprint) => {
         const newCarbonData = {
             electric,
+            NaturalGas,
+            BioMass,
             LPG,
             Coal,
-            Petrol,
-            Diesel,
-            CNG,
-            AutoLPG,
+            HeatingOil,
             totalCarbonFootprint,
-            timestamp: new Date().toISOString(),
+            timestamp: new Date(),
         };
 
         const userEmail = sessionStorage.getItem('User Email');
@@ -49,14 +47,19 @@ export const CarbonFootprintCalculator = () => {
                 setUsername(userDoc.id || '');
 
                 const userDocRef = doc(usersCollection, userDoc.id);
-                const consumptionDataCollection = collection(userDocRef, 'consumptionData');
-                const currentMonth = new Date().toLocaleString('default', { month: 'long' });
-                const currentMonthDocRef = doc(consumptionDataCollection, currentMonth);
+
+                // Include year in the current month
+                const currentDate = new Date();
+                const currentMonthYear = currentDate.toLocaleString('default', { month: 'long', year: 'numeric' });
+                const currentMonthRef = collection(userDocRef, currentMonthYear);
+
+                // Use consumptionHome as the document id
+                const consumptionHomeRef = doc(currentMonthRef, 'consumptionHome');
 
                 try {
-                    await setDoc(currentMonthDocRef, newCarbonData);
-                    console.log('Carbon footprint data saved to Firestore for the current month ',newCarbonData);
-                    navigate('/home');
+                    await setDoc(consumptionHomeRef, newCarbonData);
+                    console.log('Carbon footprint data saved to Firestore for the current month ', newCarbonData);
+                   // navigate('/home');
                 } catch (error) {
                     console.error('Error saving carbon footprint data to Firestore:', error);
                     alert(error.message);
@@ -71,34 +74,33 @@ export const CarbonFootprintCalculator = () => {
         }
     };
 
-    const handleCalculate = () => {
+    const handleCalculate = (e) => {
+
         const electricBillFactor = 0.93;
-        const LPGFactor = 41.88;
+        const NaturalGasFactor = 0.18;
+        const BioMassFactor = 0.2;
+        const LPGFactor = 3.3;
         const CoalFactor = 2.87;
-        const PetrolFactor = 2.33;
-        const DieselFactor = 2.66;
-        const CNGFactor = 2.73;
-        const AutoLPGFactor = 2.95;
+        const HeatingOilFactor = 3.9;
 
         let totalFootprint =
             electric * electricBillFactor +
+            NaturalGas * NaturalGasFactor +
+            BioMass * BioMassFactor +
             LPG * LPGFactor +
             Coal * CoalFactor +
-            Petrol * PetrolFactor +
-            Diesel * DieselFactor +
-            CNGFactor * CNG +
-            AutoLPGFactor * AutoLPG;
-        
+            HeatingOil * HeatingOilFactor;
+
         setTotalCarbonFootprint(totalFootprint);
-         calculateCarbonFootprint(totalFootprint);
-        
+        calculateCarbonFootprint(totalFootprint);
+
     };
 
     return (
         <div>
             <h1>Carbon Footprint Calculator {username}</h1>
             <label>
-                Enter unit of electricity consumed in one month:
+                Enter unit of electricity (in kWh) consumed in one month:
                 <input
                     type="number"
                     value={electric}
@@ -107,7 +109,25 @@ export const CarbonFootprintCalculator = () => {
             </label>
             <br />
             <label>
-                Enter the number of LPG cylinders consumed this month:
+                Enter unit of Natural Gas(in kWh) consumed in one month:
+                <input
+                    type="number"
+                    value={NaturalGas}
+                    onChange={(e) => setNaturalGas(Number(e.target.value))}
+                />
+            </label>
+            <br />
+            <label>
+                Enter unit of BioMass(in kg) consumed in one month:
+                <input
+                    type="number"
+                    value={BioMass}
+                    onChange={(e) => setBioMass(Number(e.target.value))}
+                />
+            </label>
+            <br />
+            <label>
+                Enter the amount LPG(in kg) consumed this month:
                 <input
                     type="number"
                     value={LPG}
@@ -116,7 +136,7 @@ export const CarbonFootprintCalculator = () => {
             </label>
             <br />
             <label>
-                Enter weight of coal in kg used for domestic purpose this month:
+                Enter weight of coal(in kg) used for domestic purpose this month:
                 <input
                     type="number"
                     value={Coal}
@@ -125,38 +145,11 @@ export const CarbonFootprintCalculator = () => {
             </label>
             <br />
             <label>
-                Enter quantity of petrol (liters) consumed by your vehicle/s in one month:
+                Enter the amount of HeatingOil(in liters) consumed:
                 <input
                     type="number"
-                    value={Petrol}
-                    onChange={(e) => setPetrol(Number(e.target.value))}
-                />
-            </label>
-            <br />
-            <label>
-                Enter quantity of diesel (liters) consumed by your vehicle/s in one month:
-                <input
-                    type="number"
-                    value={Diesel}
-                    onChange={(e) => setDiesel(Number(e.target.value))}
-                />
-            </label>
-            <br />
-            <label>
-                Enter quantity of CNG (liters) consumed by your vehicle/s in one month:
-                <input
-                    type="number"
-                    value={CNG}
-                    onChange={(e) => setCNG(Number(e.target.value))}
-                />
-            </label>
-            <br />
-            <label>
-                Enter quantity of Auto LPG (liters) consumed by your vehicle/s in one month:
-                <input
-                    type="number"
-                    value={AutoLPG}
-                    onChange={(e) => setAutoLPG(Number(e.target.value))}
+                    value={HeatingOil}
+                    onChange={(e) => setHeatingOil(Number(e.target.value))}
                 />
             </label>
             <br />
