@@ -14,6 +14,7 @@ export const CarbonFootprintCalculatorVehicle = () => {
     const [vehicleMPG, setVehicleMPG] = useState('');
     const [vehicleFuel, setVehicleFuel] = useState("Petrol");
     const [vehicleDistance_car, setVehicleDistance_car] = useState('');
+    const [motorcycletype,setmotorcycletype]=useState("Average Motorcycle");
     const [vehicleDistance_motorcycle, setVehicleDistance_motorcycle] =useState('');
     let [vehicleCarbonFootprint, setVehicleCarbonFootprint] = useState(null);
     const [username, setUsername] = useState("");
@@ -27,6 +28,7 @@ export const CarbonFootprintCalculatorVehicle = () => {
             vehicleMPG,
             vehicleFuel,
             vehicleDistance_car,
+            motorcycletype,
             vehicleDistance_motorcycle,
             vehicleCarbonFootprint,
             timestamp:new Date(),
@@ -120,7 +122,10 @@ export const CarbonFootprintCalculatorVehicle = () => {
         // Calculate vehicle carbon footprint based on the selected vehicle type
         const FuelFactor_Petrol = 12.2;
         const FuelFactor_Diesel = 14.2;
-        const emission_factor = 0.2;
+        const avg_motor_cyc_emission_factor = 0.142;
+        const small_motor_cyc_emission_factor =0.105;
+        const medium_motor_cyc_emission_factor = 0.124;
+        const large_motor_cyc_emission_factor = 0.167;
         const kmpl_to_mpg=2.35;
         const km_to_miles=0.62137;
 
@@ -128,14 +133,39 @@ export const CarbonFootprintCalculatorVehicle = () => {
         let vehicleCarbonFootprint_motorcycle = 0;
 
         let vehicleCarbonFootprint = 0;
-        if (vehicleFuel === "Petrol") {
-            vehicleCarbonFootprint_car =(1/ vehicleMPG/kmpl_to_mpg) * FuelFactor_Petrol * vehicleDistance_car*km_to_miles;
-        } 
-        else if (vehicleFuel === "Diesel"){
-            vehicleCarbonFootprint_car =(1 / vehicleMPG/kmpl_to_mpg) * FuelFactor_Diesel * vehicleDistance_car*km_to_miles;
+        if (vehicleMPG !== 0 && vehicleDistance_car !== 0) {
+          if (vehicleFuel === "Petrol") {
+            vehicleCarbonFootprint_car =
+              (1 / vehicleMPG / kmpl_to_mpg) *
+              FuelFactor_Petrol *
+              vehicleDistance_car *
+              km_to_miles;
+          } else if (vehicleFuel === "Diesel") {
+            vehicleCarbonFootprint_car =
+              (1 / vehicleMPG / kmpl_to_mpg) *
+              FuelFactor_Diesel *
+              vehicleDistance_car *
+              km_to_miles;
+          }
         }
 
-        vehicleCarbonFootprint_motorcycle = vehicleDistance_motorcycle * emission_factor;
+        // Check for division by zero and valid distance
+        if (vehicleDistance_motorcycle !== 0) {
+          if (motorcycletype === "Average Motorcycle") {
+            vehicleCarbonFootprint_motorcycle =
+              vehicleDistance_motorcycle * avg_motor_cyc_emission_factor;
+          } else if (motorcycletype === "Small Motorcycle") {
+            vehicleCarbonFootprint_motorcycle =
+              vehicleDistance_motorcycle * small_motor_cyc_emission_factor;
+          } else if (motorcycletype === "Medium Motorcycle") {
+            vehicleCarbonFootprint_motorcycle =
+              vehicleDistance_motorcycle * medium_motor_cyc_emission_factor;
+          } else if (motorcycletype === "Large Motorcycle") {
+            vehicleCarbonFootprint_motorcycle =
+              vehicleDistance_motorcycle * large_motor_cyc_emission_factor;
+          }
+        }
+
         const totalVehicleCarbonFootprint =vehicleCarbonFootprint_car + vehicleCarbonFootprint_motorcycle;
 
         setVehicleCarbonFootprint(totalVehicleCarbonFootprint);
@@ -175,6 +205,18 @@ export const CarbonFootprintCalculatorVehicle = () => {
           />
         </label>
         <br />
+        <label>
+          Select the motorcycle type:
+          <select
+            value={motorcycletype}
+            onChange={ (e)=> setmotorcycletype(e.target.value)}
+          >
+            <option value="Average Motorcycle">Average Motocycle</option>
+            <option value="Small Motorcycle">Small Motorcycle</option>
+            <option value="Medium Motorcycle">Medium Motorcycle</option>
+            <option value="Large Motorcycle">Large Motorcycle</option>
+          </select>
+        </label>
         <label>
           Distance Traveled(in km) by motorcycle:
           <input
