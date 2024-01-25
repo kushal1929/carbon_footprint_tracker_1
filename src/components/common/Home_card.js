@@ -5,7 +5,7 @@ export default function Home_card(){
     
     return(
     <div
-        class="block rounded-xl border border-gray-800 p-8 shadow-xl transition hover:border-pink-500/10 hover:shadow-pink-500/10"
+        class="block rounded-xl border border-gray-800 p-2 sm:p-8 shadow-xl transition hover:border-pink-500/10 hover:shadow-pink-500/10"
         
       >
         <svg
