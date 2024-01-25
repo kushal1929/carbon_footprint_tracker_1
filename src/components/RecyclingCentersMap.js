@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import {maps_api} from '../mapsKey';
 
 const RecyclingCentersMap = () => {
   const [infowindow, setInfowindow] = useState(null);
@@ -111,7 +112,7 @@ const RecyclingCentersMap = () => {
     } else {
       // Load the Google Maps API script
       const script = document.createElement('script');
-      script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyAmFmIBoCAU5enhOZew7ijQYYUGnTabOOg&libraries=places&callback=initialize`;
+      script.src = maps_api;
       script.async = true;
 
       script.onload = () => {
