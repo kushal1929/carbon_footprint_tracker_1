@@ -171,131 +171,148 @@ export const CarbonFootprintCalculator = () => {
   };
 
   return (
-    <div className="flex flex-wrap flex-col items-center space-y-4 py-4">
-      <div className="w-fit bg-gradient-to-r from-green-700 via-yellow-500 via-orange-400 to-green-600 bg-clip-text font-extrabold text-transparent sm:text-5xl">
-        Carbon Footprint Calculator
+    <div
+      className="flex flex-wrap flex-col items-center space-y-1 py-10"
+      style={{ background: "linear-gradient(to right, #34D399, #F59E0B)" }}
+    >
+      <div className="flex flex-col flex-wrap items-center">
+        <div className="bg-white w-[90%] flex flex-col items-center justify-center">
+          <div className="w-fit bg-gradient-to-r from-green-700 via-yellow-500 via-orange-400 to-green-600 bg-clip-text font-extrabold text-transparent sm:text-3xl md:text-4xl lg:text-4xl xl:text-4xl 2xl:text-5xl text-center">
+            Carbon Footprint Calculator
+          </div>
+        </div>
+
+        <div className="flex flex-row items-center flex-wrap bg-white w-[90%] h-[90%]">
+          <div className="flex items-center flex-col w-full h-full lg:w-1/2 lg:mt-[1%] space-y-0 py-20">
+            <div className="flex flex-wrap flex-row items-center mb-4">
+              <span>family member :</span>
+              <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
+                <input
+                  type="number"
+                  value={NumberOfPeople}
+                  placeholder="Family Member's"
+                  className="block rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
+                  onChange={(e) => setNumberOfPeople(Number(e.target.value))}
+                />
+              </label>
+            </div>
+
+            <br />
+
+            <div className="flex flex-row items-center mb-4">
+              <span>Electricity :</span>
+              <label
+                htmlFor="Electricity"
+                className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2"
+              >
+                <input
+                  type="number"
+                  value={electric}
+                  placeholder="in kwh"
+                  className="block rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
+                  onChange={(e) => setElectric(Number(e.target.value))}
+                />
+              </label>
+            </div>
+
+            <br />
+            <div className="flex flex-row items-center mb-4">
+              <span>NaturalGas :</span>
+              <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
+                <input
+                  type="number"
+                  value={NaturalGas}
+                  placeholder="in kwh"
+                  className="block rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
+                  onChange={(e) => setNaturalGas(Number(e.target.value))}
+                />
+              </label>
+            </div>
+
+            <br />
+
+            <div className="flex flex-row items-center mb-4">
+              <span>BioMass :</span>
+              <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
+                <input
+                  type="number"
+                  value={BioMass}
+                  placeholder="in kg"
+                  className="block rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
+                  onChange={(e) => setBioMass(Number(e.target.value))}
+                />
+              </label>
+            </div>
+
+            <br />
+
+            <div className="flex flex-row items-center mb-4">
+              <span>Coal :</span>
+              <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
+                <input
+                  type="number"
+                  value={Coal}
+                  placeholder="in kg"
+                  className="block rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
+                  onChange={(e) => setCoal(Number(e.target.value))}
+                />
+              </label>
+            </div>
+
+            <br />
+
+            <div className="flex flex-row items-center mb-4">
+              <span>HeatingOil :</span>
+              <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
+                <input
+                  type="number"
+                  value={HeatingOil}
+                  placeholder="in liters"
+                  className="block rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
+                  onChange={(e) => setHeatingOil(Number(e.target.value))}
+                />
+              </label>
+            </div>
+
+            <br />
+
+            <div className="flex flex-row items-center mb-4">
+              <span>LPG :</span>
+              <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
+                <input
+                  type="number"
+                  value={LPG}
+                  placeholder="in kg"
+                  className="block rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
+                  onChange={(e) => setLPG(Number(e.target.value))}
+                />
+              </label>
+            </div>
+            <br />
+            <button onClick={handleCalculate}>
+              <a className="group inline-block rounded bg-gradient-to-r from-green-700 via-yellow-500 via-orange-400 to-green-600 p-[2px] hover:text-white focus:outline-none focus:ring active:text-opacity-75">
+                <span className="block rounded-sm bg-white px-8 py-3 text-sm font-medium group-hover:bg-transparent">
+                  Calculate
+                </span>
+              </a>
+            </button>
+            <br />
+
+            
+            {homeCarbonFootprint !== null && (
+              <p>
+                Your estimated carbon footprint is: {homeCarbonFootprint} kgCO2
+                per month
+              </p>
+            )}
+            {calculateCarbonFootprint}
+          </div>
+
+          <div className="relative h-0 w-0 lg:h-full lg:w-1/2">
+            <img src={require("../assets/home.png")} />
+          </div>
+        </div>
       </div>
-      <br />
-      <div className="flex flex-row items-center mb-4">
-        <span>Number of family member :</span>
-        <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
-          <input
-            type="number"
-            value={NumberOfPeople}
-            placeholder="Family Member's"
-            className="block rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
-            onChange={(e) => setNumberOfPeople(Number(e.target.value))}
-          />
-        </label>
-      </div>
-
-      <br />
-
-      <div className="flex flex-row items-center mb-4">
-        <span>Electricity (in kwh) :</span>
-        <label
-          htmlFor="Electricity"
-          className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2"
-        >
-          <input
-            type="number"
-            value={electric}
-            placeholder="in kwh"
-            className="block rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
-            onChange={(e) => setElectric(Number(e.target.value))}
-          />
-        </label>
-      </div>
-
-      <br />
-      <div className="flex flex-row items-center mb-4">
-        <span>NaturalGas(in kwh) :</span>
-        <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
-          <input
-            type="number"
-            value={NaturalGas}
-            placeholder="in kwh"
-            className="block rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
-            onChange={(e) => setNaturalGas(Number(e.target.value))}
-          />
-        </label>
-      </div>
-
-      <br />
-
-      <div className="flex flex-row items-center mb-4">
-        <span>BioMass(in kg) :</span>
-        <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
-          <input
-            type="number"
-            value={BioMass}
-            placeholder="in kg"
-            className="block rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
-            onChange={(e) => setBioMass(Number(e.target.value))}
-          />
-        </label>
-      </div>
-
-      <br />
-
-      <div className="flex flex-row items-center mb-4">
-        <span>Coal :</span>
-        <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
-          <input
-            type="number"
-            value={Coal}
-            placeholder="in kg"
-            className="block rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
-            onChange={(e) => setCoal(Number(e.target.value))}
-          />
-        </label>
-      </div>
-
-      <br />
-
-      <div className="flex flex-row items-center mb-4">
-        <span>HeatingOil :</span>
-        <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
-          <input
-            type="number"
-            value={HeatingOil}
-            placeholder="in liters"
-            className="block rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
-            onChange={(e) => setHeatingOil(Number(e.target.value))}
-          />
-        </label>
-      </div>
-
-      <br />
-
-      <div className="flex flex-row items-center mb-4">
-        <span>LPG :</span>
-        <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
-          <input
-            type="number"
-            value={LPG}
-            placeholder="in kg"
-            className="block rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
-            onChange={(e) => setLPG(Number(e.target.value))}
-          />
-        </label>
-      </div>
-      <br />
-      <button onClick={handleCalculate}>
-        <a className="group inline-block rounded bg-gradient-to-r from-green-700 via-yellow-500 via-orange-400 to-green-600 p-[2px] hover:text-white focus:outline-none focus:ring active:text-opacity-75">
-          <span className="block rounded-sm bg-white px-8 py-3 text-sm font-medium group-hover:bg-transparent">
-            Calculate
-          </span>
-        </a>
-      </button>
-      <br />
-      {homeCarbonFootprint !== null && (
-        <p>
-          Your estimated carbon footprint is: {homeCarbonFootprint} kgCO2 per
-          month
-        </p>
-      )}
-      {calculateCarbonFootprint}
     </div>
   );
 };
