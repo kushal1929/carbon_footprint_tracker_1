@@ -12,6 +12,7 @@ import {
 import { app } from "../firebaseconfig";
 import Header from "./common/Header";
 import "./common/Tailwind.css";
+import { prompt1send } from "./Prompt1";
 
 export default function ActionPlan(){
 
@@ -74,6 +75,7 @@ export default function ActionPlan(){
           };
       
           fetchData();
+          prompt1send();
         }, []);
 
         const convertDataToString = (dataObject) => {
@@ -90,7 +92,7 @@ export default function ActionPlan(){
           return result;
         };
         
-
+        
   return (
     <>
     <Header/>
