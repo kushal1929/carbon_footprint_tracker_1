@@ -15,6 +15,8 @@ import "chart.js/auto";
 import Header from "./common/Header";
 import Home_card from "./common/Home_card";
 import "./common/Tailwind.css";
+import RecyclingCentersMap from './RecyclingCentersMap';
+
 
 export default function Home() {
   const navigate = useNavigate();
@@ -193,6 +195,41 @@ export default function Home() {
         <Home_card/>
       </div>
     </div>
+
+    <div className="relative flex flex-wrap lg:h-3/5 lg:flex-start">
+      <div className='flex justify-center items-center w-full lg:w-1/2 px-5 mt-5' >
+      {/* {chartData.labels && chartData.labels.length > 0 ? 
+        (
+        <Line data={chartData}
+          options={{
+            plugins: {
+              legend: {
+                position: 'bottom',
+                labels:{
+                  boxHeight:20,
+                  boxWidth:50,
+                  padding:40,
+                  font:{
+                    size:20,
+                  }
+                }
+              },
+            },
+          }} 
+        />
+        ) : (<p>No data available for chart</p>)
+      } */}
+      </div>
+      <div className='flex flex-col items-start w-full lg:w-1/2 gap-x-6 px-10 mt-10 mb-20 items-stretch '>
+      <div className='flex justify-center items-center w-full w-fit bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-2xl font-extrabold text-transparent sm:text-2xl'>Recycling Centers near you !</div>
+      <div className="flex justify-center items-center w-full lg:w-full px-5 mt-5">
+        <RecyclingCentersMap />
+      </div>
+      </div>
+    </div>
+
+      
+
       
     </>
   );
