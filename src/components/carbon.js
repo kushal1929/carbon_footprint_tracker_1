@@ -176,14 +176,19 @@ export const CarbonFootprintCalculator = () => {
       style={{ background: "linear-gradient(to right, #34D399, #F59E0B)" }}
     >
       <div className="flex flex-col flex-wrap items-center">
+
         <div className="bg-white w-[90%] flex flex-col items-center justify-center">
+
           <div className="w-fit bg-gradient-to-r from-green-700 via-yellow-500 via-orange-400 to-green-600 bg-clip-text font-extrabold text-transparent sm:text-3xl md:text-4xl lg:text-4xl xl:text-4xl 2xl:text-5xl text-center">
             Carbon Footprint Calculator
           </div>
+
         </div>
 
         <div className="flex flex-row items-center flex-wrap bg-white w-[90%] h-[90%]">
+
           <div className="flex items-center flex-col w-full h-full lg:w-1/2 lg:mt-[1%] space-y-0 py-20">
+
             <div className="flex flex-wrap flex-row items-center mb-4">
               <span>family member :</span>
               <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
@@ -278,7 +283,7 @@ export const CarbonFootprintCalculator = () => {
 
             <div className="flex flex-row items-center mb-4">
               <span>LPG :</span>
-              <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
+              <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 items-center ml-2">
                 <input
                   type="number"
                   value={LPG}
