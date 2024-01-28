@@ -118,9 +118,7 @@ const handleLogout = () => {
           <a href="/action-plan" className="text-sm font-semibold leading-6 text-gray-900">
             Personalized Action Plan
           </a>
-          <a href="/eating-habits" className="text-sm font-semibold leading-6 text-gray-900">
-            Questionnaire
-          </a>
+          
         </Popover.Group>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <button onClick={handleLogout} className="text-sm font-semibold leading-6 text-gray-900">
@@ -189,12 +187,7 @@ const handleLogout = () => {
                 >
                   Personalised Action Plan
                 </a>
-                <a
-                  href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                >
-                  Questionare
-                </a>
+                
               </div>
               <div className="py-6">
                 <a

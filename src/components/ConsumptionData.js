@@ -38,7 +38,7 @@ const ConsumptionData = () => {
   };
 
   return (
-    <div>
+    <div className="bg-gradient-to-r from-yellow-300 via-lime-300 to-green-300">
       <Header />
       
         <div
@@ -60,7 +60,7 @@ const ConsumptionData = () => {
 
           <button className="flex grow" onClick={handleNavigateToEatingHabits}>
             <div  style={{
-                backgroundColor: activeSection === "eating" ? "lightgreen" : "lightgrey",
+                backgroundColor: activeSection === "eating" ? "lightgreen" : "white",
               }} className="flex grow items-center justify-center gap-2 p-4">
             
               <FaBowlRice size={30}/>
@@ -73,7 +73,7 @@ const ConsumptionData = () => {
 
           <button className="flex grow " onClick={handleNavigateToVehicle}>
             <div className="flex grow items-center justify-center gap-2 p-4" style={{
-                backgroundColor: activeSection === "vehicle" ? "lightgreen" : "lightgrey",
+                backgroundColor: activeSection === "vehicle" ? "lightgreen" : "white",
               }}>
               <FaCar size={30}/>
               <p className="hidden sm:leading-none sm:block">
@@ -85,7 +85,7 @@ const ConsumptionData = () => {
 
           <button className="flex grow" onClick={handleNavigateToPublicVehicle}>
             <div className="flex grow items-center justify-center gap-2 p-4" style={{
-                backgroundColor: activeSection === "public_vehicle" ? "lightgreen" : "lightgrey",
+                backgroundColor: activeSection === "public_vehicle" ? "lightgreen" : "white",
               }}>
               <FaBusSimple size={30}/>
               <p className="hidden sm:leading-none sm:block">
@@ -97,7 +97,7 @@ const ConsumptionData = () => {
 
           <button  className="flex grow" onClick={handleNavigateToFlight}>
             <div className="flex grow items-center justify-center gap-2 p-4" style={{
-                backgroundColor: activeSection === "Flight" ? "darkgrey" : "lightgrey",
+                backgroundColor: activeSection === "Flight" ? "darkgrey" : "white",
               }}>
               <FaPlane size={30}/>
               <p className="hidden sm:leading-none sm:block">
@@ -109,7 +109,7 @@ const ConsumptionData = () => {
 
           <button className="flex grow" onClick={handleNavigateToExpenditure}>
             <div className="flex grow items-center justify-center gap-2 p-4" style={{
-                backgroundColor: activeSection === "expenditure" ? "lightgreen" : "lightgrey",
+                backgroundColor: activeSection === "expenditure" ? "lightgreen" : "white",
               }}>
               <FaDollarSign size={30}/>
               <p className="hidden sm:leading-none sm:block">
@@ -122,7 +122,7 @@ const ConsumptionData = () => {
         </div>
       
       
-        <div>
+        
           {/* <button onClick={handleNavigateToCarbon}>Calculate Carbon Footprint</button>
         <button onClick={handleNavigateToEatingHabits}>Eating Habits</button> */}
 
@@ -132,7 +132,7 @@ const ConsumptionData = () => {
           {activeSection === "public_vehicle" && (<CarbonFootprintCalculatorPublicVehicle />)}
           {activeSection === "expenditure" && (<CarbonFootprintCalculatorExpenditure />)}
           {activeSection === "Flight" && (<Flight />)}
-        </div>
+        
 
     </div>
   );

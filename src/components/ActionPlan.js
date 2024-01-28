@@ -19,6 +19,7 @@ export default function ActionPlan(){
     const [userData, setUserData] = useState([]);
     const [prompt1, setPrompt1] = useState([]);
     const [prompt1string, setPromptString] = useState('');
+    const [prompt1Response, setPrompt1Response] = useState('');
     const navigate=useNavigate();
 
     useEffect(() => {
@@ -75,8 +76,24 @@ export default function ActionPlan(){
           };
       
           fetchData();
-          prompt1send();
         }, []);
+
+        useEffect(() => {
+          const fetchResponse = async () => {
+              try {
+                  if (prompt1string !== '') {  // Add a conditional check
+                      const resp = await prompt1send(prompt1string);
+                      setPrompt1Response(resp);
+                  }
+              } catch (error) {
+                  console.error('Error fetching response:', error);
+              }
+          };
+      
+          fetchResponse(); // Call the function immediately after setting prompt1string
+      
+      }, [prompt1string]); // Add prompt1string as a dependency to useEffect
+      
 
         const convertDataToString = (dataObject) => {
           let result = '';
@@ -98,7 +115,7 @@ export default function ActionPlan(){
     <Header/>
     <div>
       <h1>User Data for January 2024</h1>
-      <pre>{prompt1string}</pre>
+      <pre>{prompt1Response}</pre>
       
     </div>
     </>

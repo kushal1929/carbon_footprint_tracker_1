@@ -23,5 +23,4 @@ yarn-debug.log*
 yarn-error.log*
 
 /src/firebaseconfig.js
-/src/mapsKey.js
-/src/GeminiAPIkey.js
+/src/APIkeys.js

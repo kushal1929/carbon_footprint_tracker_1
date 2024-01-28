@@ -9,6 +9,7 @@ import {
   doc,
   setDoc,
 } from "firebase/firestore";
+import "./common/Tailwind.css";
 
 export const CarbonFootprintCalculator = () => {
   const [electric, setElectric] = useState("");
@@ -172,17 +173,16 @@ export const CarbonFootprintCalculator = () => {
 
   return (
     <div
-      className="flex flex-wrap flex-col items-center space-y-1 py-10"
-      style={{ background: "linear-gradient(to right, #34D399, #F59E0B)" }}
+      className="w-[90%] flex flex-col items-center py-10 mx-[5vw]"
     >
-      <div className="flex flex-col flex-wrap items-center">
-        <div className="bg-white w-[90%] flex flex-col items-center justify-center">
-          <div className="w-fit bg-gradient-to-r from-green-700 via-yellow-500 via-orange-400 to-green-600 bg-clip-text font-extrabold text-transparent sm:text-3xl md:text-4xl lg:text-4xl xl:text-4xl 2xl:text-5xl text-center">
+      
+        
+          <div className="w-full pt-5 text:black bg-white font-extrabold sm:text-3xl md:text-4xl lg:text-4xl xl:text-4xl 2xl:text-5xl text-center">
             Carbon Footprint Calculator
           </div>
-        </div>
+        
 
-        <div className="flex flex-row items-center flex-wrap bg-white w-[90%] h-[90%]">
+        <div className="flex flex-row items-center flex-wrap bg-white w-full h-[90%]">
           <div className="flex items-center flex-col w-full h-full lg:w-1/2 lg:mt-[1%] space-y-0 py-20">
             <div className="flex flex-wrap flex-row items-center mb-4">
               <span>family member :</span>
@@ -290,7 +290,7 @@ export const CarbonFootprintCalculator = () => {
             </div>
             <br />
             <button onClick={handleCalculate}>
-              <a className="group inline-block rounded bg-gradient-to-r from-green-700 via-yellow-500 via-orange-400 to-green-600 p-[2px] hover:text-white focus:outline-none focus:ring active:text-opacity-75">
+              <a className="group inline-block rounded bg-gradient-to-r from-yellow-300 via-lime-300 to-green-300 p-[2px] hover:text-white focus:outline-none focus:ring active:text-opacity-75">
                 <span className="block rounded-sm bg-white px-8 py-3 text-sm font-medium group-hover:bg-transparent">
                   Calculate
                 </span>
@@ -308,10 +308,11 @@ export const CarbonFootprintCalculator = () => {
           </div>
 
           <div className="relative h-0 w-0 lg:h-full lg:w-1/2">
-            <img src={require("../assets/home.png")} />
+            <img src={require("../assets/home.jpg")} />
           </div>
         </div>
-      </div>
+
+      
     </div>
   );
 };
