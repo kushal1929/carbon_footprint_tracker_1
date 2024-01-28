@@ -22,7 +22,9 @@ import Login from './components/Login'
 import Register from './components/Register';
 import ForgotPassword from './components/ForgotPassword';
 import ConsumptionData from './components/ConsumptionData';
+import ActionPlan from './components/ActionPlan';
 import Quiz from './components/Quiz.js';
+
 function App() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -116,6 +118,7 @@ function App() {
         <Route path="/public-vehicle" element={ <CarbonFootprintCalculatorPublicVehicle/>}/>
         <Route path="/expenditure" element={<CarbonFootprintCalculatorExpenditure/>} />
         <Route path="/Flight" element={<Flight />} />
+        <Route path="/action-plan" element={<ActionPlan/>}/>
         <Route path="/Quiz" element={<Quiz />} />
         
       </Routes>

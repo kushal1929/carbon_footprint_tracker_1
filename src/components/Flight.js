@@ -70,6 +70,7 @@ export const Flight = () => {
           console.log(
             "Flight details saved to Firestore for the current month"
           );
+          await calculateAndStoreTotal(currentMonthRef,currentMonthYear,userDocRef);
           //          navigate('/home');
         } catch (error) {
           console.error("Error saving flight details to Firestore:", error);
@@ -82,6 +83,50 @@ export const Flight = () => {
     } catch (error) {
       console.error("Error fetching user data:", error);
       alert("Error fetching user data:", error.message);
+    }
+  };
+
+  const calculateAndStoreTotal = async (currentMonthRef,currentMonthYear,userDocRef) => {
+    const totalDocRef = collection(userDocRef, 'Total');
+    const totalMYDocRef=doc(totalDocRef,currentMonthYear)
+
+    const querySnapshot = await getDocs(currentMonthRef);
+
+    let totalHome = 0;
+    let totalFood = 0;
+    let totalVehicle = 0;
+    let totalFlight = 0;
+    let totalPublicVehicle = 0;
+    let totalExpenditure = 0;
+
+    querySnapshot.forEach((doc) => {
+      const data = doc.data();
+      totalHome += data.homeCarbonFootprint || 0;
+      totalFood += data.foodCarbonFootprint || 0;
+      totalVehicle += data.vehicleCarbonFootprint || 0;
+      totalFlight += data.flightCarbonFootprint || 0;
+      totalPublicVehicle += data.PublicVehicleCarbonFootprint || 0;
+      totalExpenditure += data.ExpenditureCarbonFootprint || 0;
+    });
+
+    const totalDocData = {
+      totalHome,
+      totalFood,
+      totalVehicle,
+      totalFlight,
+      totalPublicVehicle,
+      totalExpenditure,
+      totalCarbonFootprint:
+        totalHome + totalFood + totalVehicle + totalFlight + totalPublicVehicle + totalExpenditure,
+        timestamp: new Date(),
+    };
+
+    try {
+      await setDoc(totalMYDocRef, totalDocData);
+      console.log('Total carbon footprint data saved to Firestore for the current month ', totalDocData);
+    } catch (error) {
+      console.error('Error saving total carbon footprint data to Firestore:', error);
+      alert(error.message);
     }
   };
 

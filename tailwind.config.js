@@ -9,6 +9,7 @@ module.exports = {
     "./src/components/ConsumptionData.js",
     "./src/components/Prelogin_2.js",
     "./src/components/Prelogin.js",
+    "./src/components/carbon.js",
     "./src/components/Quiz.js",
     
   ],

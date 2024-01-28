@@ -135,7 +135,8 @@ export default QuizApp;
 
 import React, { useState, useEffect } from 'react';
 import { getFirestore, collection, getDocs, query, where, doc, setDoc } from 'firebase/firestore';
-import './Tailwind.css'
+import './common/Tailwind.css';
+import Header from './common/Header';
  
 
 const QuizApp = ({ app }) => {
@@ -235,6 +236,8 @@ const QuizApp = ({ app }) => {
   );
 
   return (
+    <>
+    <Header/>
     <div>
       {loading ? (
         <p>Loading questions...</p>
@@ -244,6 +247,7 @@ const QuizApp = ({ app }) => {
         renderQuizContent()
       )}
     </div>
+    </>
   );
 };
 
