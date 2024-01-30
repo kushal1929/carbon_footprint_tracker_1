@@ -127,7 +127,7 @@ const RecyclingCentersMap = () => {
         delete window.initialize;
       };
     }
-  }, [infowindow, map, service]);
+  }, []);
   console.log("map run");
   return <div id="map" style={{ height: '500px', width: '100%' }}></div>;
 };
