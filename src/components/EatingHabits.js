@@ -77,7 +77,7 @@ const EatingHabits = () => {
               "Eating habits data saved to Firestore for the current month"
             );
             await calculateAndStoreTotal(currentMonthRef,currentMonthYear,userDocRef);
-            //navigate("/home");
+            navigate("/home");
           } catch (error) {
             console.error(
               "Error saving eating habits data to Firestore:",

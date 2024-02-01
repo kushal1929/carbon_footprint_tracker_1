@@ -14,7 +14,9 @@ module.exports = {
     ".src/components/public_transport.js",
     ".src/components/vehicle.js",
     "./src/components/Quiz.js",
-    "./src/components/Flight.js"
+    "./src/components/Flight.js",
+    "./src/components/Feedback.js",
+    
   ],
   theme: {
     fontFamily: {
