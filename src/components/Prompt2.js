@@ -137,7 +137,9 @@ const {
     ];
     console.log(prompt2string);
     const parts = [
-      {text: "The input is a user's monthly Information about the distance covered in private/public transport and resources used at home in kgs or kwh.As an environmentalist, compare the values with the recommended values and create a personalized action plan the user can take to reduce their carbon footprint based on this data.Do not mention any absolute numeric value."},
+      {text: "The input is a user's monthly Information about the resources used at home in kgs or kWh. and distance covered in private/public transport. As an environmentalist, compare the values with the recommended values and create a personalized action plan the user can take to reduce their carbon footprint based on this data.Do not mention any absolute numeric value."},
+      {text: "input: Coal:1\nBioMass:1\nHeatingOil:1\nNaturalGas:1\nNumberOfPeople:2\nLPG:1\nelectric:5\n\nLocalBus:80\nNational_Rail:54\n\nvehicleDistance_motorcycle:100\nvehicleFuel:Petrol\nmotorcycletype:Average Motorcycle\nvehicleDistance_car:300\nvehicleMPG:20"},
+      {text: "output: 1.Opt for buses, trains, or subways instead of private cars.\n2.Use a bicycle or walk for short distances.\n3.Regularly service and maintain you car. Properly inflated tires and well-maintained engines contribute to better gas mileage.\n4.Adopt fuel-efficient driving habits, such as smooth acceleration and deceleration.\n5.If possible, consider installing solar panels or using renewable energy sources to power your home.\n6.Use energy-efficient LED light bulbs instead of incandescent ones. \n7.Fully power down computers and other appliances when not in use."},
       {text: `input:${prompt2string} `},
       {text: "output: "},
     ];

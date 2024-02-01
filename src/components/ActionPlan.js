@@ -53,6 +53,8 @@ export default function ActionPlan(){
   const currentMonthYear = currentDate.toLocaleString('default', { month: 'long', year: 'numeric' });      
 
   const prompt1array = prompt1Response.split(/\d+\./).filter(sentence => sentence.trim() !== '');
+  const prompt2array = prompt2Response.split(/\d+\./).filter(sentence => sentence.trim() !== '');
+  const totalArray = prompt1array.concat(prompt2array);
 
   const StringArrayRenderer = ({ stringArray }) => {
     return (
@@ -61,8 +63,6 @@ export default function ActionPlan(){
                 
             <a
             className="block rounded-xl border border-gray-200 p-8 shadow-xl transition hover:border-lime-300/10 hover:shadow-lime-300/20"
-            
-            href="/services/digital-campaigns"
           >
 
             <h2 className="mt-4 text-xl font-bold text-black">{index+1}.</h2>
@@ -80,28 +80,19 @@ export default function ActionPlan(){
     <>
     <Header/>
     <div>
-      <div>{prompt1Response}</div>
-      <pre>{prompt2Response}</pre>
       <section className="bg-white text-black">
         <div className="w-full px-4 py-8 sm:px-6 sm:py-12 lg:px-[10%] lg:py-16">
           <div className="mx-auto max-w-lg text-center">
-          <h1 className="w-fit bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-5xl">User Data for {currentMonthYear}</h1>
+          <h1 className="w-fit bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-5xl">
+            Your Action Plan</h1>
           </div>
 
           <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
            
-          <StringArrayRenderer stringArray={prompt1array} />
+          <StringArrayRenderer stringArray={totalArray} />
             
           </div>
 
-          <div className="mt-12 text-center">
-            <a
-              href="#"
-              className="inline-block rounded bg-pink-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-pink-700 focus:outline-none focus:ring focus:ring-yellow-400"
-            >
-              Get Started Today
-            </a>
-          </div>
         </div>
       </section>
       
