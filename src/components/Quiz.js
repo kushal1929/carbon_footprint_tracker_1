@@ -212,7 +212,7 @@ const QuizApp = ({ app }) => {
 
       {selectedAnswer !== null && (
         <div className="mt-4">
-          <p className="text-xl">
+          <p className="text-xl text-emerald-700">
             {selectedAnswer === questions[currentQuestion]?.Correct_Answer
               ? "Correct!"
               : "Incorrect!"}
