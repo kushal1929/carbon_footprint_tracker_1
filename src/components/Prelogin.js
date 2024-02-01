@@ -29,9 +29,9 @@ export const Element = () => {
                 one footprint at a time.
                 </p>
                 <div className='flex mt-[8%]'>
-                  <button onClick={gotoRegister} className='w-36 px-4 py-2 mr-8 text-white uppercase bg-black border-2 border-transparent rounded-lg text-md hover:bg-white hover:text-black hover:border-black animate-fade-up animate-delay-500 animate-once animate-duration-[3000ms] animate-ease-out animate-alternate'>
+                  <button onClick={gotoRegister} className='w-28 lg:w-[9vw] px-4 py-2 mr-8 text-white uppercase bg-black border-2 border-transparent rounded-lg text-md hover:bg-white hover:text-black hover:border-black animate-fade-up animate-delay-500 animate-once animate-duration-[3000ms] animate-ease-out animate-alternate'>
                           Signup</button>
-                  <button onClick={gotoLogin} className='w-36 px-4 py-2 text-black uppercase bg-transparent border-2 border-black rounded-lg hover:bg-gray-800 hover:text-white text-md animate-fade-up animate-delay-500 animate-once animate-duration-[3000ms] animate-ease-out animate-alternate'>
+                  <button onClick={gotoLogin} className='w-28 lg:w-[9vw] px-4 py-2 text-black uppercase bg-transparent border-2 border-black rounded-lg hover:bg-gray-800 hover:text-white text-md animate-fade-up animate-delay-500 animate-once animate-duration-[3000ms] animate-ease-out animate-alternate'>
                           Login</button>
                 </div>
 

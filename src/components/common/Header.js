@@ -45,7 +45,7 @@ const handleLogout = () => {
     <header className="bg-white border-solid border-b-4">
       <nav className="mx-auto flex items-center justify-between p-6 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">
-          <a href="#" className="-m-1.5 p-1.5">
+          <a href="/home" className="-m-1.5 p-1.5">
             <span className="sr-only">Your Company</span>
             <img className="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="" />
           </a>
@@ -115,11 +115,12 @@ const handleLogout = () => {
           <a href="/consumption-data" className="text-sm font-semibold leading-6 text-gray-900">
             Carbon Footprint Calculator
           </a>
-          <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+          <a href="/action-plan" className="text-sm font-semibold leading-6 text-gray-900">
             Personalized Action Plan
           </a>
-          <a href="/eating-habits" className="text-sm font-semibold leading-6 text-gray-900">
-            Questionnaire
+          
+          <a href="/Quiz" className="text-sm font-semibold leading-6 text-gray-900">
+            Quiz
           </a>
         </Popover.Group>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
@@ -195,7 +196,14 @@ const handleLogout = () => {
                 >
                   Questionare
                 </a>
+                <a
+                  href="/Quiz"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                >
+                  Quiz
+                </a>
               </div>
+              
               <div className="py-6">
                 <a
                   href="/"
@@ -211,3 +219,6 @@ const handleLogout = () => {
     </header>
   )
 }
+
+
+//Added a button for quiz line-124,201

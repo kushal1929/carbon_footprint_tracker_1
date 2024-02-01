@@ -25,36 +25,6 @@ export default function Home() {
   const [error, setError] = useState(null);
   const [chartData, setChartData] = useState({});
 
-  const handleLogout = () => {
-    sessionStorage.removeItem("Auth Token");
-    sessionStorage.removeItem("User Email"); // Clear user email on logout
-    sessionStorage.clear();
-    navigate("/");
-  };
-
-  const handleNavigateToCarbon = () => {
-    navigate("/carbon-footprint-calc");
-  };
-
-  const handleNavigateToEatingHabits = () => {
-    navigate("/eating-habits");
-  };
-
-  const handleNavigateToVehicle = () => {
-    navigate("/vehicle");
-  };
-
-  const handleNavigateToPublicVehicle = () => {
-    navigate("/public-vehicle");
-  };
-
-  const handleNavigateToExpenditure = () => {
-    navigate("/expenditure");
-  };
-
-  const handleNavigateToFlight = () => {
-    navigate("/Flight");
-  };
 
   useEffect(() => {
     const userEmail = sessionStorage.getItem("User Email");
@@ -85,6 +55,8 @@ export default function Home() {
         setLoading(false);
       });
   }, [navigate]);
+
+  sessionStorage.setItem("Username", username);
 
   const isFirstRender = useRef(true);
   useEffect(() => {
@@ -190,7 +162,7 @@ export default function Home() {
         ) : (<p>No data available for chart</p>)
       }
       </div>
-      <div className='flex flex-row items-start w-full lg:w-1/2 gap-x-6 px-10 mt-10 mb-20 items-stretch '>
+      <div className='flex flex-row items-start w-full lg:w-1/2 gap-x-6 px-3 sm:px-10 mt-10 mb-20 items-stretch justify-stretch '>
         <Home_card/>
         <Home_card/>
       </div>

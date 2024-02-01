@@ -9,6 +9,7 @@ import {
   doc,
   setDoc,
 } from "firebase/firestore";
+import "./common/Tailwind.css";
 
 export const CarbonFootprintCalculatorVehicle = () => {
     const [vehicleMPG, setVehicleMPG] = useState('');
@@ -174,71 +175,117 @@ export const CarbonFootprintCalculatorVehicle = () => {
 
     
     return (
-      <div>
-        <h1>Private Vehicle CarbonFootPrint</h1>
-        <label>
-          Enter mileage in Km/L consumed:
-          <input
-            type="number"
-            value={vehicleMPG}
-            onChange={(e) => setVehicleMPG(Number(e.target.value))}
-          />
-        </label>
-        <br />
-        <label>
-          Select Fuel Type:
-          <select
-            value={vehicleFuel}
-            onChange={(e) => setVehicleFuel(e.target.value)}
-          >
-            <option value="Petrol">Petrol</option>
-            <option value="Diesel">Diesel</option>
-          </select>
-        </label>
-        <br />
-        <label>
-          Distance Traveled(in km) by car:
-          <input
-            type="number"
-            value={vehicleDistance_car}
-            onChange={(e) => setVehicleDistance_car(Number(e.target.value))}
-          />
-        </label>
-        <br />
-        <label>
-          Select the motorcycle type:
-          <select
-            value={motorcycletype}
-            onChange={ (e)=> setmotorcycletype(e.target.value)}
-          >
-            <option value="Average Motorcycle">Average Motocycle</option>
-            <option value="Small Motorcycle">Small Motorcycle</option>
-            <option value="Medium Motorcycle">Medium Motorcycle</option>
-            <option value="Large Motorcycle">Large Motorcycle</option>
-          </select>
-        </label>
-        <label>
-          Distance Traveled(in km) by motorcycle:
-          <input
-            type="number"
-            value={vehicleDistance_motorcycle}
-            onChange={(e) =>
-              setVehicleDistance_motorcycle(Number(e.target.value))
-            }
-          />
-        </label>
-        <br />
-        <button onClick={handleVehicleCalculate}>
-          Calculate Vehicle Footprint
-        </button>
-        <br />
-        {vehicleCarbonFootprint !== null && (
-          <p>
-            Your estimated vehicle carbon footprint is: {vehicleCarbonFootprint}{" "}
-            kgCO2 per month
-          </p>
-        )}
-        {calculateCarbonFootprintVehicle}
+      <div className="w-[90%] flex flex-col items-center py-10 mx-[5vw]">
+        <div className="w-full pt-5 text:black bg-white font-extrabold sm:text-3xl md:text-4xl lg:text-4xl xl:text-4xl 2xl:text-5xl text-center">
+          Private Vehicle CarbonFootPrint
+        </div>
+
+        <div className="flex flex-row items-center flex-wrap bg-white w-full h-[90%]">
+          <div className="flex items-center flex-col w-full h-full lg:w-1/2 lg:mt-[1%] space-y-0 py-20">
+            <div className="flex flex-wrap flex-row items-center mb-4">
+              <span className="mr-2 font-medium">Mileage:</span>
+              <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
+                <input
+                  type="number"
+                  value={vehicleMPG}
+                  placeholder="In km/L"
+                  className="block rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
+                  onChange={(e) => setVehicleMPG(Number(e.target.value))}
+                />
+              </label>
+            </div>
+
+            <div className="flex flex-wrap flex-row items-center mb-4">
+              <label htmlFor="vehicleFuel" className="mr-2 font-medium">
+                Select Fuel Type:
+              </label>
+              <select
+                id="vehicleFuel"
+                value={vehicleFuel}
+                className="block rounded-sm bg-white px-2 py-2 text-sm font-medium border border-gray-300 focus:outline-none focus:border-blue-500"
+                onChange={(e) => setVehicleFuel(e.target.value)}
+              >
+                <option value="Petrol">Petrol</option>
+                <option value="Diesel">Diesel</option>
+              </select>
+            </div>
+
+            <br />
+
+            <div className="flex flex-wrap flex-row items-center mb-4">
+              <span className="mr-2 font-medium">Car:</span>
+              <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
+                <input
+                  type="number"
+                  value={vehicleDistance_car}
+                  placeholder="Distance in km"
+                  className="block rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
+                  onChange={(e) =>
+                    setVehicleDistance_car(Number(e.target.value))
+                  }
+                />
+              </label>
+            </div>
+
+            <br />
+
+            <div className="flex flex-wrap flex-row items-center mb-4">
+              <label htmlFor="motorcycleType" className="mr-2 font-medium">
+                Motorcycle type:
+              </label>
+              <select
+                id="motorcycleType"
+                value={motorcycletype}
+                className="block rounded-sm bg-white px-3 py-2 text-sm font-medium border border-gray-300 focus:outline-none focus:border-blue-500"
+                onChange={(e) => setmotorcycletype(e.target.value)}
+              >
+                <option value="Average Motorcycle">Average Motorcycle</option>
+                <option value="Small Motorcycle">Small Motorcycle</option>
+                <option value="Medium Motorcycle">Medium Motorcycle</option>
+                <option value="Large Motorcycle">Large Motorcycle</option>
+              </select>
+            </div>
+
+            <br />
+
+            <div className="flex flex-wrap flex-row items-center mb-4">
+              <span className="mr-2 font-medium">Motocycle:</span>
+              <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
+                <input
+                  type="number"
+                  value={vehicleDistance_motorcycle}
+                  placeholder="Distance in km"
+                  className="block rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
+                  onChange={(e) =>
+                    setVehicleDistance_motorcycle(Number(e.target.value))
+                  }
+                />
+              </label>
+            </div>
+
+            <br />
+
+            <button onClick={handleVehicleCalculate}>
+              <a className="group inline-block rounded bg-gradient-to-r from-yellow-300 via-lime-300 to-green-300 p-[2px] hover:text-white focus:outline-none focus:ring active:text-opacity-75">
+                <span className="block rounded-sm bg-white px-8 py-3 text-sm font-medium group-hover:bg-transparent">
+                  Calculate
+                </span>
+              </a>
+            </button>
+            <br />
+            {vehicleCarbonFootprint !== null && (
+              <div className="text-xl font-bold mb-4">
+                <p>Your estimated vehicle carbon footprint is: </p>
+                <p>{vehicleCarbonFootprint} kgCO2 per month</p>
+              </div>
+            )}
+            {calculateCarbonFootprintVehicle}
+          </div>
+
+          <div className="relative h-0 w-0 lg:h-full lg:w-1/2">
+            <img src={require("../assets/home.jpg")} />
+          </div>
+        </div>
       </div>
     );
 };

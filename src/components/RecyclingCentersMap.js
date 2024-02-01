@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {maps_api} from '../mapsKey';
+import {maps_api} from '../APIkeys';
 
 const RecyclingCentersMap = () => {
   const [infowindow, setInfowindow] = useState(null);
@@ -128,7 +128,7 @@ const RecyclingCentersMap = () => {
       };
     }
   }, [infowindow, map, service]);
-
+  console.log("map run");
   return <div id="map" style={{ height: '500px', width: '100%' }}></div>;
 };
 
