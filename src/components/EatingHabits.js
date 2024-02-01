@@ -9,6 +9,7 @@ import {
   where,
   getDocs,
 } from "firebase/firestore";
+import "./common/Tailwind.css";
 
 const EatingHabits = () => {
   const [username, setUsername] = useState("");
@@ -76,7 +77,7 @@ const EatingHabits = () => {
               "Eating habits data saved to Firestore for the current month"
             );
             await calculateAndStoreTotal(currentMonthRef,currentMonthYear,userDocRef);
-            navigate("/home");
+            // navigate("/home");
           } catch (error) {
             console.error(
               "Error saving eating habits data to Firestore:",
@@ -153,11 +154,11 @@ const EatingHabits = () => {
   const displayRemainingDaysInfo = () => {
     const remainingValue = calculateRemainingValue();
     if (remainingValue === 0) {
-      return <p>All days are accounted for.</p>;
+      return <div className="text-xl font-bold mb-4">All days are accounted for.</div>;
     } else if (remainingValue > 0) {
-      return <p>{remainingValue} days need to be accounted for.</p>;
+      return <div className="text-xl font-bold mb-4">{remainingValue} days need to be accounted for.</div>;
     } else {
-      return <p>{Math.abs(remainingValue)} days need to be removed.</p>;
+      return <div className="text-xl font-bold mb-4">{Math.abs(remainingValue)} days need to be removed.</div>;
     }
   };
 
@@ -197,116 +198,157 @@ const EatingHabits = () => {
   //   };
 
   return (
-    <div>
-      <h1>Eating Habits</h1>
-      <form>
-        <div>In the current month, how many days a week were you</div>
-        <div>
-          <label>High Meat-eater:</label>
-          <select
-            value={selectedOptions.highMeatEater}
-            onChange={(e) =>
-              handleDropdownChange("highMeatEater", e.target.value)
-            }
-          >
-            {[...Array(8)].map((_, i) => (
-              <option key={i} value={i}>
-                {i}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div>
-          <label>Medium Meat-eater:</label>
-          <select
-            value={selectedOptions.mediumMeatEater}
-            onChange={(e) =>
-              handleDropdownChange("mediumMeatEater", e.target.value)
-            }
-          >
-            {[...Array(8)].map((_, i) => (
-              <option key={i} value={i}>
-                {i}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div>
-          <label>Low Meat-eater:</label>
-          <select
-            value={selectedOptions.lowMeatEater}
-            onChange={(e) =>
-              handleDropdownChange("lowMeatEater", e.target.value)
-            }
-          >
-            {[...Array(8)].map((_, i) => (
-              <option key={i} value={i}>
-                {i}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div>
-          <label>Fish Eater</label>
-          <select
-            value={selectedOptions.fishEater}
-            onChange={(e) => handleDropdownChange("fishEater", e.target.value)}
-          >
-            {[...Array(8)].map((_, i) => (
-              <option key={i} value={i}>
-                {i}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div>
-          <label>Vegetarian:</label>
-          <select
-            value={selectedOptions.vegetarian}
-            onChange={(e) => handleDropdownChange("vegetarian", e.target.value)}
-          >
-            {[...Array(8)].map((_, i) => (
-              <option key={i} value={i}>
-                {i}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div>
-          <label>Vegan:</label>
-          <select
-            value={selectedOptions.vegan}
-            onChange={(e) => handleDropdownChange("vegan", e.target.value)}
-          >
-            {[...Array(8)].map((_, i) => (
-              <option key={i} value={i}>
-                {i}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div>
-          {/* Display remaining days information */}
-          {displayRemainingDaysInfo()}
-        </div>
-        <div>
-          {foodCarbonFootprint !== null && (
-            <div>
-              <h2>Total Food Carbon Footprint:</h2>
-              <p>{foodCarbonFootprint} KgCO2</p>
-            </div>
-          )}
-        </div>
-        {/* Display the values selected in the dropdown for each
-        {displaySelectedValues()} */}
+    <div className="w-[90%] flex flex-col items-center py-10 mx-[5vw]">
+      <div className="w-full pt-5 text:black bg-white font-extrabold sm:text-3xl md:text-4xl lg:text-4xl xl:text-4xl 2xl:text-5xl text-center">
+        Eating Habits
+      </div>
+      <div className="flex flex-row items-center flex-wrap bg-white w-full h-[90%]">
+        <div className="flex items-center flex-col w-full h-full lg:w-1/2 lg:mt-[1%] space-y-0 py-20">
+          <div className="text-xl font-bold mb-4">
+            In the current month,how many days a week were you
+          </div>
+          <br />
 
-        {/* Similar blocks for other questions */}
-        {/* Copy the above block for each question, replacing 'highMeatEater' with the respective question identifier */}
+          <div className="flex flex-wrap flex-row items-center mb-4">
+            <label className="mr-2 font-medium">High Meat-eater:</label>
+            <select
+              className="block rounded-sm bg-white px-2 py-2 text-sm font-medium border border-gray-300 focus:outline-none focus:border-blue-500"
+              value={selectedOptions.highMeatEater}
+              onChange={(e) =>
+                handleDropdownChange("highMeatEater", e.target.value)
+              }
+            >
+              {[...Array(8)].map((_, i) => (
+                <option key={i} value={i}>
+                  {i}
+                </option>
+              ))}
+            </select>
+          </div>
 
-        <button type="button" onClick={saveEatingHabits}>
-          Save Eating Habits
-        </button>
-      </form>
+          <br />
+
+          <div className="flex flex-wrap flex-row items-center mb-4">
+            <label className="mr-2 font-medium">Medium Meat-eater:</label>
+            <select
+              className="block rounded-sm bg-white px-2 py-2 text-sm font-medium border border-gray-300 focus:outline-none focus:border-blue-500"
+              value={selectedOptions.mediumMeatEater}
+              onChange={(e) =>
+                handleDropdownChange("mediumMeatEater", e.target.value)
+              }
+            >
+              {[...Array(8)].map((_, i) => (
+                <option key={i} value={i}>
+                  {i}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <br />
+
+          <div className="flex flex-wrap flex-row items-center mb-4">
+            <label className="mr-2 font-medium">Low Meat-eater:</label>
+            <select
+              className="block rounded-sm bg-white px-2 py-2 text-sm font-medium border border-gray-300 focus:outline-none focus:border-blue-500"
+              value={selectedOptions.lowMeatEater}
+              onChange={(e) =>
+                handleDropdownChange("lowMeatEater", e.target.value)
+              }
+            >
+              {[...Array(8)].map((_, i) => (
+                <option key={i} value={i}>
+                  {i}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <br />
+
+          <div className="flex flex-wrap flex-row items-center mb-4">
+            <label className="mr-2 font-medium">Fish Eater:</label>
+            <select
+              className="block rounded-sm bg-white px-2 py-2 text-sm font-medium border border-gray-300 focus:outline-none focus:border-blue-500"
+              value={selectedOptions.fishEater}
+              onChange={(e) =>
+                handleDropdownChange("fishEater", e.target.value)
+              }
+            >
+              {[...Array(8)].map((_, i) => (
+                <option key={i} value={i}>
+                  {i}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <br />
+
+          <div className="flex flex-wrap flex-row items-center mb-4">
+            <label className="mr-2 font-medium">Vegetarian:</label>
+            <select
+              className="block rounded-sm bg-white px-2 py-2 text-sm font-medium border border-gray-300 focus:outline-none focus:border-blue-500"
+              value={selectedOptions.vegetarian}
+              onChange={(e) =>
+                handleDropdownChange("vegetarian", e.target.value)
+              }
+            >
+              {[...Array(8)].map((_, i) => (
+                <option key={i} value={i}>
+                  {i}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <br />
+
+          <div className="flex flex-wrap flex-row items-center mb-4">
+            <label className="mr-2 font-medium">Vegan:</label>
+            <select
+              className="block rounded-sm bg-white px-2 py-2 text-sm font-medium border border-gray-300 focus:outline-none focus:border-blue-500"
+              value={selectedOptions.vegan}
+              onChange={(e) => handleDropdownChange("vegan", e.target.value)}
+            >
+              {[...Array(8)].map((_, i) => (
+                <option key={i} value={i}>
+                  {i}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <br />
+
+          <div>
+            {/* Display remaining days information */}
+            {displayRemainingDaysInfo()}
+          </div>
+
+          <br />
+
+          <div>
+            {foodCarbonFootprint !== null && (
+              <div className="text-xl font-bold mb-4">
+                Total Food Carbon Footprint:{foodCarbonFootprint} KgCO2
+              </div>
+            )}
+          </div>
+
+          <button type="button" onClick={saveEatingHabits}>
+            <a className="group inline-block rounded bg-gradient-to-r from-yellow-300 via-lime-300 to-green-300 p-[2px] hover:text-white focus:outline-none focus:ring active:text-opacity-75">
+              <span className="block rounded-sm bg-white px-8 py-3 text-sm font-medium group-hover:bg-transparent">
+                Calculate
+              </span>
+            </a>
+          </button>
+        </div>
+
+        <div className="relative h-0 w-0 lg:h-full lg:w-1/2">
+          <img src={require("../assets/home.jpg")} />
+        </div>
+      </div>
     </div>
   );
 };
