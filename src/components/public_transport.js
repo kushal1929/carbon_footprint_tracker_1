@@ -169,7 +169,7 @@ export const CarbonFootprintCalculatorPublicVehicle = () => {
                 kgCO2 per month
             </p>
             )}
-            {calculateCarbonFootprintPublicVehicle}
+            {/* {calculateCarbonFootprintPublicVehicle} */}
         </div>
     );
 };

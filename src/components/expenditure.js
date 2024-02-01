@@ -348,11 +348,11 @@ export const CarbonFootprintCalculatorExpenditure = () => {
             <br/>
             {ExpenditureCarbonFootprint !== null && (
             <p>
-                Your estimated vehicle carbon footprint is: {ExpenditureCarbonFootprint}{" "}
+                Your estimated carbon footprint from misc expenditures is: {ExpenditureCarbonFootprint}{" "}
                 kgCO2 per month
             </p>
             )}
-            {calculateCarbonFootprintExpenditure}
+            {/* {calculateCarbonFootprintExpenditure} */}
         </div>
     );
 };

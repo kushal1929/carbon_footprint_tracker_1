@@ -11,6 +11,7 @@ module.exports = {
     "./src/components/Prelogin.js",
     "./src/components/carbon.js",
     "./src/components/Quiz.js",
+    "./src/components/ActionPlan.js",
     
   ],
   theme: {

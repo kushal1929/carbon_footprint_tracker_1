@@ -196,7 +196,7 @@ export const CarbonFootprintCalculatorVehicle = () => {
             kgCO2 per month
           </p>
         )}
-        {calculateCarbonFootprintVehicle}
+        {/* {calculateCarbonFootprintVehicle} */}
       </div>
     );
 };
