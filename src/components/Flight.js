@@ -9,6 +9,7 @@ import {
   doc,
   setDoc,
 } from "firebase/firestore";
+import "./common/Tailwind.css";
 
 export const Flight = () => {
   const [flightClass, setFlightClass] = useState("economy"); // Default to economy class
@@ -70,7 +71,11 @@ export const Flight = () => {
           console.log(
             "Flight details saved to Firestore for the current month"
           );
-          await calculateAndStoreTotal(currentMonthRef,currentMonthYear,userDocRef);
+          await calculateAndStoreTotal(
+            currentMonthRef,
+            currentMonthYear,
+            userDocRef
+          );
           //          navigate('/home');
         } catch (error) {
           console.error("Error saving flight details to Firestore:", error);
@@ -86,9 +91,13 @@ export const Flight = () => {
     }
   };
 
-  const calculateAndStoreTotal = async (currentMonthRef,currentMonthYear,userDocRef) => {
-    const totalDocRef = collection(userDocRef, 'Total');
-    const totalMYDocRef=doc(totalDocRef,currentMonthYear)
+  const calculateAndStoreTotal = async (
+    currentMonthRef,
+    currentMonthYear,
+    userDocRef
+  ) => {
+    const totalDocRef = collection(userDocRef, "Total");
+    const totalMYDocRef = doc(totalDocRef, currentMonthYear);
 
     const querySnapshot = await getDocs(currentMonthRef);
 
@@ -117,15 +126,26 @@ export const Flight = () => {
       totalPublicVehicle,
       totalExpenditure,
       totalCarbonFootprint:
-        totalHome + totalFood + totalVehicle + totalFlight + totalPublicVehicle + totalExpenditure,
-        timestamp: new Date(),
+        totalHome +
+        totalFood +
+        totalVehicle +
+        totalFlight +
+        totalPublicVehicle +
+        totalExpenditure,
+      timestamp: new Date(),
     };
 
     try {
       await setDoc(totalMYDocRef, totalDocData);
-      console.log('Total carbon footprint data saved to Firestore for the current month ', totalDocData);
+      console.log(
+        "Total carbon footprint data saved to Firestore for the current month ",
+        totalDocData
+      );
     } catch (error) {
-      console.error('Error saving total carbon footprint data to Firestore:', error);
+      console.error(
+        "Error saving total carbon footprint data to Firestore:",
+        error
+      );
       alert(error.message);
     }
   };
@@ -145,39 +165,69 @@ export const Flight = () => {
   };
 
   return (
-    <div>
-      <h1>Flight Details</h1>
-      <div>
-        <label>Flight Class:</label>
-        <select
-          value={flightClass}
-          onChange={(e) => handleFlightClassChange(e.target.value)}
-        >
-          <option value="economy">Economy</option>
-          <option value="business">Business</option>
-          <option value="first">First Class</option>
-        </select>
+    <div className="w-[90%] flex flex-col items-center py-10 mx-[5vw]">
+      <div className="w-full pt-5 text:black bg-white font-extrabold sm:text-3xl md:text-4xl lg:text-4xl xl:text-4xl 2xl:text-5xl text-center">
+        Flight Details
       </div>
-      <div>
-        <label>Flight Hours:</label>
-        <input
-          type="number"
-          value={flightHours}
-          onChange={(e) => handleFlightHoursChange(e.target.value)}
-        />
-      </div>
-      <div>
-        {flightCarbonFootprint !== null && (
-          <div>
-            <h2>Total Flight Carbon Footprint:</h2>
-            <p>{flightCarbonFootprint} KgCO2</p>
-          </div>
-        )}
-      </div>
-      <button type="button" onClick={saveFlightDetails}>
-        Save Flight Details
-      </button>
 
+      <div className="flex flex-row items-center flex-wrap bg-white w-full h-[90%]">
+        <div className="flex items-center flex-col w-full h-full lg:w-1/2 lg:mt-[1%] space-y-0 py-20">
+          <div className="flex flex-wrap flex-row items-center mb-4">
+            <span htmlFor="flightClass" className="mr-2 font-medium">
+              Flight Class:
+            </span>
+
+            <select
+              id="flightClass"
+              value={flightClass}
+              className="block rounded-sm bg-white px-2 py-2 text-sm font-medium border border-gray-300 focus:outline-none focus:border-blue-500"
+              onChange={(e) => handleFlightClassChange(e.target.value)}
+            >
+              <option value="economy">Economy</option>
+              <option value="business">Business</option>
+              <option value="first">First Class</option>
+            </select>
+          </div>
+
+          <div className="flex flex-wrap flex-row items-center mb-4">
+            <span className="mr-2 font-medium">Flight Hours:</span>
+            <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
+              <input
+                type="number"
+                value={flightHours}
+                placeholder="In hrs"
+                className="block rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
+                onChange={(e) => handleFlightHoursChange(e.target.value)}
+              />
+            </label>
+          </div>
+
+          <br />
+
+          <button type="button" onClick={saveFlightDetails}>
+            <a className="group inline-block rounded bg-gradient-to-r from-yellow-300 via-lime-300 to-green-300 p-[2px] hover:text-white focus:outline-none focus:ring active:text-opacity-75">
+              <span className="block rounded-sm bg-white px-8 py-3 text-sm font-medium group-hover:bg-transparent">
+                Calculate
+              </span>
+            </a>
+          </button>
+
+          <br />
+
+          <div>
+            {flightCarbonFootprint !== null && (
+              <div className="text-xl font-bold mb-4">
+                <p>Total Flight Carbon Footprint:</p>
+                <p>{flightCarbonFootprint} KgCO2</p>
+              </div>
+            )}
+          </div>
+        </div>
+
+        <div className="relative h-0 w-0 lg:h-full lg:w-1/2">
+          <img src={require("../assets/home.jpg")} />
+        </div>
+      </div>
     </div>
   );
 };
