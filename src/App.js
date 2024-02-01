@@ -24,6 +24,7 @@ import ForgotPassword from './components/ForgotPassword';
 import ConsumptionData from './components/ConsumptionData';
 import ActionPlan from './components/ActionPlan';
 import Quiz from './components/Quiz.js';
+import Feedback from './components/Feedback';
 
 function App() {
   const [email, setEmail] = useState('');
@@ -120,6 +121,7 @@ function App() {
         <Route path="/Flight" element={<Flight />} />
         <Route path="/action-plan" element={<ActionPlan/>}/>
         <Route path="/Quiz" element={<Quiz />} />
+        <Route path="/feedback" element={<Feedback />}/>
         
       </Routes>
     </div>
