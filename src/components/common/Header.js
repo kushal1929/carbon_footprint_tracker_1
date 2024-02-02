@@ -14,7 +14,7 @@ import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/
 import './Tailwind.css'
 
 const products = [
-  { name: 'Analytics', description: 'Get a better understanding of your traffic', href: '#', icon: ChartPieIcon },
+  { name: 'Analytics', description: 'Get a better understanding of your Carbon Footprint', href: '/Analytics', icon: ChartPieIcon },
   { name: 'Feedback', description: 'Let us know where we can improve', href: '/feedback', icon: CursorArrowRaysIcon },
   { name: 'Security', description: 'Your customers’ data will be safe and secure', href: '#', icon: FingerPrintIcon },
   { name: 'Integrations', description: 'Connect with third-party tools', href: '#', icon: SquaresPlusIcon },
@@ -122,6 +122,8 @@ const handleLogout = () => {
           <a href="/Quiz" className="text-sm font-semibold leading-6 text-gray-900">
             Quiz
           </a>
+
+
         </Popover.Group>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <button onClick={handleLogout} className="text-sm font-semibold leading-6 text-gray-900">
@@ -201,6 +203,12 @@ const handleLogout = () => {
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   Quiz
+                </a>
+                <a
+                  href="/Analytics"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                >
+                  Analytics
                 </a>
               </div>
               
