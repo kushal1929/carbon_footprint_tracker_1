@@ -282,9 +282,9 @@ export const CarbonFootprintCalculatorVehicle = () => {
             {/* {calculateCarbonFootprintVehicle} */}
           </div>
 
-          <div className="relative h-0 w-0 lg:h-full lg:w-1/2">
-            <img src={require("../assets/home.jpg")} />
-          </div>
+          <div className="flex lg:h-full w-0 lg:w-1/2 px-5 py-10">
+          <img className="object-contain" src={require("../assets/vehicle.jpg")}/>
+        </div>
         </div>
       </div>
     );
