@@ -173,7 +173,7 @@ export const CarbonFootprintCalculator = () => {
 
   return (
     <div className="w-[90%] flex flex-col items-center py-10 mx-[5vw]">
-      <div className="w-full pt-5 text:black bg-white font-extrabold sm:text-3xl md:text-4xl lg:text-4xl xl:text-4xl 2xl:text-5xl text-center">
+      <div className="w-full pt-5 text:black bg-white font-extrabold sm:text-3xl md:text-4xl lg:text-4xl xl:text-4xl 2xl:text-5xl text-center z-10">
         Carbon Footprint Calculator
       </div>
 

@@ -9,6 +9,7 @@ import {
   doc,
   setDoc,
 } from "firebase/firestore";
+import { FaQuestionCircle } from "react-icons/fa";
 import "./common/Tailwind.css";
 
 export const CarbonFootprintCalculatorVehicle = () => {
@@ -22,7 +23,12 @@ export const CarbonFootprintCalculatorVehicle = () => {
 
     const db = getFirestore();
     const usersCollection = collection(db, "users");
+    const [tooltipVisible, setTooltipVisible] = useState(false);
     const navigate = useNavigate();
+
+    const toggleTooltip = () => {
+      setTooltipVisible(!tooltipVisible);
+    };
 
     const calculateCarbonFootprintVehicle = async (vehicleCarbonFootprint) => {
         const newvehicledata ={
@@ -176,7 +182,7 @@ export const CarbonFootprintCalculatorVehicle = () => {
     
     return (
       <div className="w-[90%] flex flex-col items-center py-10 mx-[5vw]">
-        <div className="w-full pt-5 text:black bg-white font-extrabold sm:text-3xl md:text-4xl lg:text-4xl xl:text-4xl 2xl:text-5xl text-center">
+        <div className="w-full pt-5 text:black bg-white font-extrabold sm:text-3xl md:text-4xl lg:text-4xl xl:text-4xl 2xl:text-5xl text-center z-10">
           Private Vehicle CarbonFootPrint
         </div>
 
@@ -229,23 +235,40 @@ export const CarbonFootprintCalculatorVehicle = () => {
 
             <br />
 
-            <div className="flex flex-wrap flex-row items-center mb-4">
-              <label htmlFor="motorcycleType" className="mr-2 font-medium">
-                Motorcycle type:
-              </label>
-              <select
-                id="motorcycleType"
-                value={motorcycletype}
-                className="block rounded-sm bg-white px-3 py-2 text-sm font-medium border border-gray-300 focus:outline-none focus:border-blue-500"
-                onChange={(e) => setmotorcycletype(e.target.value)}
-              >
-                <option value="Average Motorcycle">Average Motorcycle</option>
-                <option value="Small Motorcycle">Small Motorcycle</option>
-                <option value="Medium Motorcycle">Medium Motorcycle</option>
-                <option value="Large Motorcycle">Large Motorcycle</option>
-              </select>
+            <div className="flex flex-row">
+              <div>
+                <FaQuestionCircle
+                  onMouseEnter={toggleTooltip}
+                  onMouseLeave={toggleTooltip}
+                />
+                {tooltipVisible && (
+                  <div className="absolute -left-[24px] bg-white p-2 rounded shadow-lg z-10">
+                    <div className="flex flex-col z-10">
+                      <p>Engine sizes:</p>
+                      <li>Small &lt;125cc </li>
+                      <li>Medium 125cc to 150cc</li>
+                      <li>Large &gt;500cc</li>
+                    </div>
+                  </div>
+                )}
+              </div>
+              <div className="flex flex-wrap flex-row items-center mb-4">
+                <label htmlFor="motorcycleType" className="mr-2 font-medium">
+                  Motorcycle type:
+                </label>
+                <select
+                  id="motorcycleType"
+                  value={motorcycletype}
+                  className="block rounded-sm bg-white px-3 py-2 text-sm font-medium border border-gray-300 focus:outline-none focus:border-blue-500"
+                  onChange={(e) => setmotorcycletype(e.target.value)}
+                >
+                  <option value="Average Motorcycle">Average Motorcycle</option>
+                  <option value="Small Motorcycle">Small Motorcycle</option>
+                  <option value="Medium Motorcycle">Medium Motorcycle</option>
+                  <option value="Large Motorcycle">Large Motorcycle</option>
+                </select>
+              </div>
             </div>
-
             <br />
 
             <div className="flex flex-wrap flex-row items-center mb-4">

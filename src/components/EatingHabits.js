@@ -9,6 +9,7 @@ import {
   where,
   getDocs,
 } from "firebase/firestore";
+import { FaQuestionCircle } from "react-icons/fa";
 import "./common/Tailwind.css";
 
 const EatingHabits = () => {
@@ -24,6 +25,7 @@ const EatingHabits = () => {
     vegan: 0,
   });
 
+  const [tooltipVisible, setTooltipVisible] = useState(false);
   const navigate = useNavigate();
 
   const handleDropdownChange = (question, value) => {
@@ -31,6 +33,10 @@ const EatingHabits = () => {
       ...prevOptions,
       [question]: parseInt(value, 10),
     }));
+  };
+
+  const toggleTooltip = () => {
+    setTooltipVisible(!tooltipVisible);
   };
 
   const saveEatingHabits = async () => {
@@ -199,7 +205,7 @@ const EatingHabits = () => {
 
   return (
     <div className="w-[90%] flex flex-col items-center py-10 mx-[5vw]">
-      <div className="w-full pt-5 text:black bg-white font-extrabold sm:text-3xl md:text-4xl lg:text-4xl xl:text-4xl 2xl:text-5xl text-center">
+      <div className="w-full pt-5 text:black bg-white font-extrabold sm:text-3xl md:text-4xl lg:text-4xl xl:text-4xl 2xl:text-5xl text-center z-10">
         Eating Habits
       </div>
       <div className="flex flex-row items-center flex-wrap bg-white w-full h-[90%]">
@@ -209,24 +215,44 @@ const EatingHabits = () => {
           </div>
           <br />
 
-          <div className="flex flex-wrap flex-row items-center mb-4">
-            <label className="mr-2 font-medium">High Meat-eater:</label>
-            <select
-              className="block rounded-sm bg-white px-2 py-2 text-sm font-medium border border-gray-300 focus:outline-none focus:border-blue-500"
-              value={selectedOptions.highMeatEater}
-              onChange={(e) =>
-                handleDropdownChange("highMeatEater", e.target.value)
-              }
-            >
-              {[...Array(8)].map((_, i) => (
-                <option key={i} value={i}>
-                  {i}
-                </option>
-              ))}
-            </select>
+          <div className="flex flex-row">
+            <div>
+              <FaQuestionCircle
+                onMouseEnter={toggleTooltip}
+                onMouseLeave={toggleTooltip}
+              />
+              {tooltipVisible && (
+                <div className="absolute -left-[24px] bg-white p-2 rounded shadow-lg z-10">
+                  <div className="flex flex-col z-10">
+                    <p>High meat-eater:More than 100g per day</p>
+                    <p>Medium meat-eater:Between 50g & 100g per day</p>
+                    <p>Low meat-eater:Less than 50g per day</p>
+                    <p>Some average weights:</p>
+                    <ui>Rump steak-200g</ui>
+                    <ui>Lamb chop-150g</ui>
+                    <ui>Quarter pounder burger-114g</ui>
+                    <ui>Chicken drumstick-85g</ui>
+                  </div>
+                </div>
+              )}
+            </div>
+            <div className="flex flex-wrap flex-row items-center mb-4">
+              <label className="mr-2 font-medium">High Meat-eater:</label>
+              <select
+                className="block rounded-sm bg-white px-2 py-2 text-sm font-medium border border-gray-300 focus:outline-none focus:border-blue-500"
+                value={selectedOptions.highMeatEater}
+                onChange={(e) =>
+                  handleDropdownChange("highMeatEater", e.target.value)
+                }
+              >
+                {[...Array(8)].map((_, i) => (
+                  <option key={i} value={i}>
+                    {i}
+                  </option>
+                ))}
+              </select>
+            </div>
           </div>
-
-          <br />
 
           <div className="flex flex-wrap flex-row items-center mb-4">
             <label className="mr-2 font-medium">Medium Meat-eater:</label>

@@ -9,6 +9,7 @@ import {
     doc,
     setDoc,
 } from "firebase/firestore";
+import { FaQuestionCircle } from "react-icons/fa";
 
 export const CarbonFootprintCalculatorExpenditure = () => {
     const [Eating_out, setEating_out] = useState("");
@@ -33,7 +34,11 @@ export const CarbonFootprintCalculatorExpenditure = () => {
 
     const db = getFirestore();
     const usersCollection = collection(db, "users");
+    const [tooltipVisible, setTooltipVisible] = useState(false);
     const navigate = useNavigate();
+    const toggleTooltip = () => {
+      setTooltipVisible(!tooltipVisible);
+    };
 
     const calculateCarbonFootprintExpenditure = async (
         ExpenditureCarbonFootprint
@@ -214,14 +219,14 @@ export const CarbonFootprintCalculatorExpenditure = () => {
 
     return (
       <div className="w-[90%] flex flex-col items-center py-10 mx-[5vw]">
-        <div className="w-full pt-5 text:black bg-white font-extrabold sm:text-3xl md:text-4xl lg:text-4xl xl:text-4xl 2xl:text-5xl text-center">
+        <div className="w-full pt-5 text:black bg-white font-extrabold sm:text-3xl md:text-4xl lg:text-4xl xl:text-4xl 2xl:text-5xl text-center z-10">
           CarbonFootPrint from Expenditure
         </div>
 
         <div className="flex flex-row items-center flex-wrap bg-white w-full h-[90%]">
           <div className="flex items-center flex-col w-full h-full lg:w-1/2 lg:mt-[1%] space-y-0 py-20">
             <div className="flex flex-wrap flex-row items-center mb-4">
-              <span className="mr-2 font-medium">Expenditure on Food:</span>
+              <span className="mr-2 font-medium">Food:</span>
               <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
                 <input
                   type="number"
@@ -234,9 +239,7 @@ export const CarbonFootprintCalculatorExpenditure = () => {
             </div>
 
             <div className="flex flex-wrap flex-row items-center mb-4">
-              <span className="mr-2 font-medium">
-                Expenditure on Car Maintenance:
-              </span>
+              <span className="mr-2 font-medium">Car Maintenance:</span>
               <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
                 <input
                   type="number"
@@ -251,7 +254,7 @@ export const CarbonFootprintCalculatorExpenditure = () => {
             <br />
 
             <div className="flex flex-wrap flex-row items-center mb-4">
-              <span className="mr-2 font-medium">Expenditure on clothing:</span>
+              <span className="mr-2 font-medium">Clothing:</span>
               <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
                 <input
                   type="number"
@@ -266,9 +269,7 @@ export const CarbonFootprintCalculatorExpenditure = () => {
             <br />
 
             <div className="flex flex-wrap flex-row items-center mb-4">
-              <span className="mr-2 font-medium">
-                Expenditure on furniture:
-              </span>
+              <span className="mr-2 font-medium">Furniture:</span>
               <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
                 <input
                   type="number"
@@ -283,9 +284,7 @@ export const CarbonFootprintCalculatorExpenditure = () => {
             <br />
 
             <div className="flex flex-wrap flex-row items-center mb-4">
-              <span className="mr-2 font-medium">
-                Expenditure on Domestic Water:
-              </span>
+              <span className="mr-2 font-medium">Domestic Water:</span>
               <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
                 <input
                   type="number"
@@ -300,9 +299,7 @@ export const CarbonFootprintCalculatorExpenditure = () => {
             <br />
 
             <div className="flex flex-wrap flex-row items-center mb-4">
-              <span className="mr-2 font-medium">
-                Expenditure on Telephone & Internet:
-              </span>
+              <span className="mr-2 font-medium">Telephone & Internet:</span>
               <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
                 <input
                   type="number"
@@ -319,9 +316,7 @@ export const CarbonFootprintCalculatorExpenditure = () => {
             <br />
 
             <div className="flex flex-wrap flex-row items-center mb-4">
-              <span className="mr-2 font-medium">
-                Expenditure on Computer & Electronics:
-              </span>
+              <span className="mr-2 font-medium">Computer & Electronics:</span>
               <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
                 <input
                   type="number"
@@ -336,9 +331,7 @@ export const CarbonFootprintCalculatorExpenditure = () => {
             <br />
 
             <div className="flex flex-wrap flex-row items-center mb-4">
-              <span className="mr-2 font-medium">
-                Expenditure on Electrical Appliances:
-              </span>
+              <span className="mr-2 font-medium">Electrical Appliances:</span>
               <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
                 <input
                   type="number"
@@ -355,9 +348,7 @@ export const CarbonFootprintCalculatorExpenditure = () => {
             <br />
 
             <div className="flex flex-wrap flex-row items-center mb-4">
-              <span className="mr-2 font-medium">
-                Expenditure on Postage & Couriers:
-              </span>
+              <span className="mr-2 font-medium">Postage & Couriers:</span>
               <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
                 <input
                   type="number"
@@ -372,9 +363,7 @@ export const CarbonFootprintCalculatorExpenditure = () => {
             <br />
 
             <div className="flex flex-wrap flex-row items-center mb-4">
-              <span className="mr-2 font-medium">
-                Expenditure on Magazines & Books:
-              </span>
+              <span className="mr-2 font-medium">Magazines & Books:</span>
               <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
                 <input
                   type="number"
@@ -389,9 +378,7 @@ export const CarbonFootprintCalculatorExpenditure = () => {
             <br />
 
             <div className="flex flex-wrap flex-row items-center mb-4">
-              <span className="mr-2 font-medium">
-                Expenditure on Stationary:
-              </span>
+              <span className="mr-2 font-medium">Stationary:</span>
               <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
                 <input
                   type="number"
@@ -406,9 +393,7 @@ export const CarbonFootprintCalculatorExpenditure = () => {
             <br />
 
             <div className="flex flex-wrap flex-row items-center mb-4">
-              <span className="mr-2 font-medium">
-                Expenditure on Hair & Self-care:
-              </span>
+              <span className="mr-2 font-medium">Hair & Self-care:</span>
               <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
                 <input
                   type="number"
@@ -423,7 +408,7 @@ export const CarbonFootprintCalculatorExpenditure = () => {
             <br />
 
             <div className="flex flex-wrap flex-row items-center mb-4">
-              <span className="mr-2 font-medium">Expenditure on Pet Food:</span>
+              <span className="mr-2 font-medium">Pet Food:</span>
               <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
                 <input
                   type="number"
@@ -438,9 +423,7 @@ export const CarbonFootprintCalculatorExpenditure = () => {
             <br />
 
             <div className="flex flex-wrap flex-row items-center mb-4">
-              <span className="mr-2 font-medium">
-                Expenditure on Hotel Stays:
-              </span>
+              <span className="mr-2 font-medium">Hotel Stays:</span>
               <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
                 <input
                   type="number"
@@ -455,9 +438,7 @@ export const CarbonFootprintCalculatorExpenditure = () => {
             <br />
 
             <div className="flex flex-wrap flex-row items-center mb-4">
-              <span className="mr-2 font-medium">
-                Expenditure on Insurance:
-              </span>
+              <span className="mr-2 font-medium">Insurance:</span>
               <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
                 <input
                   type="number"
@@ -471,21 +452,40 @@ export const CarbonFootprintCalculatorExpenditure = () => {
 
             <br />
 
-            <div className="flex flex-wrap flex-row items-center mb-4">
-              <span className="mr-2 font-medium">
-                Expenditure on Other Legal Services:
-              </span>
-              <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
-                <input
-                  type="number"
-                  placeholder="In USD"
-                  className="block rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
-                  value={Other}
-                  onChange={(e) => setOther(Number(e.target.value))}
+            <div className="flex flex-row">
+              <div>
+                <FaQuestionCircle
+                  onMouseEnter={toggleTooltip}
+                  onMouseLeave={toggleTooltip}
                 />
-              </label>
-            </div>
+                {tooltipVisible && (
+                  <div className="absolute -left-[24px] bg-white p-2 rounded shadow-lg z-10">
+                    <div className="flex flex-col z-10">
+                      <p>
+                        Any kind of legal representation, includes
+                        solicitors,will
+                      </p>
+                      <p>
+                        writing services, etc. Excludes actually going to court.
+                      </p>
+                    </div>
+                  </div>
+                )}
+              </div>
 
+              <div className="flex flex-wrap flex-row items-center mb-4">
+                <span className="mr-2 font-medium">Other Legal Services:</span>
+                <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
+                  <input
+                    type="number"
+                    placeholder="In USD"
+                    className="block rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
+                    value={Other}
+                    onChange={(e) => setOther(Number(e.target.value))}
+                  />
+                </label>
+              </div>
+            </div>
             <br />
 
             <button onClick={handleExpenditureCalculate}>
