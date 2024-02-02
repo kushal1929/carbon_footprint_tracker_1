@@ -42,12 +42,10 @@ const ConsumptionData = () => {
       <Header />
       
         <div
-          className="flex flex-wrap w-full rounded-lg border border-gray-100 text-sm text-gray-500 my-[3%]"
+          className="flex flex-wrap w-full rounded-lg border border-gray-100 text-sm text-emerald-700 my-[3%]"
         >
-          <button className="flex grow lime-200" onClick={handleNavigateToCarbon}>
-            <div className="flex grow items-center justify-center gap-2 p-4" style={{
-                backgroundColor: activeSection === "carbon" ? "lightgreen" : "rgb(233,233,233)",
-              }}>
+          <button className="flex grow " onClick={handleNavigateToCarbon}>
+            <div className={`flex flex-grow items-center justify-center gap-2 p-4 ${activeSection === "carbon" ? "bg-emerald-700 text-white" : "bg-white"}`}>
 
               <FaHouse size={30}/>
 
@@ -59,9 +57,7 @@ const ConsumptionData = () => {
           </button>
 
           <button className="flex grow" onClick={handleNavigateToEatingHabits}>
-            <div  style={{
-                backgroundColor: activeSection === "eating" ? "lightgreen" : "white",
-              }} className="flex grow items-center justify-center gap-2 p-4">
+          <div className={`flex flex-grow items-center justify-center gap-2 p-4 ${activeSection === "eating" ? "bg-emerald-700 text-white" : "bg-white"}`}>
             
               <FaBowlRice size={30}/>
               <p className="hidden sm:leading-none sm:block">
@@ -72,9 +68,7 @@ const ConsumptionData = () => {
           </button>
 
           <button className="flex grow " onClick={handleNavigateToVehicle}>
-            <div className="flex grow items-center justify-center gap-2 p-4" style={{
-                backgroundColor: activeSection === "vehicle" ? "lightgreen" : "white",
-              }}>
+          <div className={`flex flex-grow items-center justify-center gap-2 p-4 ${activeSection === "vehicle" ? "bg-emerald-700 text-white" : "bg-white"}`}>
               <FaCar size={30}/>
               <p className="hidden sm:leading-none sm:block">
                 <strong className="block font-medium"> Vehicle Footprint </strong>
@@ -84,9 +78,7 @@ const ConsumptionData = () => {
           </button>
 
           <button className="flex grow" onClick={handleNavigateToPublicVehicle}>
-            <div className="flex grow items-center justify-center gap-2 p-4" style={{
-                backgroundColor: activeSection === "public_vehicle" ? "lightgreen" : "white",
-              }}>
+          <div className={`flex flex-grow items-center justify-center gap-2 p-4 ${activeSection === "public_vehicle" ? "bg-emerald-700 text-white" : "bg-white"}`}>
               <FaBusSimple size={30}/>
               <p className="hidden sm:leading-none sm:block">
                 <strong className="block font-medium"> Public Transport </strong>
@@ -96,9 +88,7 @@ const ConsumptionData = () => {
           </button>
 
           <button  className="flex grow" onClick={handleNavigateToFlight}>
-            <div className="flex grow items-center justify-center gap-2 p-4" style={{
-                backgroundColor: activeSection === "Flight" ? "darkgrey" : "white",
-              }}>
+          <div className={`flex flex-grow items-center justify-center gap-2 p-4 ${activeSection === "Flight" ? "bg-emerald-700 text-white" : "bg-white"}`}>
               <FaPlane size={30}/>
               <p className="hidden sm:leading-none sm:block">
                 <strong className="block font-medium"> Flight footprint </strong>
@@ -108,9 +98,7 @@ const ConsumptionData = () => {
           </button>
 
           <button className="flex grow" onClick={handleNavigateToExpenditure}>
-            <div className="flex grow items-center justify-center gap-2 p-4" style={{
-                backgroundColor: activeSection === "expenditure" ? "lightgreen" : "white",
-              }}>
+          <div className={`flex flex-grow items-center justify-center gap-2 p-4 ${activeSection === "expenditure" ? "bg-emerald-700 text-white" : "bg-white"}`}>
               <FaDollarSign size={30}/>
               <p className="hidden sm:leading-none sm:block">
                 <strong className="block font-medium"> Expenditure </strong>

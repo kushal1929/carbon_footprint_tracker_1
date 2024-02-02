@@ -12,10 +12,10 @@ import {
   orderBy,
 } from "firebase/firestore";
 
-export function Prompt1fetchData(){
+export function Prompt2fetchData(){
   const [userData, setUserData] = useState([]);
-    const [prompt1, setPrompt1] = useState([]);
-    const [prompt1string, setPromptString] = useState('');
+    const [prompt2, setPrompt2] = useState([]);
+    const [prompt2string, setPromptString] = useState('');
     const navigate=useNavigate();
 
     useEffect(() => {
@@ -52,8 +52,8 @@ export function Prompt1fetchData(){
               // Set the state with the fetched data
               setUserData(userDataArray);
 
-              const prompt1Data = userDataArray.filter((user) => user.id === 'consumptionFlight' || user.id === 'consumptionFood');
-              const filteredPrompt1Data = prompt1Data.map((user) => {
+              const prompt2Data = userDataArray.filter((user) => ['consumptionvehicle', 'consumptionPublicvehicle','consumptionHome'].includes(user.id));
+              const filteredPrompt2Data = prompt2Data.map((user) => {
                 const { timestamp, ...filteredData } = user.data;
                 for (const key in filteredData) {
                   if (key.includes('CarbonFootprint')) {
@@ -63,8 +63,8 @@ export function Prompt1fetchData(){
                 return { id: user.id, data: filteredData };
               });
       
-              setPrompt1(filteredPrompt1Data);
-              const formattedString = filteredPrompt1Data.map((user) => convertDataToString(user.data)).join('\n');
+              setPrompt2(filteredPrompt2Data);
+              const formattedString = filteredPrompt2Data.map((user) => convertDataToString(user.data)).join('\n');
               setPromptString(formattedString);
             } catch (error) {
               console.error('Error fetching data:', error);
@@ -88,7 +88,7 @@ export function Prompt1fetchData(){
           return result;
         };
         
-        return {prompt1string};
+        return {prompt2string};
 
 
 }
@@ -96,7 +96,7 @@ export function Prompt1fetchData(){
 
 
 
-export function prompt1send(prompt1string){
+export function prompt2send(prompt2string){
 const {
     GoogleGenerativeAI,
     HarmCategory,
@@ -135,16 +135,12 @@ const {
         threshold: HarmBlockThreshold.BLOCK_MEDIUM_AND_ABOVE,
       },
     ];
-    console.log(prompt1string);
+    console.log(prompt2string);
     const parts = [
-      {text: "The input is a user's monthly Information about their flights and the number of days in a week for which the user eats meat/veg is also given.As an environmentalist, compare the values with the recommended values and create a personalized action plan the user can take to reduce their carbon footprint based on this data.Some recommended values:flightHours:<5 hoursflightClass:\"economy\"total non-veg eating days <5Don't give steps for values within the recommended values. For example, if the user is already flying economy, do not recommend taking economy again.Do not mention any absolute numeric value. "},
-      {text: "input: flightClass:\"economy\"\nflightHours:20\n\nfishEater:0 \nhighMeatEater:0 \nlowMeatEater:0 \nmediumMeatEater:0 \nvegan:0 \nvegetarian:7"},
-      {text: "output: 1.Reduce the number of flights you take each month.\n2.Consider taking the train or bus instead of flying for short distances.\n3.Pack light to reduce the weight of your luggage.\n4.Buy local and organic food whenever possible.\n5.Take direct flights instead of connecting flights, as takeoffs and landings contribute significantly to carbon emissions."},
-      {text: "input: flightClass:\"business\"\nflightHours:15\n\nfishEater:2\nhighMeatEater:3\nlowMeatEater:0\nmediumMeatEater:0 \nvegan:0 \nvegetarian:2"},
-      {text: "output: 1.Opt for economy class rather than business or first class when flying.\n2.Decrease the frequency of your monthly flights.\n3.Travel with lighter luggage to minimize the weight and, consequently, the carbon footprint.\n4.Select nonstop flights over connecting flights,since takeoffs and landings significantly contribute to carbon emissions.\n5.Reduce the number of days you eat meat each week.\n6.Incorporate more plant-based options into your diet, including fruits, vegetables, and whole grains.\n7.Choose sustainably-sourced meat and fish."},
-      {text: "input: flightClass:\"economy\"\nflightHours:2\n\nfishEater:0\nhighMeatEater:0\nlowMeatEater:0\nmediumMeatEater:0 \nvegan:0 \nvegetarian:7"},
-      {text: "output: 1.You are already flying economy class, which is good.\n2.Consider taking the train or bus instead of flying for short distances.\n3.Travel with lighter luggage to cut down on the overall weight.\n4.Whenever feasible, choose local and organic food purchases.\n5.Take direct flights instead of connecting flights, as takeoffs and landings contribute significantly to carbon emissions."},
-      {text: `input:${prompt1string} `},
+      {text: "The input is a user's monthly Information about the resources used at home in kgs or kWh. and distance covered in private/public transport. As an environmentalist, compare the values with the recommended values and create a personalized action plan the user can take to reduce their carbon footprint based on this data.Do not mention any absolute numeric value."},
+      {text: "input: Coal:1\nBioMass:1\nHeatingOil:1\nNaturalGas:1\nNumberOfPeople:2\nLPG:1\nelectric:5\n\nLocalBus:80\nNational_Rail:54\n\nvehicleDistance_motorcycle:100\nvehicleFuel:Petrol\nmotorcycletype:Average Motorcycle\nvehicleDistance_car:300\nvehicleMPG:20"},
+      {text: "output: 1.Opt for buses, trains, or subways instead of private cars.\n2.Use a bicycle or walk for short distances.\n3.Regularly service and maintain you car. Properly inflated tires and well-maintained engines contribute to better gas mileage.\n4.Adopt fuel-efficient driving habits, such as smooth acceleration and deceleration.\n5.If possible, consider installing solar panels or using renewable energy sources to power your home.\n6.Use energy-efficient LED light bulbs instead of incandescent ones. \n7.Fully power down computers and other appliances when not in use."},
+      {text: `input:${prompt2string} `},
       {text: "output: "},
     ];
   

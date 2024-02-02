@@ -8,10 +8,15 @@ module.exports = {
     "./src/components/common/Home_card.js",
     "./src/components/ConsumptionData.js",
     "./src/components/Prelogin_2.js",
-    "./src/components/Prelogin.js",
     "./src/components/carbon.js",
+    "./src/components/Prelogin.js",
+    ".src/components/EatingHabits.js",
+    ".src/components/public_transport.js",
+    ".src/components/vehicle.js",
     "./src/components/Quiz.js",
+    "./src/components/Flight.js",
     "./src/components/Feedback.js",
+    "./src/components/ActionPlan.js",
     
   ],
   theme: {
