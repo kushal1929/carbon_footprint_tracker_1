@@ -16,6 +16,7 @@ module.exports = {
     "./src/components/Quiz.js",
     "./src/components/Flight.js",
     "./src/components/Feedback.js",
+    "./src/components/ActionPlan.js",
     
   ],
   theme: {

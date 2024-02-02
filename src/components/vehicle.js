@@ -302,7 +302,7 @@ export const CarbonFootprintCalculatorVehicle = () => {
                 <p>{vehicleCarbonFootprint} kgCO2 per month</p>
               </div>
             )}
-            {calculateCarbonFootprintVehicle}
+            {/* {calculateCarbonFootprintVehicle} */}
           </div>
 
           <div className="relative h-0 w-0 lg:h-full lg:w-1/2">

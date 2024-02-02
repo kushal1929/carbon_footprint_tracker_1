@@ -498,11 +498,11 @@ export const CarbonFootprintCalculatorExpenditure = () => {
             <br />
             {ExpenditureCarbonFootprint !== null && (
               <div className="text-xl font-bold mb-4">
-                <p>Your estimated vehicle carbon footprint is: </p>
+                <p>Your estimated carbon footprint from misc expenditures is: </p>
                 {ExpenditureCarbonFootprint} kgCO2 per month
               </div>
             )}
-            {calculateCarbonFootprintExpenditure}
+            {/* {calculateCarbonFootprintExpenditure} */}
           </div>
 
           <div className="relative h-0 w-0 lg:h-full lg:w-1/2">

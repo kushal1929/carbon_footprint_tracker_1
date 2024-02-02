@@ -13,109 +13,88 @@ import { app } from "../firebaseconfig";
 import Header from "./common/Header";
 import "./common/Tailwind.css";
 import { prompt1send } from "./Prompt1";
+import { prompt2send } from "./Prompt2";
+import { Prompt1fetchData } from "./Prompt1";
+import { Prompt2fetchData } from "./Prompt2";
 
 export default function ActionPlan(){
 
-    const [userData, setUserData] = useState([]);
-    const [prompt1, setPrompt1] = useState([]);
-    const [prompt1string, setPromptString] = useState('');
-    const [prompt1Response, setPrompt1Response] = useState('');
-    const navigate=useNavigate();
+  const [prompt1Response, setPrompt1Response] = useState('');
+  const [prompt2Response, setPrompt2Response] = useState('');
+  const {prompt2string} = Prompt2fetchData();
+  const {prompt1string} = Prompt1fetchData();
+ 
 
-    useEffect(() => {
+  useEffect(() => {
+    const fetchResponses = async () => {
+      try {
+        if (prompt1string!=='' && prompt2string!=='') {
+          
+          const [resp1, resp2] = await Promise.all([
+            prompt1send(prompt1string),
+            prompt2send(prompt2string)
+          ]);
 
-        const userEmail = sessionStorage.getItem("User Email");
-        const username = sessionStorage.getItem("Username");
-        if (!userEmail) {
-          navigate("/login"); // Redirect to login if user email is not found
-          return;
+          setPrompt1Response(resp1);
+          setPrompt2Response(resp2);
+
+           // Reset the flag after requests are complete
         }
-        const fetchData = async () => {
-            try {
-              const db = getFirestore();
-              const usersCollection = collection(db, 'users');
-      
-              // Get the current month and year
-              const currentDate = new Date();
-              const currentMonthYear = currentDate.toLocaleString('default', { month: 'long', year: 'numeric' });
-              
-              console.log(username);
-              console.log(currentMonthYear);
-              // Replace 'username', currentMonth, and currentYear with the actual values
-              const currentMonthDocs = await getDocs(collection(usersCollection, username, currentMonthYear));
-      
-              const userDataArray = [];
-              currentMonthDocs.forEach((doc) => {
-                // Access data in each document and add it to the array
-                userDataArray.push({
-                  id: doc.id,
-                  data: doc.data(),
-                });
-              });
-      
-              // Set the state with the fetched data
-              setUserData(userDataArray);
+      } catch (error) {
+        console.error('Error fetching responses:', error);
+         // Reset the flag in case of an error
+      }
+    };
 
-              const prompt1Data = userDataArray.filter((user) => user.id === 'consumptionFlight' || user.id === 'consumptionFood');
-              const filteredPrompt1Data = prompt1Data.map((user) => {
-                const { timestamp, ...filteredData } = user.data;
-                for (const key in filteredData) {
-                  if (key.includes('CarbonFootprint')) {
-                    delete filteredData[key];
-                  }
-                }
-                return { id: user.id, data: filteredData };
-              });
+    fetchResponses();
+  }, [prompt1string, prompt2string]);
       
-              setPrompt1(filteredPrompt1Data);
-              const formattedString = filteredPrompt1Data.map((user) => convertDataToString(user.data)).join('\n');
-              setPromptString(formattedString);
-            } catch (error) {
-              console.error('Error fetching data:', error);
-            }
-          };
-      
-          fetchData();
-        }, []);
+  const currentDate = new Date();
+  const currentMonthYear = currentDate.toLocaleString('default', { month: 'long', year: 'numeric' });      
 
-        useEffect(() => {
-          const fetchResponse = async () => {
-              try {
-                  if (prompt1string !== '') {  // Add a conditional check
-                      const resp = await prompt1send(prompt1string);
-                      setPrompt1Response(resp);
-                  }
-              } catch (error) {
-                  console.error('Error fetching response:', error);
-              }
-          };
-      
-          fetchResponse(); // Call the function immediately after setting prompt1string
-      
-      }, [prompt1string]); // Add prompt1string as a dependency to useEffect
-      
+  const prompt1array = prompt1Response.split(/\d+\./).filter(sentence => sentence.trim() !== '');
+  const prompt2array = prompt2Response.split(/\d+\./).filter(sentence => sentence.trim() !== '');
+  const totalArray = prompt1array.concat(prompt2array);
 
-        const convertDataToString = (dataObject) => {
-          let result = '';
-          for (const key in dataObject) {
-            if (typeof dataObject[key] === 'object') {
-              for (const nestedKey in dataObject[key]) {
-                result += `${nestedKey}:${dataObject[key][nestedKey]}\n`;
-              }
-            } else {
-              result += `${key}:${dataObject[key]}\n`;
-            }
-          }
-          return result;
-        };
-        
-        
+  const StringArrayRenderer = ({ stringArray }) => {
+    return (
+      <>
+              {stringArray.map((str, index) => (
+                
+            <a
+            className="block rounded-xl border border-gray-200 p-8 shadow-xl transition hover:border-lime-300/10 hover:shadow-lime-300/20"
+          >
+
+            <h2 className="mt-4 text-xl font-bold text-black">{index+1}.</h2>
+              <div className="mt-1 text-sm text-black" key={index}>{str}</div>
+            
+            
+          </a>
+              ))}
+             
+      </>
+    );
+  };
+
   return (
     <>
     <Header/>
     <div>
-      <h1>User Data for January 2024</h1>
-      <pre>{prompt1Response}</pre>
+      <section className="bg-white text-black">
+        <div className="w-full px-4 py-8 sm:px-6 sm:py-12 lg:px-[10%] lg:py-16">
+          <div className="mx-auto max-w-lg text-center">
+          <h1 className="w-fit bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-5xl">
+            Your Action Plan</h1>
+          </div>
+
+          <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+           
+          <StringArrayRenderer stringArray={totalArray} />
+            
+          </div>
+
+        </div>
+      </section>
       
     </div>
     </>

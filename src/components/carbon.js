@@ -8,6 +8,7 @@ import {
   getDocs,
   doc,
   setDoc,
+  updateDoc,
 } from "firebase/firestore";
 import "./common/Tailwind.css";
 
@@ -91,6 +92,19 @@ export const CarbonFootprintCalculator = () => {
     }
   };
 
+  async function updateLastUpdated(userdoc) {
+    try {
+        // Update the lastUpdated field with the current server timestamp
+        await updateDoc(userdoc, {
+            lastUpdated: new Date()
+        });
+
+        console.log('Last updated successfully!');
+    } catch (error) {
+        console.error('Error updating lastUpdated:', error);
+    }
+}
+
   const calculateAndStoreTotal = async (
     currentMonthRef,
     currentMonthYear,
@@ -148,6 +162,8 @@ export const CarbonFootprintCalculator = () => {
       );
       alert(error.message);
     }
+    updateLastUpdated(userDocRef);
+
   };
 
   const handleCalculate = (e) => {
@@ -297,7 +313,7 @@ export const CarbonFootprintCalculator = () => {
               per month
             </div>
           )}
-          {calculateCarbonFootprint}
+          {/* {calculateCarbonFootprint} */}
         </div>
 
         <div className="relative h-0 w-0 lg:h-full lg:w-1/2">
