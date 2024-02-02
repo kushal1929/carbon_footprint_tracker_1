@@ -2,17 +2,18 @@
 import React, { useState, useEffect } from 'react';
 import { Doughnut } from 'react-chartjs-2';
 import Header from './common/Header';
-
+import { useNavigate } from "react-router-dom";
 import { getFirestore, collection, doc, getDocs, getDoc } from 'firebase/firestore';
 
 const Analytics = () => {
     const [chartData, setChartData] = useState({});
-  
+    const navigate=useNavigate();
     useEffect(() => {
       const userEmail = sessionStorage.getItem("User Email");
       const username = sessionStorage.getItem("Username");
   
       if (!userEmail || !username) {
+           navigate("/login");
         // Redirect to login if user email or username is not found
         // You might need to handle the navigation logic based on your routing mechanism
         return;
