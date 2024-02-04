@@ -184,7 +184,7 @@ const QuizApp = ({ app }) => {
   };
 
   const renderQuizContent = () => (
-    <div className="mt-[15%] mb-[15%] flex flex-col items-center">
+    <div className="my-auto flex flex-col items-center">
       <h3 className="text-center text-indigo-800 text-opacity-50 text-3xl mt-[5%] mr-[5%] ml-[5%] mb-4 md:text-5xl">{`Question ${currentQuestion + 1}`}</h3>
       <p className="text-center text-2xl mr-[5%] ml-[5%] mt-[7%] mb-8 md:text-3xl">{questions[currentQuestion]?.Question}</p>
       
@@ -238,7 +238,7 @@ const QuizApp = ({ app }) => {
   return (
     <div className='w-full h-full bg-gradient-to-r from-yellow-300 via-lime-300 to-green-300'>
       <Header/>
-      <div className='mt-[10%]'>
+      <div className='flex items-center justify-center h-[90vh]'>
         <div className='mx-[5%] sm:mx-[15%] rounded bg-white'>
           {loading ? (
             <p>Loading questions...</p>

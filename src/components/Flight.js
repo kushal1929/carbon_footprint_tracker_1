@@ -224,8 +224,8 @@ export const Flight = () => {
           </div>
         </div>
 
-        <div className="relative h-0 w-0 lg:h-full lg:w-1/2">
-          <img src={require("../assets/home.jpg")} />
+        <div className="flex lg:h-full w-0 lg:w-1/2 px-10 py-10">
+          <img className="object-contain" src={require("../assets/flights.jpg")}/>
         </div>
       </div>
     </div>

@@ -25,6 +25,8 @@ import ConsumptionData from './components/ConsumptionData';
 import ActionPlan from './components/ActionPlan';
 import Quiz from './components/Quiz.js';
 import Feedback from './components/Feedback';
+import Analytics from './components/Analytics';
+import Map from './components/Map.js';
 import Credits from './components/Credits';
 
 
@@ -124,6 +126,8 @@ function App() {
         <Route path="/action-plan" element={<ActionPlan/>}/>
         <Route path="/Quiz" element={<Quiz />} />
         <Route path="/feedback" element={<Feedback />}/>
+        <Route path="/Analytics" element={<Analytics />}/>
+        <Route path="/Map" element={<Map />}/>
         <Route path="/Credits" element={<Credits/>} />
       </Routes>
     </div>

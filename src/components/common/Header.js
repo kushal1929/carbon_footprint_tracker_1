@@ -14,7 +14,8 @@ import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/
 import './Tailwind.css'
 
 const products = [
-  { name: 'Analytics', description: 'Get a better understanding of your traffic', href: '#', icon: ChartPieIcon },
+  { name: 'Analytics', description: 'Get a better understanding of your Carbon Footprint', href: '/Analytics', icon: ChartPieIcon },
+  { name: 'Recycle', description: 'Find Recycling Centres near you!', href: '/Map', icon: FingerPrintIcon },
   { name: 'Feedback', description: 'Let us know where we can improve', href: '/feedback', icon: CursorArrowRaysIcon },
   { name: 'Credits', description: 'Your customers’ data will be safe and secure', href: '/Credits', icon: FingerPrintIcon },
   { name: 'Integrations', description: 'Connect with third-party tools', href: '#', icon: SquaresPlusIcon },
@@ -76,7 +77,7 @@ const handleLogout = () => {
               leaveFrom="opacity-100 translate-y-0"
               leaveTo="opacity-0 translate-y-1"
             >
-              <Popover.Panel className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5">
+              <Popover.Panel className="z-20 absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5">
                 <div className="p-4">
                   {products.map((item) => (
                     <div
@@ -122,6 +123,8 @@ const handleLogout = () => {
           <a href="/Quiz" className="text-sm font-semibold leading-6 text-gray-900">
             Quiz
           </a>
+
+
         </Popover.Group>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <button onClick={handleLogout} className="text-sm font-semibold leading-6 text-gray-900">
@@ -201,6 +204,12 @@ const handleLogout = () => {
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   Quiz
+                </a>
+                <a
+                  href="/Analytics"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                >
+                  Analytics
                 </a>
               </div>
               
