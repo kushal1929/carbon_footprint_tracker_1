@@ -17,6 +17,9 @@ module.exports = {
     "./src/components/Flight.js",
     "./src/components/Feedback.js",
     "./src/components/ActionPlan.js",
+    "./src/components/Map.js",
+    "./src/components/common/Leaderboard.js",
+
     
   ],
   theme: {

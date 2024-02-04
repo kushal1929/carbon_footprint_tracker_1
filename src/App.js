@@ -26,6 +26,7 @@ import ActionPlan from './components/ActionPlan';
 import Quiz from './components/Quiz.js';
 import Feedback from './components/Feedback';
 import Analytics from './components/Analytics';
+import Map from './components/Map.js';
 
 function App() {
   const [email, setEmail] = useState('');
@@ -124,6 +125,7 @@ function App() {
         <Route path="/Quiz" element={<Quiz />} />
         <Route path="/feedback" element={<Feedback />}/>
         <Route path="/Analytics" element={<Analytics />}/>
+        <Route path="/Map" element={<Map />}/>
         
       </Routes>
     </div>

@@ -129,7 +129,7 @@ const RecyclingCentersMap = () => {
     }
   }, []);
   console.log("map run");
-  return <div id="map" style={{ height: '500px', width: '100%' }}></div>;
+  return <div id="map" className='h-full w-full' ></div>;
 };
-
+//style={{ height: '500px', width: '100%' }}
 export default RecyclingCentersMap;
