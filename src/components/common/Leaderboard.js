@@ -144,7 +144,7 @@ export default function LeaderBoard(){
       
 
     return(
-        <>
+      <>
         <div className="text-center text-4xl">
           <span className="text-emerald-600">Compete</span> with your friends!
         </div>
@@ -153,10 +153,10 @@ export default function LeaderBoard(){
           Enter their usernames to add them 
         </div>
 
-        <div className="flex gap-x-2 mt-4">
+        <div className="flex justify-center w-[80vw] sm:w-[30vw] gap-x-2 mt-4">
           <label
             htmlFor="Username"
-            className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
+            className="relative w-[75%] block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
           >
             <input
               type="text"
@@ -176,9 +176,9 @@ export default function LeaderBoard(){
         
           <button
             onClick={handleSearch}
-            className="group inline-block rounded bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-[2px] hover:text-white focus:outline-none focus:ring active:text-opacity-75"
+            className="group w-[20%] inline-block rounded bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-[2px] hover:text-white focus:outline-none focus:ring active:text-opacity-75"
           >
-            <span className="block rounded-sm bg-white px-8 py-3 text-sm font-medium group-hover:bg-transparent">
+            <span className="block rounded-sm bg-white px-auto py-3 text-sm font-medium group-hover:bg-transparent">
               Add
             </span>
           </button>
@@ -192,26 +192,59 @@ export default function LeaderBoard(){
                 <p className="text-red-600">{friendUser} has not filled data this month!</p>
             )}
         </div>
-        
-        <div>
-            <h1>Leaderboard</h1>
-            <table>
+
+        <section className="w-[90%] sm:w-3/5 relative py-16 bg-blueGray-50">
+        <div className="w-full mb-12 px-4">
+          <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded 
+          bg-lime-900 text-white">
+            <div className="rounded-t mb-0 px-4 py-3 border-0">
+              <div className="flex flex-wrap items-center">
+                <div className="relative w-full px-4 max-w-full flex-grow flex-1 ">
+                  <h3 className="font-semibold text-lg text-white">Leaderboard</h3>
+                </div>
+              </div>
+            </div>
+            <div className="block w-full overflow-x-auto ">
+              <table className="items-center w-full bg-transparent border-collapse">
                 <thead>
-                <tr>
-                    <th>Username</th>
-                    <th>Carbon Footprint</th>
-                </tr>
+                  <tr>
+                    <th className="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-lime-800 text-lime-300 border-lime-700">Position</th>
+                    <th className="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-lime-800 text-lime-300 border-lime-700">Username</th>
+                    <th className="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-lime-800 text-lime-300 border-lime-700">Carbon Footprint</th>
+                  </tr>
                 </thead>
+
                 <tbody>
+                  
+                  
+
+                  
+
                 {leaderboardData.map((entry, index) => (
-                    <tr key={index}>
-                    <td>{entry.username}</td>
-                    <td>{entry.carbonFootprint}</td>
-                    </tr>
+                  <tr key={index}>
+                    <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
+                      
+                      <span className="ml-3 font-bold text-white">{index+1}
+                      </span></th>
+                    <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{entry.username}</td>
+                    <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                      <i className="fas fa-circle text-emerald-500 mr-2"></i>{entry.carbonFootprint}</td>
+                    
+                    
+                  </tr>
                 ))}
+                
+                  
                 </tbody>
-            </table>
+              </table>
+            </div>
+          </div>
         </div>
-        </>
+        
+      </section> 
+         
+
+    </>
+    
     )
 }
