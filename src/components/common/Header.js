@@ -10,16 +10,18 @@ import {
   SquaresPlusIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline'
+import { MdRecycling, MdOutlineAttribution } from "react-icons/md";
+import { RxActivityLog } from "react-icons/rx";
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
 import './Tailwind.css'
 
 const products = [
   { name: 'Analytics', description: 'Get a better understanding of your Carbon Footprint', href: '/Analytics', icon: ChartPieIcon },
-  { name: 'Recycle', description: 'Find Recycling Centres near you!', href: '/Map', icon: FingerPrintIcon },
+  { name: 'Recycle', description: 'Find Recycling Centres near you!', href: '/Map', icon: MdRecycling },
   { name: 'Feedback', description: 'Let us know where we can improve', href: '/feedback', icon: CursorArrowRaysIcon },
-  { name: 'Credits', description: 'Your customers’ data will be safe and secure', href: '/Credits', icon: FingerPrintIcon },
-  { name: 'Integrations', description: 'Connect with third-party tools', href: '#', icon: SquaresPlusIcon },
-  { name: 'Automations', description: 'Build strategic funnels that will convert', href: '#', icon: ArrowPathIcon },
+  { name: 'Attributions', description: 'List of Sources ', href: '/Credits', icon: RxActivityLog },
+  // { name: 'Integrations', description: 'Connect with third-party tools', href: '#', icon: SquaresPlusIcon },
+  // { name: 'Automations', description: 'Build strategic funnels that will convert', href: '#', icon: ArrowPathIcon },
 ]
 const callsToAction = [
   { name: 'Watch demo', href: '#', icon: PlayCircleIcon },
