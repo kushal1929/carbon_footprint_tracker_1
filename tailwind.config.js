@@ -20,7 +20,7 @@ module.exports = {
     "./src/components/Map.js",
     "./src/components/common/Leaderboard.js",
 
-    
+    "./src/components/Credits.js"
   ],
   theme: {
     fontFamily: {

@@ -83,7 +83,7 @@ export default function ActionPlan(){
       <section className="bg-white text-black">
         <div className="w-full px-4 py-8 sm:px-6 sm:py-12 lg:px-[10%] lg:py-16">
           <div className="mx-auto max-w-lg text-center">
-          <h1 className="w-fit bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-5xl">
+            <h1 className="w-fit bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-5xl">
             Your Action Plan</h1>
           </div>
 
