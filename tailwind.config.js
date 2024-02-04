@@ -17,7 +17,7 @@ module.exports = {
     "./src/components/Flight.js",
     "./src/components/Feedback.js",
     "./src/components/ActionPlan.js",
-    
+    "./src/components/Credits.js"
   ],
   theme: {
     fontFamily: {

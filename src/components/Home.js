@@ -195,7 +195,7 @@ export default function Home() {
       <div className='flex flex-col items-start w-full lg:w-1/2 gap-x-6 px-10 mt-10 mb-20 items-stretch '>
       <div className='flex justify-center items-center w-full w-fit bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-2xl font-extrabold text-transparent sm:text-2xl'>Recycling Centers near you !</div>
       <div className="flex justify-center items-center w-full lg:w-full px-5 mt-5">
-        <RecyclingCentersMap />
+        {/* <RecyclingCentersMap /> */}
       </div>
       </div>
     </div>
