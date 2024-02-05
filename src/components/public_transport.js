@@ -160,20 +160,20 @@ export const CarbonFootprintCalculatorPublicVehicle = () => {
 
   return (
     <div className="w-[90%] flex flex-col items-center py-10 mx-[5vw]">
-      <div className="w-full pt-5 text:black bg-white font-extrabold sm:text-3xl md:text-4xl lg:text-4xl xl:text-4xl 2xl:text-5xl text-center z-10">
-        Carbon FootPrint from Public Transport
+      <div className="w-full pt-5 text:black bg-white font-extrabold text-3xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-4xl 2xl:text-5xl text-center z-10">
+        Carbon Footprint from Public Transport
       </div>
 
       <div className="flex flex-row items-center flex-wrap bg-white w-full h-[90%]">
         <div className="flex items-center flex-col w-full h-full lg:w-1/2 lg:mt-[1%] space-y-0 py-20">
-          <div className="flex flex-wrap flex-row items-center mb-4">
+          <div className="flex flex-row items-center justify-center mb-4">
             <span className="mr-2 font-medium">Local Buses:</span>
-            <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
+            <label className="relative w-1/2 sm:w-auto block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
               <input
                 type="number"
                 value={LocalBus}
                 placeholder="Distance in km"
-                className="block rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
+                className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                 onChange={(e) => setLocalBus(Number(e.target.value))}
               />
             </label>
@@ -181,14 +181,14 @@ export const CarbonFootprintCalculatorPublicVehicle = () => {
 
           <br />
 
-          <div className="flex flex-wrap flex-row items-center mb-4">
+          <div className="flex flex-row items-center justify-center mb-4">
             <span className="mr-2 font-medium">National Rail:</span>
-            <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
+            <label className="relative w-1/2 sm:w-auto block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
               <input
                 type="number"
                 value={National_Rail}
                 placeholder="Distance in km"
-                className="block rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
+                className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                 onChange={(e) => setNation_Rail(Number(e.target.value))}
               />
             </label>

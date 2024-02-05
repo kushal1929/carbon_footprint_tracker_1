@@ -189,50 +189,50 @@ export const CarbonFootprintCalculator = () => {
 
   return (
     <div className="w-[90%] flex flex-col items-center py-10 mx-[5vw]">
-      <div className="w-full pt-5 text:black bg-white font-extrabold sm:text-3xl md:text-4xl lg:text-4xl xl:text-4xl 2xl:text-5xl text-center z-10">
-        Carbon Footprint Calculator
+      <div className="w-full pt-5 text:black bg-white font-extrabold text-3xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-4xl 2xl:text-5xl text-center z-10">
+        Carbon Footprint At Home
       </div>
 
       <div className="flex flex-row items-center flex-wrap bg-white w-full h-[90%]">
         <div className="flex items-center flex-col w-full h-full lg:w-1/2 lg:mt-[1%] space-y-0 py-20">
-          <div className="flex flex-wrap flex-row items-center mb-4">
-            <span className="mr-2 font-medium">family member :</span>
+          <div className="flex flex-row items-center justify-center mb-4 mx-3">
+            <span className="sm:mr-2 font-medium">Number of members in household :</span>
             
-            <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
+            <label className="relative w-1/2 sm:w-auto block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center -ml-4 sm:ml-2">
               <input
                 type="number"
                 value={NumberOfPeople}
-                placeholder="Family Member's"
-                className="block rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
+                placeholder=""
+                className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                 onChange={(e) => setNumberOfPeople(Number(e.target.value))}
               />
             </label>
           </div>
 
-          <div className="flex flex-row items-center mb-4">
+          <div className="flex flex-row items-center justify-center mb-4">
             <span className="mr-2 font-medium">Electricity :</span>
             <label
-              className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2"
+              className="relative w-1/2 sm:w-auto block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2"
             >
               <input
                 type="number"
                 value={electric}
-                placeholder="in kwh"
-                className="block rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
+                placeholder="in kWh"
+                className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                 onChange={(e) => setElectric(Number(e.target.value))}
               />
             </label>
           </div>
 
           <br />
-          <div className="flex flex-row items-center mb-4">
-            <span className="mr-2 font-medium">NaturalGas :</span>
-            <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
+          <div className="flex flex-row items-center justify-center mb-4">
+            <span className="mr-2 font-medium">Natural Gas :</span>
+            <label className="relative w-1/2 sm:w-auto block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
               <input
                 type="number"
                 value={NaturalGas}
-                placeholder="in kwh"
-                className="block rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
+                placeholder="in kWh"
+                className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                 onChange={(e) => setNaturalGas(Number(e.target.value))}
               />
             </label>
@@ -240,14 +240,14 @@ export const CarbonFootprintCalculator = () => {
 
           <br />
 
-          <div className="flex flex-row items-center mb-4">
-            <span className="mr-2 font-medium">BioMass :</span>
-            <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
+          <div className="flex flex-row items-center justify-center mb-4">
+            <span className="mr-2 font-medium">Biomass :</span>
+            <label className="relative w-1/2 sm:w-auto block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
               <input
                 type="number"
                 value={BioMass}
                 placeholder="in kg"
-                className="block rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
+                className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                 onChange={(e) => setBioMass(Number(e.target.value))}
               />
             </label>
@@ -255,14 +255,14 @@ export const CarbonFootprintCalculator = () => {
 
           <br />
 
-          <div className="flex flex-row items-center mb-4">
+          <div className="flex flex-row items-center mb-4 justify-center">
             <span className="mr-2 font-medium">Coal :</span>
-            <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
+            <label className="relative w-1/2 sm:w-auto block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
               <input
                 type="number"
                 value={Coal}
                 placeholder="in kg"
-                className="block rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
+                className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                 onChange={(e) => setCoal(Number(e.target.value))}
               />
             </label>
@@ -270,14 +270,14 @@ export const CarbonFootprintCalculator = () => {
 
           <br />
 
-          <div className="flex flex-row items-center mb-4">
-            <span className="mr-2 font-medium">HeatingOil :</span>
-            <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
+          <div className="flex flex-row items-center mb-4 justify-center">
+            <span className="mr-2 font-medium">Heating Oil :</span>
+            <label className="relative w-1/2 sm:w-auto block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
               <input
                 type="number"
                 value={HeatingOil}
                 placeholder="in liters"
-                className="block rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
+                className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                 onChange={(e) => setHeatingOil(Number(e.target.value))}
               />
             </label>
@@ -285,14 +285,14 @@ export const CarbonFootprintCalculator = () => {
 
           <br />
 
-          <div className="flex flex-row items-center mb-4">
+          <div className="flex flex-row items-center mb-4 justify-center">
             <span className="mr-2 font-medium">LPG :</span>
-            <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
+            <label className="relative w-1/2 sm:w-auto block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
               <input
                 type="number"
                 value={LPG}
                 placeholder="in kg"
-                className="block rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
+                className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                 onChange={(e) => setLPG(Number(e.target.value))}
               />
             </label>

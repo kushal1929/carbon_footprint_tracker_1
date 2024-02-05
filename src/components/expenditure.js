@@ -10,6 +10,7 @@ import {
     setDoc,
 } from "firebase/firestore";
 import { FaQuestionCircle } from "react-icons/fa";
+import "./common/Tailwind.css";
 
 export const CarbonFootprintCalculatorExpenditure = () => {
     const [Eating_out, setEating_out] = useState("");
@@ -219,32 +220,32 @@ export const CarbonFootprintCalculatorExpenditure = () => {
 
     return (
       <div className="w-[90%] flex flex-col items-center py-10 mx-[5vw]">
-        <div className="w-full pt-5 text:black bg-white font-extrabold sm:text-3xl md:text-4xl lg:text-4xl xl:text-4xl 2xl:text-5xl text-center z-10">
-          CarbonFootPrint from Expenditure
+        <div className="w-full pt-5 text:black bg-white font-extrabold text-3xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-4xl 2xl:text-5xl text-center z-10">
+          Carbon Footprint from Other Expenditures
         </div>
 
         <div className="flex flex-row items-center flex-wrap bg-white w-full h-[90%]">
           <div className="flex items-center flex-col w-full h-full lg:w-1/2 lg:mt-[1%] space-y-0 py-20">
-            <div className="flex flex-wrap flex-row items-center mb-4">
+            <div className="flex flex-row items-center justify-center mb-4">
               <span className="mr-2 font-medium">Food:</span>
-              <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
+              <label className="relative block w-1/2 sm:w-auto rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
                 <input
                   type="number"
                   value={Eating_out}
                   placeholder="In USD"
-                  className="block rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
+                  className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                   onChange={(e) => setEating_out(Number(e.target.value))}
                 />
               </label>
             </div>
 
-            <div className="flex flex-wrap flex-row items-center mb-4">
+            <div className="flex flex-row items-center justify-center mb-4">
               <span className="mr-2 font-medium">Car Maintenance:</span>
-              <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
+              <label className="relative w-1/2 sm:w-auto block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
                 <input
                   type="number"
                   placeholder="In USD"
-                  className="block rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
+                  className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                   value={Car_Maintenance}
                   onChange={(e) => setCar_Maintenance(Number(e.target.value))}
                 />
@@ -253,13 +254,13 @@ export const CarbonFootprintCalculatorExpenditure = () => {
 
             <br />
 
-            <div className="flex flex-wrap flex-row items-center mb-4">
+            <div className="flex flex-row items-center justify-center mb-4">
               <span className="mr-2 font-medium">Clothing:</span>
-              <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
+              <label className="relative w-1/2 sm:w-auto block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
                 <input
                   type="number"
                   placeholder="In USD"
-                  className="block rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
+                  className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                   value={clothing}
                   onChange={(e) => setclothing(Number(e.target.value))}
                 />
@@ -268,13 +269,13 @@ export const CarbonFootprintCalculatorExpenditure = () => {
 
             <br />
 
-            <div className="flex flex-wrap flex-row items-center mb-4">
+            <div className="flex flex-row items-center justify-center mb-4">
               <span className="mr-2 font-medium">Furniture:</span>
-              <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
+              <label className="relative w-1/2 sm:w-auto block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
                 <input
                   type="number"
                   placeholder="In USD"
-                  className="block rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
+                  className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                   value={Furniture}
                   onChange={(e) => setFurniture(Number(e.target.value))}
                 />
@@ -283,13 +284,13 @@ export const CarbonFootprintCalculatorExpenditure = () => {
 
             <br />
 
-            <div className="flex flex-wrap flex-row items-center mb-4">
+            <div className="flex flex-row items-center justify-center mb-4">
               <span className="mr-2 font-medium">Domestic Water:</span>
-              <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
+              <label className="relative w-1/2 sm:w-auto block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
                 <input
                   type="number"
                   placeholder="In USD"
-                  className="block rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
+                  className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                   value={Domestic_Water}
                   onChange={(e) => setDomestic_Water(Number(e.target.value))}
                 />
@@ -298,13 +299,13 @@ export const CarbonFootprintCalculatorExpenditure = () => {
 
             <br />
 
-            <div className="flex flex-wrap flex-row items-center mb-4">
+            <div className="flex flex-row items-center justify-center mb-4 px-10 ">
               <span className="mr-2 font-medium">Telephone & Internet:</span>
-              <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
+              <label className="relative w-1/2 sm:w-auto block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
                 <input
                   type="number"
                   placeholder="In USD"
-                  className="block rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
+                  className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                   value={Telephone_Internet}
                   onChange={(e) =>
                     setTelephone_Internet(Number(e.target.value))
@@ -315,13 +316,13 @@ export const CarbonFootprintCalculatorExpenditure = () => {
 
             <br />
 
-            <div className="flex flex-wrap flex-row items-center mb-4">
+            <div className="flex flex-row items-center justify-center mb-4 px-10">
               <span className="mr-2 font-medium">Computer & Electronics:</span>
-              <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
+              <label className="relative w-1/2 sm:w-auto block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
                 <input
                   type="number"
                   placeholder="In USD"
-                  className="block rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
+                  className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                   value={Computer_Elec}
                   onChange={(e) => setComputer_Elec(Number(e.target.value))}
                 />
@@ -330,13 +331,13 @@ export const CarbonFootprintCalculatorExpenditure = () => {
 
             <br />
 
-            <div className="flex flex-wrap flex-row items-center mb-4">
+            <div className="flex flex-row items-center justify-center mb-4 px-10">
               <span className="mr-2 font-medium">Electrical Appliances:</span>
-              <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
+              <label className="relative w-1/2 sm:w-auto block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
                 <input
                   type="number"
                   placeholder="In USD"
-                  className="block rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
+                  className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                   value={Electrical_Appliances}
                   onChange={(e) =>
                     setElectrical_Appliances(Number(e.target.value))
@@ -347,13 +348,13 @@ export const CarbonFootprintCalculatorExpenditure = () => {
 
             <br />
 
-            <div className="flex flex-wrap flex-row items-center mb-4">
+            <div className="flex flex-row items-center justify-center mb-4">
               <span className="mr-2 font-medium">Postage & Couriers:</span>
-              <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
+              <label className="relative w-1/2 sm:w-auto block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
                 <input
                   type="number"
                   placeholder="In USD"
-                  className="block rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
+                  className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                   value={Postage}
                   onChange={(e) => setPostage(Number(e.target.value))}
                 />
@@ -362,13 +363,13 @@ export const CarbonFootprintCalculatorExpenditure = () => {
 
             <br />
 
-            <div className="flex flex-wrap flex-row items-center mb-4">
+            <div className="flex flex-row items-center justify-center mb-4 px-2">
               <span className="mr-2 font-medium">Magazines & Books:</span>
-              <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
+              <label className="relative w-1/2 sm:w-auto block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
                 <input
                   type="number"
                   placeholder="In USD"
-                  className="block rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
+                  className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                   value={Magazines}
                   onChange={(e) => setMagazines(Number(e.target.value))}
                 />
@@ -377,13 +378,13 @@ export const CarbonFootprintCalculatorExpenditure = () => {
 
             <br />
 
-            <div className="flex flex-wrap flex-row items-center mb-4">
-              <span className="mr-2 font-medium">Stationary:</span>
-              <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
+            <div className="flex flex-row items-center justify-center mb-4">
+              <span className="mr-2 font-medium">Stationery:</span>
+              <label className="relative w-1/2 sm:w-auto block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
                 <input
                   type="number"
                   placeholder="In USD"
-                  className="block rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
+                  className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                   value={Stationary}
                   onChange={(e) => setStationary(Number(e.target.value))}
                 />
@@ -392,14 +393,14 @@ export const CarbonFootprintCalculatorExpenditure = () => {
 
             <br />
 
-            <div className="flex flex-wrap flex-row items-center mb-4">
+            <div className="flex flex-row items-center justify-center mb-4">
               <span className="mr-2 font-medium">Hair & Self-care:</span>
-              <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
+              <label className="relative w-1/2 sm:w-auto block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
                 <input
                   type="number"
                   value={Hair_SelfCare}
                   placeholder="In USD"
-                  className="block rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
+                  className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                   onChange={(e) => setHair_SelfCare(Number(e.target.value))}
                 />
               </label>
@@ -407,13 +408,13 @@ export const CarbonFootprintCalculatorExpenditure = () => {
 
             <br />
 
-            <div className="flex flex-wrap flex-row items-center mb-4">
+            <div className="flex flex-row items-center justify-center mb-4">
               <span className="mr-2 font-medium">Pet Food:</span>
-              <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
+              <label className="relative w-1/2 sm:w-auto block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
                 <input
                   type="number"
                   placeholder="In USD"
-                  className="block rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
+                  className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                   value={Pet_Food}
                   onChange={(e) => setPet_Food(Number(e.target.value))}
                 />
@@ -422,13 +423,13 @@ export const CarbonFootprintCalculatorExpenditure = () => {
 
             <br />
 
-            <div className="flex flex-wrap flex-row items-center mb-4">
+            <div className="flex flex-row items-center justify-center mb-4">
               <span className="mr-2 font-medium">Hotel Stays:</span>
-              <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
+              <label className="relative w-1/2 sm:w-auto block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
                 <input
                   type="number"
                   placeholder="In USD"
-                  className="block rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
+                  className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                   value={Hotel_Stays}
                   onChange={(e) => setHotel_Stays(Number(e.target.value))}
                 />
@@ -437,13 +438,13 @@ export const CarbonFootprintCalculatorExpenditure = () => {
 
             <br />
 
-            <div className="flex flex-wrap flex-row items-center mb-4">
+            <div className="flex flex-row items-center justify-center mb-4">
               <span className="mr-2 font-medium">Insurance:</span>
-              <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
+              <label className="relative w-1/2 sm:w-auto block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
                 <input
                   type="number"
                   placeholder="In USD"
-                  className="block rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
+                  className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                   value={Insurance}
                   onChange={(e) => setInsurance(Number(e.target.value))}
                 />
@@ -473,13 +474,13 @@ export const CarbonFootprintCalculatorExpenditure = () => {
                 )}
               </div>
 
-              <div className="flex flex-wrap flex-row items-center mb-4">
+              <div className="flex flex-row items-center justify-center mb-4">
                 <span className="mr-2 font-medium">Other Legal Services:</span>
-                <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
+                <label className="relative w-1/2 sm:w-auto block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
                   <input
                     type="number"
                     placeholder="In USD"
-                    className="block rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
+                    className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                     value={Other}
                     onChange={(e) => setOther(Number(e.target.value))}
                   />

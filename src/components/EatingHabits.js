@@ -160,11 +160,11 @@ const EatingHabits = () => {
   const displayRemainingDaysInfo = () => {
     const remainingValue = calculateRemainingValue();
     if (remainingValue === 0) {
-      return <div className="text-xl font-bold mb-4">All days are accounted for.</div>;
+      return <div className="text-xl font-bold mb-4 px-4">All days are accounted for.</div>;
     } else if (remainingValue > 0) {
-      return <div className="text-xl font-bold mb-4">{remainingValue} days need to be accounted for.</div>;
+      return <div className="text-xl font-bold mb-4 px-4">{remainingValue} days need to be accounted for.</div>;
     } else {
-      return <div className="text-xl font-bold mb-4">{Math.abs(remainingValue)} days need to be removed.</div>;
+      return <div className="text-xl font-bold mb-4 px-4">{Math.abs(remainingValue)} days need to be removed.</div>;
     }
   };
 
@@ -205,12 +205,12 @@ const EatingHabits = () => {
 
   return (
     <div className="w-[90%] flex flex-col items-center py-10 mx-[5vw]">
-      <div className="w-full pt-5 text:black bg-white font-extrabold sm:text-3xl md:text-4xl lg:text-4xl xl:text-4xl 2xl:text-5xl text-center z-10">
+      <div className="w-full pt-5 text:black bg-white font-extrabold text-3xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-4xl 2xl:text-5xl text-center z-10">
         Eating Habits
       </div>
       <div className="flex flex-row items-center flex-wrap bg-white w-full h-[90%]">
         <div className="flex items-center flex-col w-full h-full lg:w-1/2 lg:mt-[1%] space-y-0 py-20">
-          <div className="text-xl font-bold mb-4">
+          <div className="text-xl font-bold mb-4 px-4">
             In the current month,how many days a week were you
           </div>
           <br />

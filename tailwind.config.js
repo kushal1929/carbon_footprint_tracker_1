@@ -12,6 +12,7 @@ module.exports = {
     "./src/components/Prelogin.js",
     ".src/components/EatingHabits.js",
     ".src/components/public_transport.js",
+    ".src/components/expenditure.js",
     ".src/components/vehicle.js",
     "./src/components/Quiz.js",
     "./src/components/Flight.js",

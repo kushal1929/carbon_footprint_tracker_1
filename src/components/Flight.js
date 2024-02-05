@@ -166,7 +166,7 @@ export const Flight = () => {
 
   return (
     <div className="w-[90%] flex flex-col items-center py-10 mx-[5vw]">
-      <div className="w-full pt-5 text:black bg-white font-extrabold sm:text-3xl md:text-4xl lg:text-4xl xl:text-4xl 2xl:text-5xl text-center z-10">
+      <div className="w-full pt-5 text:black bg-white font-extrabold text-3xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-4xl 2xl:text-5xl text-center z-10">
         Flight Details
       </div>
 
@@ -189,14 +189,14 @@ export const Flight = () => {
             </select>
           </div>
 
-          <div className="flex flex-wrap flex-row items-center mb-4">
+          <div className="flex flex-row items-center justify-center mb-4">
             <span className="mr-2 font-medium">Flight Hours:</span>
-            <label className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
+            <label className="relative block w-1/2 sm:w-auto rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
               <input
                 type="number"
                 value={flightHours}
                 placeholder="In hrs"
-                className="block rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
+                className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                 onChange={(e) => handleFlightHoursChange(e.target.value)}
               />
             </label>

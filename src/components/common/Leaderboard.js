@@ -163,7 +163,7 @@ export default function LeaderBoard(){
               value={friendUser}
               onChange={(e) => setFriendUser(e.target.value)}
               id="Username"
-              className="h-10 peer border-none bg-transparent placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0"
+              className="h-10 w-full h-full pl-2 peer border-none bg-transparent placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0"
               placeholder="Username"
             />
 
