@@ -40,7 +40,7 @@ export const Element = () => {
             <div className="relative h-0 w-full lg:h-full lg:w-1/2">
               <img
                 alt="HomePage"
-                src={require("../assets/front_img.png")}
+                src={require("../assets/prelogin.png")}
                 className="absolute inset-0 h-full w-full object-contain animate-fade animate-once animate-duration-[3000ms] animate-ease-out animate-alternate"
               />
             </div>
