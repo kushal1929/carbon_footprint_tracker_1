@@ -63,13 +63,20 @@ const Analytics = () => {
                 label: 'Expenditure Analysis',
                 data: filteredValuesArray,
                 backgroundColor: [
-                  'rgba(255, 99, 132, 0.6)', 'rgba(54, 162, 235, 0.6)', 'rgba(255, 206, 86, 0.6)',
-                  'rgba(54, 206, 86, 0.6)', 'rgba(255, 206, 86, 0.6)', 'rgba(54, 206, 86, 0.6)',
-                  'rgba(255, 99, 86, 0.6)', 'rgba(255, 206, 86, 0.6)', 'rgba(54, 99, 86, 0.6)',
-                  'rgba(255, 206, 86, 0.6)', 'rgba(54, 206, 86, 0.6)', 'rgba(255, 99, 86, 0.6)',
-                  'rgba(54, 206, 86, 0.6)', 'rgba(255, 206, 86, 0.6)', 'rgba(255, 206, 86, 0.6)',
-                  'rgba(255, 206, 86, 0.6)',
-                ],
+                  'rgb(166, 206, 227)',
+                  'rgb(31, 120, 180)',
+                  'rgb(178, 223, 138)',
+                  'rgb(51, 160, 44)',
+                  'rgb(251, 154, 153)',
+                  'rgb(227, 26, 28)',
+                  'rgb(253, 191, 111)',
+                  'rgb(255, 127, 0)',
+                  'rgb(202, 178, 214)',
+                  'rgb(106, 61, 154)',
+                  'rgb(255, 255, 153)',
+                  'rgb(177, 89, 40)',
+              ],
+              
               },
             ],
           });
@@ -126,13 +133,16 @@ const Analytics = () => {
             {
               data: valuesArray,
               backgroundColor: [
-                'rgba(255, 99, 132, 0.6)',
-                'rgba(54, 162, 235, 0.6)',
-                'rgba(255, 206, 86, 0.6)',
-                'rgba(75, 192, 192, 0.6)',
-                'rgba(153, 102, 255, 0.6)',
-                'rgba(255, 159, 64, 0.6)',
-              ],
+                'rgb(254, 235, 226)',
+                'rgb(252, 197, 192)',
+                'rgb(250, 159, 181)',
+                'rgb(247, 104, 161)',
+                'rgb(197, 27, 138)',
+                'rgb(122, 1, 119)',
+            ],
+            
+            
+            
             },
           ],
         });
@@ -176,7 +186,7 @@ const Analytics = () => {
           },
         },
       
-      maintainAspectRatio: false, // Disables aspect ratio constraints
+      maintainAspectRatio: true, // Disables aspect ratio constraints
       
     };
 
@@ -204,7 +214,7 @@ const Analytics = () => {
         },
       },
     
-    maintainAspectRatio: false, // Disables aspect ratio constraints
+    maintainAspectRatio: true, // Disables aspect ratio constraints
     
   };
    
@@ -216,28 +226,47 @@ const Analytics = () => {
     <Header/>
     
     
-    <div>
+    <div className='h-full pb-20'>
     <div className='flex justify-center py-6 '>
       <h1
-        className="w-fit bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-5xl font-extrabold text-transparent lg:text-7xl"
+        className="px-4 w-fit bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-5xl font-extrabold text-transparent lg:text-7xl"
       >
         Analyze your Carbon Footprint!
 
       </h1>
     </div>
     <div
-      class="justify-center mx-[5%] lg:mx-[15%] rounded bg-white">
-    <div className="relative flex flex-wrap lg:h-3/5 lg:flex-start">
-      
+      class="h-full justify-center mx-[5%] lg:mx-[15%] rounded bg-white">
+    <div className="relative flex justify-center items-center flex-wrap lg:h-full lg:flex-start">
+
+      <div className='flex items-center w-full h-4/5 lg:w-1/2 gap-x-6 px-3 lg:px-10 mt-10 mb-5 items-stretch justify-stretch' >
+        
+        {analyticsChartData.labels && analyticsChartData.labels.length > 0 ? 
+          (
+              
+            <Doughnut data={analyticsChartData}
+            
+            height="200px"
+            width="200px"
+            options=
+              {option2}
+            
+                
+          
+            
+            />
+          
+          ): console.log(1)}
+        </div>
     
-        <div className='flex justify-center items-center w-full lg:w-1/2  px-5 mt-5 ' >
+        <div className='flex justify-center items-center w-full h-4/5 lg:w-1/2  px-5 mt-10 ' >
         
         {chartData.labels && chartData.labels.length > 0 ? 
         (
           
           <Doughnut data={chartData} 
           height="200px"
-          width="50px"
+          width="200px"
           options=
             {option1}
           
@@ -253,25 +282,7 @@ const Analytics = () => {
      
       </div>
       
-      <div className='flex flex-row items-centre w-full h-full lg:w-1/2 gap-x-6 px-3 lg:px-10 mt-10 mb-20 items-stretch justify-stretch' >
       
-      {analyticsChartData.labels && analyticsChartData.labels.length > 0 ? 
-        (
-            
-          <Doughnut data={analyticsChartData}
-          
-          height="200px"
-          width="200px"
-          options=
-            {option2}
-          
-              
-        
-          
-          />
-        
-        ): console.log(1)}
-      </div>
       </div>
       </div>
      </div>
