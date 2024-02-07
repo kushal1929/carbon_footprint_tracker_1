@@ -7,6 +7,7 @@ import Header from "./common/Header";
 import Home_card from "./common/Home_card";
 import RecyclingCentersMap from './RecyclingCentersMap';
 import LeaderBoard from "./common/Leaderboard";
+import LoadingSymbol from "./common/LoadingSymbol";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -208,11 +209,26 @@ export default function Home() {
   }, [username]);
 
   if (loading) {
-    return <p>Loading user data...</p>;
+    return(
+      <>
+        <Header/>
+        <div className="flex flex-col h-[90%] w-full justify-center items-center">
+          <div className="text-3xl mb-6 text-black">Loading...</div>
+          <LoadingSymbol type="spin" color="#000"/>
+        </div>
+      </>
+    )
   }
 
   if (error) {
-    return <p>Error fetching user data: {error.message}</p>;
+    return(
+      <>
+        <Header/>
+        <div className="grid h-screen place-content-center bg-white px-4">
+          <div className="text-black text-3xl">Oops! Looks like there was some error on our side. Please try again after some time.</div>
+        </div>
+      </>
+    )
   }
 
   return (

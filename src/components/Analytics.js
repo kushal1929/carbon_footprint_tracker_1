@@ -229,7 +229,7 @@ const Analytics = () => {
     <div className='h-full pb-20'>
     <div className='flex justify-center py-6 '>
       <h1
-        className="px-4 w-fit bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-5xl font-extrabold text-transparent lg:text-7xl"
+        className="px-4 text-center w-fit bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-5xl font-extrabold text-transparent lg:text-7xl"
       >
         Analyze your Carbon Footprint!
 

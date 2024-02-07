@@ -73,37 +73,6 @@ export default function LeaderBoard(){
         }
       };
 
-    //   useEffect(() => {
-    //     const fetchData = async () => {
-    //       try {
-    //         console.log("enter");
-    //         const db = getFirestore();
-    //         const FriendDocRef = doc(db,"users",username,"Friends","FriendList");
-    //         const friendlistSnapshot = await getDoc(FriendDocRef);
-            
-    //         const friendlistData = friendlistSnapshot.data();
-    
-    //         if (friendlistData) {
-    //           const leaderboardData = Object.entries(friendlistData).map(([username, carbonFootprint]) => ({
-    //             username,
-    //             carbonFootprint,
-    //           }));
-              
-    //           // Sort leaderboard data based on carbon footprint
-    //           leaderboardData.sort((a, b) => a.carbonFootprint - b.carbonFootprint);
-    //           console.log("enter2");
-    //           console.log(leaderboardData);
-    //           setLeaderboardData(leaderboardData.slice(0, 10)); // Limit to top 10
-    //         }
-    //       } catch (error) {
-    //         console.error('Error fetching data:', error);
-    //       }
-    //     };
-    
-    //     fetchData();
-    //   }, []);
-
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -146,7 +115,7 @@ export default function LeaderBoard(){
     return(
       <>
         <div className="text-center text-4xl">
-          <span className="text-emerald-600">Compete</span> with your friends!
+          <span className="text-emerald-600 font-bold">Compete</span> with your friends!
         </div>
 
         <div className="text-center text-2xl">
@@ -196,7 +165,7 @@ export default function LeaderBoard(){
         <section className="w-[90%] sm:w-3/5 relative py-16 bg-blueGray-50">
         <div className="w-full mb-12 px-4">
           <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded 
-          bg-lime-900 text-white">
+          bg-green-900 text-white">
             <div className="rounded-t mb-0 px-4 py-3 border-0">
               <div className="flex flex-wrap items-center">
                 <div className="relative w-full px-4 max-w-full flex-grow flex-1 ">
@@ -208,9 +177,9 @@ export default function LeaderBoard(){
               <table className="items-center w-full bg-transparent border-collapse">
                 <thead>
                   <tr>
-                    <th className="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-lime-800 text-lime-300 border-lime-700">Position</th>
-                    <th className="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-lime-800 text-lime-300 border-lime-700">Username</th>
-                    <th className="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-lime-800 text-lime-300 border-lime-700">Carbon Footprint</th>
+                    <th className="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-green-800 text-lime-300 border-lime-700">Position</th>
+                    <th className="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-green-800 text-lime-300 border-lime-700">Username</th>
+                    <th className="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-green-800 text-lime-300 border-lime-700">Carbon Footprint</th>
                   </tr>
                 </thead>
 

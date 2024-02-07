@@ -16,6 +16,7 @@ import { prompt1send } from "./Prompt1";
 import { prompt2send } from "./Prompt2";
 import { Prompt1fetchData } from "./Prompt1";
 import { Prompt2fetchData } from "./Prompt2";
+import LoadingSymbol from "./common/LoadingSymbol";
 
 export default function ActionPlan(){
 
@@ -23,7 +24,7 @@ export default function ActionPlan(){
   const [prompt2Response, setPrompt2Response] = useState('');
   const {prompt2string} = Prompt2fetchData();
   const {prompt1string} = Prompt1fetchData();
- 
+  const [ status , setStatus]  = useState('loading');
 
   useEffect(() => {
     const fetchResponses = async () => {
@@ -37,11 +38,12 @@ export default function ActionPlan(){
 
           setPrompt1Response(resp1);
           setPrompt2Response(resp2);
-
+          setStatus('ready');
            // Reset the flag after requests are complete
         }
       } catch (error) {
         console.error('Error fetching responses:', error);
+        setStatus('error');
          // Reset the flag in case of an error
       }
     };
@@ -76,28 +78,55 @@ export default function ActionPlan(){
     );
   };
 
-  return (
-    <>
-    <Header/>
-    <div>
-      <section className="bg-white text-black">
-        <div className="w-full px-4 py-8 sm:px-6 sm:py-12 lg:px-[10%] lg:py-16">
-          <div className="mx-auto max-w-lg text-center">
-            <h1 className="w-fit bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-5xl">
-            Your Action Plan</h1>
-          </div>
-
-          <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
-           
-          <StringArrayRenderer stringArray={totalArray} />
-            
-          </div>
-
+  if(status === 'loading')
+  {
+    return(
+      <>
+      <Header/>
+      <div className="flex flex-col h-[90%] w-full justify-center items-center">
+        <div className="text-3xl mb-6 text-[#005e03] text-center">Please wait while we create your personalized action plan...</div>
+        <LoadingSymbol type="spinningBubbles" color="#005e03"/>
+        <div className="text-2xl mt-6 px-4 text-center">Make sure you've filled in the Carbon Footprint Calculator first!</div>
+      </div>
+      </>
+    )
+  }
+  if(status === 'error')
+  {
+    return(
+      <>
+        <Header/>
+        <div className="grid h-screen place-content-center bg-white px-4">
+          <div className="text-black text-3xl">Oops! Looks like there was some error on our side. Please try again after some time.</div>
         </div>
-      </section>
-      
-    </div>
-    </>
-  );
+      </>
+    )
+  }
+  if(status === 'ready')
+  {
+    return (
+      <>
+      <Header/>
+      <div>
+        <section className="bg-white text-black">
+          <div className="w-full px-4 py-8 sm:px-6 sm:py-12 lg:px-[10%] lg:py-16">
+            <div className="mx-auto max-w-lg text-center">
+              <h1 className="mx-auto w-fit bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-5xl">
+              Your Action Plan</h1>
+            </div>
 
+            <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+            
+            <StringArrayRenderer stringArray={totalArray} />
+              
+            </div>
+
+          </div>
+        </section>
+        
+      </div>
+      </>
+    );
+
+  }
 }
