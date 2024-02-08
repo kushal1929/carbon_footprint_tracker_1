@@ -142,6 +142,7 @@ export default function Home() {
             setUsername(doc.id || "");
           });
         } else {
+          navigate(`/verify-email/${userEmail}`);
           console.log("User not found in Firestore");
         }
         setLoading(false);
