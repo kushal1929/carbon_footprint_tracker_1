@@ -79,24 +79,19 @@ const EatingHabits = () => {
           setFoodCarbonFootprint(newEatingHabit.foodCarbonFootprint);
           try {
             await setDoc(consumptionFoodRef, newEatingHabit);
-            console.log(
-              "Eating habits data saved to Firestore for the current month"
-            );
+            
             await calculateAndStoreTotal(currentMonthRef,currentMonthYear,userDocRef);
             // navigate("/home");
           } catch (error) {
-            console.error(
-              "Error saving eating habits data to Firestore:",
-              error
-            );
+            
             alert(error.message);
           }
         } else {
-          console.log("User not found in Firestore");
+          
           alert("User not found in Firestore");
         }
       } catch (error) {
-        console.error("Error fetching user data:", error);
+        
         alert("Error fetching user data:", error.message);
       }
     } else {
@@ -141,9 +136,8 @@ const EatingHabits = () => {
 
     try {
       await setDoc(totalMYDocRef, totalDocData);
-      console.log('Total carbon footprint data saved to Firestore for the current month ', totalDocData);
+      
     } catch (error) {
-      console.error('Error saving total carbon footprint data to Firestore:', error);
       alert(error.message);
     }
   };

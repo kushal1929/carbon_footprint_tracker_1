@@ -26,7 +26,7 @@ export default function LeaderBoard(){
           const userDoc = await getDoc(userDocRef);  
 
           if (userDoc.exists()) {
-            console.log('User found');
+            
       
             const currentDate = new Date();
             const currentMonthYear = currentDate.toLocaleString('default', { month: 'long', year: 'numeric' });
@@ -59,50 +59,22 @@ export default function LeaderBoard(){
   
               
               setTrigger(carbonFootprint);
-              console.log('Friend added to the Friends collection successfully.');
+              
             } else {
                 setError('NoFriendDoc')
-              console.log('Friend document not found for the specified month and year.');
+              
             }
           } else {
             setError('UserNotFound')
-            console.log('User not found');
+            
           }
         } catch (error) {
-          console.error('Error searching for user:', error.message);
+          
+          alert("Error searching for user:")
         }
       };
 
-    //   useEffect(() => {
-    //     const fetchData = async () => {
-    //       try {
-    //         console.log("enter");
-    //         const db = getFirestore();
-    //         const FriendDocRef = doc(db,"users",username,"Friends","FriendList");
-    //         const friendlistSnapshot = await getDoc(FriendDocRef);
-            
-    //         const friendlistData = friendlistSnapshot.data();
-    
-    //         if (friendlistData) {
-    //           const leaderboardData = Object.entries(friendlistData).map(([username, carbonFootprint]) => ({
-    //             username,
-    //             carbonFootprint,
-    //           }));
-              
-    //           // Sort leaderboard data based on carbon footprint
-    //           leaderboardData.sort((a, b) => a.carbonFootprint - b.carbonFootprint);
-    //           console.log("enter2");
-    //           console.log(leaderboardData);
-    //           setLeaderboardData(leaderboardData.slice(0, 10)); // Limit to top 10
-    //         }
-    //       } catch (error) {
-    //         console.error('Error fetching data:', error);
-    //       }
-    //     };
-    
-    //     fetchData();
-    //   }, []);
-
+   
 
   useEffect(() => {
     const fetchData = async () => {
@@ -135,7 +107,8 @@ export default function LeaderBoard(){
           setLeaderboardData(updatedLeaderboardData.slice(0, 10)); // Limit to top 10
         }
       } catch (error) {
-        console.error('Error fetching data:', error);
+        
+        alert("Error fetching data");
       }
     };
 

@@ -76,7 +76,7 @@ function App() {
           alert('User already exists. Please login or use a different email.');
         } else {
           alert(error.message);
-          console.error('Registration error:', error.message);
+          
         }
       }
     }

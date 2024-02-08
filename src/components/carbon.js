@@ -65,10 +65,7 @@ export const CarbonFootprintCalculator = () => {
 
         try {
           await setDoc(consumptionHomeRef, newCarbonData);
-          console.log(
-            "Carbon footprint data saved to Firestore for the current month ",
-            newCarbonData
-          );
+          
           await calculateAndStoreTotal(
             currentMonthRef,
             currentMonthYear,
@@ -76,18 +73,15 @@ export const CarbonFootprintCalculator = () => {
           );
           // navigate('/home');
         } catch (error) {
-          console.error(
-            "Error saving carbon footprint data to Firestore:",
-            error
-          );
+          
           alert(error.message);
         }
       } else {
-        console.log("User not found in Firestore");
+        
         alert("User not found in Firestore");
       }
     } catch (error) {
-      console.error("Error fetching user data:", error);
+    
       alert("Error fetching user data:", error.message);
     }
   };
@@ -99,9 +93,10 @@ export const CarbonFootprintCalculator = () => {
             lastUpdated: new Date()
         });
 
-        console.log('Last updated successfully!');
+        
     } catch (error) {
-        console.error('Error updating lastUpdated:', error);
+        
+        alert( error.message);
     }
 }
 
@@ -151,15 +146,11 @@ export const CarbonFootprintCalculator = () => {
 
     try {
       await setDoc(totalMYDocRef, totalDocData);
-      console.log(
-        "Total carbon footprint data saved to Firestore for the current month ",
-        totalDocData
-      );
+      
+    
     } catch (error) {
-      console.error(
-        "Error saving total carbon footprint data to Firestore:",
-        error
-      );
+      
+      
       alert(error.message);
     }
     updateLastUpdated(userDocRef);

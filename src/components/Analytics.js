@@ -44,17 +44,15 @@ const Analytics = () => {
           let filteredValuesArray = [];
   
           if (docSnapshot.exists) {
-            console.log("docSnapsot exists old",docSnapshot)
+            
             const docData = docSnapshot.data();
             
             // Filter out specific fields
             filteredFieldsArray = Object.keys(docData).filter(field => field !== 'timestamp' && field !== 'ExpenditureCarbonFootprint');
             filteredValuesArray = filteredFieldsArray.map(field => docData[field]);
-            console.log(filteredFieldsArray);
-            console.log(filteredValuesArray);
-          } else {
-            console.log('Document not found ');
-          }
+            
+            
+          } 
   
           setChartData({
             labels: filteredFieldsArray,
@@ -81,7 +79,8 @@ const Analytics = () => {
             ],
           });
         } catch (error) {
-          console.error('Error fetching data:', error);
+          
+          alert('Error fetching data:');
         }
       };
 
@@ -119,7 +118,7 @@ const Analytics = () => {
 
             valuesArray.push(value);
           } else {
-            console.log(`${collectionName} document not found`);
+            
             valuesArray.push(null);
           }
         }
@@ -147,7 +146,9 @@ const Analytics = () => {
           ],
         });
       } catch (error) {
-        console.error('Error fetching data:', error);
+        
+        alert('Error fetching data:');
+
       }
     
 
@@ -256,7 +257,7 @@ const Analytics = () => {
             
             />
           
-          ): console.log(1)}
+          ): console.log()}
         </div>
     
         <div className='flex justify-center items-center w-full h-4/5 lg:w-1/2  px-5 mt-10 ' >

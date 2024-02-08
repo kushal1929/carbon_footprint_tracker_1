@@ -39,20 +39,21 @@ export default function Home() {
   
         const previousMonthAverageDocRef = doc(db, 'Average', previousMonthYear);
         const previousMonthAverageDoc = await getDoc(previousMonthAverageDocRef);
-        // console.log('1');
+        
         if (previousMonthAverageDoc.exists()) {
-          // console.log('2');
+          
           return previousMonthAverageDoc.data().averageTotalCarbonFootprint || 0;
         }
       } catch (error) {
-        console.error('Error fetching previous month\'s average:', error);
+       
+        alert('Error fetching previous month\'s average:', error.message);
       }
     }
 
 
 
     if(currentDate.getDate() >=15){
-      console.log('3');
+      
       const fetchAllUsernames = async () => {
         const db = getFirestore();
         const usersCollection = collection(db, "users");
@@ -62,18 +63,18 @@ export default function Home() {
           
           const username_all = userDocs.docs.map((userDoc) => userDoc.id);
       
-          console.log("All Usernames:", username_all);
+         
       
           return username_all;
         } catch (error) {
-          console.error("Error fetching usernames:", error);
+          alert("Error fetching usernames:", error.message);
           return [];
         }
       };
       
       // Call the function to fetch usernames
       const username_all = await fetchAllUsernames();
-      console.log(username_all);
+      
       try {
         const usersCollection = collection(db, 'users');
         let totalCarbonFootprintSum = 0;
@@ -95,7 +96,7 @@ export default function Home() {
 
       const averageTotalCarbonFootprint = totalCarbonFootprintSum / (totalUsers || 1);
             // Fetch user data for the current month
-    console.log(averageTotalCarbonFootprint);
+    
   
         await setDoc(averageDocRef, {
           averageTotalCarbonFootprint,
@@ -103,7 +104,8 @@ export default function Home() {
   
         return averageTotalCarbonFootprint;
       } catch (error) {
-        console.error('Error calculating or storing average:', error);
+       
+        alert('Error calculating or storing average:', error.message)
       }
     }
   
@@ -113,12 +115,12 @@ export default function Home() {
   const fetchAverage = async () => {
     try {
       const currentDate = new Date();
-      console.log('currentDate:', currentDate);
+      
   
       const average = await calculateAverageTotalCarbonFootprint(currentDate);
       setAverageTotalCarbonFootprint(average);
     } catch (error) {
-      console.error('Error fetching average:', error);
+      alert('Error fetching average:', error.message)
     }
   };
   
@@ -140,13 +142,12 @@ export default function Home() {
           querySnapshot.forEach((doc) => {
             setUsername(doc.id || "");
           });
-        } else {
-          console.log("User not found in Firestore");
-        }
+        } 
         setLoading(false);
       })
       .catch((error) => {
-        console.error("Error fetching user data:", error);
+        
+        alert("Error fetching user data:", error.message);
         setError(error);
         setLoading(false);
       });
@@ -170,7 +171,7 @@ export default function Home() {
         const consumptionDataSnapshot = await getDocs(consumptionDataQuery);
 
         if (consumptionDataSnapshot.empty) {
-          console.log("No matching documents for consumption data.");
+          
         } else {
           const months = [];
           const totalCarbonFootprintValues = [];
@@ -200,7 +201,9 @@ export default function Home() {
           });
         }
       } catch (error) {
-        console.error("Error fetching consumption data:", error);
+       
+        await("Error fetching consumption data:", error.message);
+
       }
     };
 

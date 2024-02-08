@@ -86,7 +86,7 @@ const RecyclingCentersMap = () => {
     };
 
     const handlePositionError = (error) => {
-      console.error('Error getting user location:', error);
+      
       // Fallback location (default to Sydney, Australia)
       const fallbackLocation = new window.google.maps.LatLng(-33.867, 151.195);
       initialize(fallbackLocation);
@@ -128,7 +128,7 @@ const RecyclingCentersMap = () => {
       };
     }
   }, []);
-  console.log("map run");
+ 
   return <div id="map" className='h-full w-full' ></div>;
 };
 //style={{ height: '500px', width: '100%' }}
