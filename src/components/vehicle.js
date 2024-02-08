@@ -24,12 +24,15 @@ export const CarbonFootprintCalculatorVehicle = () => {
     const db = getFirestore();
     const usersCollection = collection(db, "users");
     const [tooltipVisible, setTooltipVisible] = useState(false);
+    const [tooltipVisible1, setTooltipVisible1] = useState(false);
     const navigate = useNavigate();
 
     const toggleTooltip = () => {
       setTooltipVisible(!tooltipVisible);
     };
-
+    const toggleTooltip1 = () => {
+      setTooltipVisible1(!tooltipVisible1);
+    };
     const calculateCarbonFootprintVehicle = async (vehicleCarbonFootprint) => {
         const newvehicledata ={
             vehicleMPG,
@@ -182,6 +185,20 @@ export const CarbonFootprintCalculatorVehicle = () => {
         </div>
 
         <div className="flex flex-row items-center flex-wrap bg-white w-full h-[90%]">
+          <p className="w-full pt-5 text:black bg-white  sm:text-xl md:text-xl lg:text-xl xl:text-xl 2xl:text-xl text-center z-10">
+              Note: Please fill in the details once a month
+              <FaQuestionCircle className="mx-auto"
+                onMouseEnter={toggleTooltip1}
+                onMouseLeave={toggleTooltip1}
+              />
+              {tooltipVisible1 && (
+                <div className="bg-white p-2 rounded shadow-lg z-10">
+                  <div className="flex flex-col z-10">
+                    <p className="text-xs">If you wish to update some values in the current month then you will have to update all the fields in the current screen.</p>
+                  </div>
+                </div>
+              )}
+          </p>
           <div className="flex items-center flex-col w-full h-full lg:w-1/2 lg:mt-[1%] space-y-0 py-20">
             <div className="flex flex-row items-center justify-center mb-4">
               <span className="mr-2 font-medium">Mileage:</span>

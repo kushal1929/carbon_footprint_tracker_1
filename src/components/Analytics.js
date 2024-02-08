@@ -9,6 +9,7 @@ import { getFirestore, collection, doc, getDocs, getDoc } from 'firebase/firesto
 Chart.register(Title, Legend);
 const Analytics = () => {
     const navigate=useNavigate();
+
     const [chartData, setChartData] = useState({});
     const [analyticsChartData, setUserChartData] = useState({});
 
@@ -20,13 +21,7 @@ const Analytics = () => {
       if (!userEmail || !username) {
         navigate("/login"); // Redirect to login if user email is not found
         return;
-        // Redirect to login if user email or username is not found
-        // You might need to handle the navigation logic based on your routing mechanism
-        
       }
-
-      
-    
   
       const fetchConsumptionData = async () => {
         try {
@@ -46,6 +41,7 @@ const Analytics = () => {
           if (docSnapshot.exists) {
             
             const docData = docSnapshot.data();
+            
             
             // Filter out specific fields
             filteredFieldsArray = Object.keys(docData).filter(field => field !== 'timestamp' && field !== 'ExpenditureCarbonFootprint');
@@ -153,7 +149,6 @@ const Analytics = () => {
     
 
   };
-      
      
       fetchUserChartData();
       fetchConsumptionData();
@@ -230,7 +225,7 @@ const Analytics = () => {
     <div className='h-full pb-20'>
     <div className='flex justify-center py-6 '>
       <h1
-        className="px-4 w-fit bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-5xl font-extrabold text-transparent lg:text-7xl"
+        className="px-4 text-center w-fit bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-5xl font-extrabold text-transparent lg:text-7xl"
       >
         Analyze your Carbon Footprint!
 
@@ -251,10 +246,7 @@ const Analytics = () => {
             width="200px"
             options=
               {option2}
-            
-                
-          
-            
+
             />
           
           ): console.log()}
@@ -279,7 +271,7 @@ const Analytics = () => {
         ) : (<p
            className="w-fit bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-xl font-bold text-transparent lg:text-xl">
             No data available for chart, please visit the <a href='/consumption-data' class="w-fit font-bold text-blue-600 underline dark:text-blue-500 hover:no-underline"> Carbon Footprint Calculator</a> to start your Carbon Footprint journey Today!</p>)}
-        
+
      
       </div>
       
@@ -289,8 +281,11 @@ const Analytics = () => {
      </div>
     
     </>
+      
   );
 };
 
+
 export default Analytics;
+
 

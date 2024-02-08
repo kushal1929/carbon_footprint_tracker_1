@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import {maps_api} from '../APIkeys';
+
+const maps_api = process.env.REACT_APP_MAPS_KEY;
 
 const RecyclingCentersMap = () => {
   const [infowindow, setInfowindow] = useState(null);

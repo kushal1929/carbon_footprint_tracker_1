@@ -1,6 +1,5 @@
 // node --version # Should be >= 18
 // npm install @google/generative-ai
-import {geminiAPIkey} from "../APIkeys";
 import React, { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -11,6 +10,8 @@ import {
   getDocs,
   orderBy,
 } from "firebase/firestore";
+
+const geminiAPIkey = process.env.REACT_APP_AI_KEY;
 
 export function Prompt2fetchData(){
   const [userData, setUserData] = useState([]);
