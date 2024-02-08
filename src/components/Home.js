@@ -212,11 +212,12 @@ export default function Home() {
   if (loading) {
     return(
       <>
-        <Header/>
+
         <div className="flex flex-col h-[90%] w-full justify-center items-center">
           <div className="text-3xl mb-6 text-black">Loading...</div>
-          <LoadingSymbol type="spin" color="#000"/>
-        </div>
+           <LoadingSymbol type="spin" color="#000"/> 
+        </div> 
+        
       </>
     )
   }

@@ -34,7 +34,7 @@ const ScrollToBottomButton = () => {
     <>
       {isVisible && (
         <button
-          className="fixed bottom-10 right-10 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full shadow-lg fab"
+          className="fixed bottom-10 right-10 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full shadow-lg fab animate-pulse animate-infinite animate-duration-2000 animate-ease-out animate-alternate"
           onClick={scrollToBottom}
         >
           <FaArrowDown />
