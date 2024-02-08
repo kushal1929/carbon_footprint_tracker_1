@@ -20,8 +20,8 @@ module.exports = {
     "./src/components/ActionPlan.js",
     "./src/components/Map.js",
     "./src/components/common/Leaderboard.js",
-
-    "./src/components/Credits.js"
+    "./src/components/Credits.js",
+    "./src/components/common/ScrollToBottomButton.js",
   ],
   theme: {
     fontFamily: {
