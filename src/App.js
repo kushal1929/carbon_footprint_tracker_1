@@ -51,7 +51,7 @@ function App() {
       signInWithEmailAndPassword(authentication, email, password)
         .then((response) => {
           if (!response.user.emailVerified) {
-            alert('Please verify your email before logging in.');
+            alert('Please verify your email before logging in. \nCheck your mail\'s inbox and spam.');
             return; // Exit early if email is not verified
           }
           navigate('/home');
@@ -96,7 +96,7 @@ function App() {
           }
         } else {
           alert(error.message);
-          console.error('Registration error:', error.message);
+          
         }
       }
     }

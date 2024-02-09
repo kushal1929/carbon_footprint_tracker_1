@@ -36,8 +36,7 @@ export function Prompt1fetchData(){
               const currentDate = new Date();
               const currentMonthYear = currentDate.toLocaleString('default', { month: 'long', year: 'numeric' });
               
-              console.log(username);
-              console.log(currentMonthYear);
+              
               // Replace 'username', currentMonth, and currentYear with the actual values
               const currentMonthDocs = await getDocs(collection(usersCollection, username, currentMonthYear));
       
@@ -68,7 +67,8 @@ export function Prompt1fetchData(){
               const formattedString = filteredPrompt1Data.map((user) => convertDataToString(user.data)).join('\n');
               setPromptString(formattedString);
             } catch (error) {
-              console.error('Error fetching data:', error);
+             
+              alert('Error fetching data:', error.message);
             }
           };
       
@@ -136,7 +136,7 @@ const {
         threshold: HarmBlockThreshold.BLOCK_MEDIUM_AND_ABOVE,
       },
     ];
-    console.log(prompt1string);
+    
     const parts = [
       {text: "The input is a user's monthly Information about their flights and the number of days in a week for which the user eats meat/veg is also given.As an environmentalist, compare the values with the recommended values and create a personalized action plan the user can take to reduce their carbon footprint based on this data.Some recommended values:flightHours:<5 hoursflightClass:\"economy\"total non-veg eating days <5Don't give steps for values within the recommended values. For example, if the user is already flying economy, do not recommend taking economy again.Do not mention any absolute numeric value. "},
       {text: "input: flightClass:\"economy\"\nflightHours:20\n\nfishEater:0 \nhighMeatEater:0 \nlowMeatEater:0 \nmediumMeatEater:0 \nvegan:0 \nvegetarian:7"},
@@ -156,7 +156,7 @@ const {
     });
   
     const response = result.response;
-    console.log(response.text());
+   
     return(response.text());
   }
   

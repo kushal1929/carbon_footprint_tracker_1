@@ -24,7 +24,8 @@ const QuizApp = ({ app }) => {
         setQuestions(selectedQuestions);
         setQuizCompleted(false);
       } catch (error) {
-        console.error('Error fetching questions:', error);
+       
+        alert('Error fetching questions:', error);
       } finally {
         setLoading(false);
       }

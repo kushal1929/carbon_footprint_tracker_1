@@ -36,8 +36,7 @@ export function Prompt2fetchData(){
               const currentDate = new Date();
               const currentMonthYear = currentDate.toLocaleString('default', { month: 'long', year: 'numeric' });
               
-              console.log(username);
-              console.log(currentMonthYear);
+              
               // Replace 'username', currentMonth, and currentYear with the actual values
               const currentMonthDocs = await getDocs(collection(usersCollection, username, currentMonthYear));
       
@@ -68,7 +67,8 @@ export function Prompt2fetchData(){
               const formattedString = filteredPrompt2Data.map((user) => convertDataToString(user.data)).join('\n');
               setPromptString(formattedString);
             } catch (error) {
-              console.error('Error fetching data:', error);
+              
+              alert('Error fetching data:', error);
             }
           };
       
@@ -136,7 +136,7 @@ const {
         threshold: HarmBlockThreshold.BLOCK_MEDIUM_AND_ABOVE,
       },
     ];
-    console.log(prompt2string);
+    
     const parts = [
       {text: "The input is a user's monthly Information about the resources used at home in kgs or kWh. and distance covered in private/public transport. As an environmentalist, compare the values with the recommended values and create a personalized action plan the user can take to reduce their carbon footprint based on this data.Do not mention any absolute numeric value."},
       {text: "input: Coal:1\nBioMass:1\nHeatingOil:1\nNaturalGas:1\nNumberOfPeople:2\nLPG:1\nelectric:5\n\nLocalBus:80\nNational_Rail:54\n\nvehicleDistance_motorcycle:100\nvehicleFuel:Petrol\nmotorcycletype:Average Motorcycle\nvehicleDistance_car:300\nvehicleMPG:20"},
@@ -152,7 +152,7 @@ const {
     });
   
     const response = result.response;
-    console.log(response.text());
+    
     return(response.text());
   }
   
