@@ -25,7 +25,6 @@ export const CarbonFootprintCalculatorVehicle = () => {
     const usersCollection = collection(db, "users");
     const [tooltipVisible, setTooltipVisible] = useState(false);
     const [tooltipVisible1, setTooltipVisible1] = useState(false);
-    const navigate = useNavigate();
 
     const toggleTooltip = () => {
       setTooltipVisible(!tooltipVisible);

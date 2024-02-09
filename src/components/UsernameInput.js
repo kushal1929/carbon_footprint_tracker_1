@@ -9,7 +9,6 @@ const UsernameInput = () => {
   const navigate = useNavigate();
   const { email } = useParams();
   const [username, setUsername] = useState('');
-  const [notification, setNotification] = useState('');
 
   const handleUsernameSubmit = async () => {
     try {

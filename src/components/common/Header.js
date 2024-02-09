@@ -2,15 +2,12 @@ import { Fragment, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { Dialog, Disclosure, Popover, Transition } from '@headlessui/react'
 import {
-  ArrowPathIcon,
   Bars3Icon,
   ChartPieIcon,
   CursorArrowRaysIcon,
-  FingerPrintIcon,
-  SquaresPlusIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline'
-import { MdRecycling, MdOutlineAttribution } from "react-icons/md";
+import { MdRecycling } from "react-icons/md";
 import { RxActivityLog } from "react-icons/rx";
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
 import './Tailwind.css'
@@ -20,8 +17,6 @@ const products = [
   { name: 'Recycle', description: 'Find Recycling Centres near you!', href: '/Map', icon: MdRecycling },
   { name: 'Feedback', description: 'Let us know where we can improve', href: '/feedback', icon: CursorArrowRaysIcon },
   { name: 'Attributions', description: 'List of Sources ', href: '/Credits', icon: RxActivityLog },
-  // { name: 'Integrations', description: 'Connect with third-party tools', href: '#', icon: SquaresPlusIcon },
-  // { name: 'Automations', description: 'Build strategic funnels that will convert', href: '#', icon: ArrowPathIcon },
 ]
 const callsToAction = [
   { name: 'Watch demo', href: '#', icon: PlayCircleIcon },
