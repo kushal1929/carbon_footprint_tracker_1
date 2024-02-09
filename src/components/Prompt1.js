@@ -1,14 +1,11 @@
 // node --version # Should be >= 18
 // npm install @google/generative-ai
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   collection,
-  query,
-  where,
   getFirestore,
   getDocs,
-  orderBy,
 } from "firebase/firestore";
 
 const geminiAPIkey = process.env.REACT_APP_AI_KEY;

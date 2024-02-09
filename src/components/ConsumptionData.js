@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import CarbonFootprintCalculator from "./carbon";
 import EatingHabits from "./EatingHabits";
 import Header from "./common/Header";

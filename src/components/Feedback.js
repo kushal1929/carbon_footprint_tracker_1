@@ -4,7 +4,7 @@ import { getFirestore, doc, setDoc } from "firebase/firestore";
 import Header from "./common/Header";
 import { app } from "../firebaseconfig";
 import "./common/Tailwind.css";
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import StarRating from "./common/StarRating";
 
 export default function Feedback() {

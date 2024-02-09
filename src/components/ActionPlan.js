@@ -1,14 +1,4 @@
 import React, { useEffect, useState, useRef } from "react";
-import { useNavigate } from "react-router-dom";
-import { getAuth } from "firebase/auth";
-import {
-  collection,
-  query,
-  where,
-  getFirestore,
-  getDocs,
-  orderBy,
-} from "firebase/firestore";
 import { app } from "../firebaseconfig";
 import Header from "./common/Header";
 import "./common/Tailwind.css";
