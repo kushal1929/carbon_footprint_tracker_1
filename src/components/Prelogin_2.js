@@ -27,7 +27,7 @@ export default function Prelogin_2()
 
             <div class="block rounded-xl border border-gray-200 p-8 shadow-xl shadow-green-900 transition hover:border-lime-300/10 hover:shadow-emerald-500 hover:shadow-lime-300/10">
               <h2 class="mt-4 text-xl font-bold text-black">
-                Personalized Sustainability Plan:
+                Personalized Sustainability Plan
               </h2>
 
               <p class="mt-1 text-sm text-black-300">
@@ -38,7 +38,7 @@ export default function Prelogin_2()
 
             <div class="block rounded-xl border border-gray-200 p-8 shadow-xl shadow-green-900 transition hover:border-lime-300/10 hover:shadow-emerald-500 hover:shadow-lime-300/10">
               <h2 class="mt-4 text-xl font-bold text-black">
-                Interactive Map for Recycling Locations:
+                Interactive Map for Recycling Locations
               </h2>
 
               <p class="mt-1 text-sm text-black-300">
@@ -49,7 +49,7 @@ export default function Prelogin_2()
 
             <div class="block rounded-xl border border-gray-200 p-8 shadow-xl shadow-green-900 transition hover:border-lime-300/10 hover:shadow-emerald-500 hover:shadow-lime-300/10">
               <h2 class="mt-4 text-xl font-bold text-black">
-                Competitive Leaderboards:
+                Competitive Leaderboards
               </h2>
 
               <p class="mt-1 text-sm text-black-300">
@@ -60,7 +60,7 @@ export default function Prelogin_2()
 
             <div class="block rounded-xl border border-gray-200 p-8 shadow-xl shadow-green-900 transition hover:border-lime-300/10 hover:shadow-emerald-500 hover:shadow-lime-300/10">
               <h2 class="mt-4 text-xl font-bold text-black">
-                User-Friendly Interface:
+                User-Friendly Interface
               </h2>
 
               <p class="mt-1 text-sm text-black-300">
@@ -70,7 +70,7 @@ export default function Prelogin_2()
             </div>
 
             <div class="block rounded-xl border border-gray-200 p-8 shadow-xl shadow-green-900 transition hover:border-lime-300/10 hover:shadow-emerald-500 hover:shadow-lime-300/10">
-              <h2 class="mt-4 text-xl font-bold text-black">Analytics:</h2>
+              <h2 class="mt-4 text-xl font-bold text-black">Analytics</h2>
 
               <p class="mt-1 text-sm text-black-300">
                 Users can monitor progress and gain insights into their
