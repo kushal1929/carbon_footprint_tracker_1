@@ -50,7 +50,7 @@ export default function Feedback() {
       additionalExperience,
     });
     toast.success('Feedback submitted successfully');
-    console.log("Feedback submitted successfully for", username);
+    
     // Optionally, you can redirect the user or show a confirmation message
   };
 

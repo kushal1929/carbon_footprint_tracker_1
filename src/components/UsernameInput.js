@@ -29,7 +29,7 @@ const UsernameInput = () => {
         navigate('/home');
       }
     } catch (error) {
-      console.error('Error creating username:', error);
+     
       alert('Error creating username: ' + error.message);
     }
   };

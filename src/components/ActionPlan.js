@@ -42,9 +42,9 @@ export default function ActionPlan(){
            // Reset the flag after requests are complete
         }
       } catch (error) {
-        console.error('Error fetching responses:', error);
+        
+        alert("Error fetching responses");
         setStatus('error');
-         // Reset the flag in case of an error
       }
     };
 
