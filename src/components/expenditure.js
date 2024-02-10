@@ -240,7 +240,7 @@ export const CarbonFootprintCalculatorExpenditure = () => {
                   value={Eating_out}
                   placeholder="In USD"
                   className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
-                  onChange={(e) => setEating_out(Number(e.target.value))}
+                  onChange={(e) => setEating_out(parseFloat(e.target.value))}
                 />
               </label>
             </div>
@@ -253,7 +253,7 @@ export const CarbonFootprintCalculatorExpenditure = () => {
                   placeholder="In USD"
                   className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                   value={Car_Maintenance}
-                  onChange={(e) => setCar_Maintenance(Number(e.target.value))}
+                  onChange={(e) => setCar_Maintenance(parseFloat(e.target.value))}
                 />
               </label>
             </div>
@@ -268,7 +268,7 @@ export const CarbonFootprintCalculatorExpenditure = () => {
                   placeholder="In USD"
                   className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                   value={clothing}
-                  onChange={(e) => setclothing(Number(e.target.value))}
+                  onChange={(e) => setclothing(parseFloat(e.target.value))}
                 />
               </label>
             </div>
@@ -283,7 +283,7 @@ export const CarbonFootprintCalculatorExpenditure = () => {
                   placeholder="In USD"
                   className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                   value={Furniture}
-                  onChange={(e) => setFurniture(Number(e.target.value))}
+                  onChange={(e) => setFurniture(parseFloat(e.target.value))}
                 />
               </label>
             </div>
@@ -298,7 +298,7 @@ export const CarbonFootprintCalculatorExpenditure = () => {
                   placeholder="In USD"
                   className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                   value={Domestic_Water}
-                  onChange={(e) => setDomestic_Water(Number(e.target.value))}
+                  onChange={(e) => setDomestic_Water(parseFloat(e.target.value))}
                 />
               </label>
             </div>
@@ -314,7 +314,7 @@ export const CarbonFootprintCalculatorExpenditure = () => {
                   className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                   value={Telephone_Internet}
                   onChange={(e) =>
-                    setTelephone_Internet(Number(e.target.value))
+                    setTelephone_Internet(parseFloat(e.target.value))
                   }
                 />
               </label>
@@ -330,7 +330,7 @@ export const CarbonFootprintCalculatorExpenditure = () => {
                   placeholder="In USD"
                   className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                   value={Computer_Elec}
-                  onChange={(e) => setComputer_Elec(Number(e.target.value))}
+                  onChange={(e) => setComputer_Elec(parseFloat(e.target.value))}
                 />
               </label>
             </div>
@@ -346,7 +346,7 @@ export const CarbonFootprintCalculatorExpenditure = () => {
                   className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                   value={Electrical_Appliances}
                   onChange={(e) =>
-                    setElectrical_Appliances(Number(e.target.value))
+                    setElectrical_Appliances(parseFloat(e.target.value))
                   }
                 />
               </label>
@@ -362,7 +362,7 @@ export const CarbonFootprintCalculatorExpenditure = () => {
                   placeholder="In USD"
                   className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                   value={Postage}
-                  onChange={(e) => setPostage(Number(e.target.value))}
+                  onChange={(e) => setPostage(parseFloat(e.target.value))}
                 />
               </label>
             </div>
@@ -377,7 +377,7 @@ export const CarbonFootprintCalculatorExpenditure = () => {
                   placeholder="In USD"
                   className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                   value={Magazines}
-                  onChange={(e) => setMagazines(Number(e.target.value))}
+                  onChange={(e) => setMagazines(parseFloat(e.target.value))}
                 />
               </label>
             </div>
@@ -392,7 +392,7 @@ export const CarbonFootprintCalculatorExpenditure = () => {
                   placeholder="In USD"
                   className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                   value={Stationary}
-                  onChange={(e) => setStationary(Number(e.target.value))}
+                  onChange={(e) => setStationary(parseFloat(e.target.value))}
                 />
               </label>
             </div>
@@ -407,7 +407,7 @@ export const CarbonFootprintCalculatorExpenditure = () => {
                   value={Hair_SelfCare}
                   placeholder="In USD"
                   className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
-                  onChange={(e) => setHair_SelfCare(Number(e.target.value))}
+                  onChange={(e) => setHair_SelfCare(parseFloat(e.target.value))}
                 />
               </label>
             </div>
@@ -422,7 +422,7 @@ export const CarbonFootprintCalculatorExpenditure = () => {
                   placeholder="In USD"
                   className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                   value={Pet_Food}
-                  onChange={(e) => setPet_Food(Number(e.target.value))}
+                  onChange={(e) => setPet_Food(parseFloat(e.target.value))}
                 />
               </label>
             </div>
@@ -437,7 +437,7 @@ export const CarbonFootprintCalculatorExpenditure = () => {
                   placeholder="In USD"
                   className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                   value={Hotel_Stays}
-                  onChange={(e) => setHotel_Stays(Number(e.target.value))}
+                  onChange={(e) => setHotel_Stays(parseFloat(e.target.value))}
                 />
               </label>
             </div>
@@ -452,7 +452,7 @@ export const CarbonFootprintCalculatorExpenditure = () => {
                   placeholder="In USD"
                   className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                   value={Insurance}
-                  onChange={(e) => setInsurance(Number(e.target.value))}
+                  onChange={(e) => setInsurance(parseFloat(e.target.value))}
                 />
               </label>
             </div>
@@ -488,7 +488,7 @@ export const CarbonFootprintCalculatorExpenditure = () => {
                     placeholder="In USD"
                     className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                     value={Other}
-                    onChange={(e) => setOther(Number(e.target.value))}
+                    onChange={(e) => setOther(parseFloat(e.target.value))}
                   />
                 </label>
               </div>

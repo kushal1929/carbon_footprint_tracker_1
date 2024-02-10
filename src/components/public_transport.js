@@ -183,7 +183,7 @@ export const CarbonFootprintCalculatorPublicVehicle = () => {
                 value={LocalBus}
                 placeholder="Distance in km"
                 className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
-                onChange={(e) => setLocalBus(Number(e.target.value))}
+                onChange={(e) => setLocalBus(parseFloat(e.target.value))}
               />
             </label>
           </div>
@@ -198,7 +198,7 @@ export const CarbonFootprintCalculatorPublicVehicle = () => {
                 value={National_Rail}
                 placeholder="Distance in km"
                 className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
-                onChange={(e) => setNation_Rail(Number(e.target.value))}
+                onChange={(e) => setNation_Rail(parseFloat(e.target.value))}
               />
             </label>
           </div>
@@ -217,7 +217,7 @@ export const CarbonFootprintCalculatorPublicVehicle = () => {
           {PublicVehicleCarbonFootprint !== null && (
             <div className="text-xl font-bold mb-4">
               Your estimated vehicle carbon footprint is:{" "}
-              {PublicVehicleCarbonFootprint} kgCO2 per month
+              {PublicVehicleCarbonFootprint.toFixed(3)} kgCO2 per month
             </div>
           )}
           {/* {calculateCarbonFootprintPublicVehicle} */}

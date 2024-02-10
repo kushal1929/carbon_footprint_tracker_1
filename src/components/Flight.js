@@ -230,7 +230,7 @@ export const Flight = () => {
             {flightCarbonFootprint !== null && (
               <div className="text-xl font-bold mb-4">
                 <p>Total Flight Carbon Footprint:</p>
-                <p>{flightCarbonFootprint} KgCO2</p>
+                <p>{flightCarbonFootprint.toFixed(3)} KgCO2</p>
               </div>
             )}
           </div>

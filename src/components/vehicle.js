@@ -13,11 +13,11 @@ import { FaQuestionCircle } from "react-icons/fa";
 import "./common/Tailwind.css";
 
 export const CarbonFootprintCalculatorVehicle = () => {
-    const [vehicleMPG, setVehicleMPG] = useState('');
+    const [vehicleMPG, setVehicleMPG] = useState("");
     const [vehicleFuel, setVehicleFuel] = useState("Petrol");
-    const [vehicleDistance_car, setVehicleDistance_car] = useState('');
+    const [vehicleDistance_car, setVehicleDistance_car] = useState("");
     const [motorcycletype,setmotorcycletype]=useState("Average Motorcycle");
-    const [vehicleDistance_motorcycle, setVehicleDistance_motorcycle] =useState('');
+    const [vehicleDistance_motorcycle, setVehicleDistance_motorcycle] =useState("");
     let [vehicleCarbonFootprint, setVehicleCarbonFootprint] = useState(null);
     const [username, setUsername] = useState("");
 
@@ -207,7 +207,7 @@ export const CarbonFootprintCalculatorVehicle = () => {
                   value={vehicleMPG}
                   placeholder="In km/L"
                   className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
-                  onChange={(e) => setVehicleMPG(Number(e.target.value))}
+                  onChange={(e) => setVehicleMPG(parseFloat(e.target.value))}
                 />
               </label>
             </div>
@@ -238,7 +238,7 @@ export const CarbonFootprintCalculatorVehicle = () => {
                   placeholder="Distance in km"
                   className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                   onChange={(e) =>
-                    setVehicleDistance_car(Number(e.target.value))
+                    setVehicleDistance_car(parseFloat(e.target.value))
                   }
                 />
               </label>
@@ -291,7 +291,7 @@ export const CarbonFootprintCalculatorVehicle = () => {
                   placeholder="Distance in km"
                   className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                   onChange={(e) =>
-                    setVehicleDistance_motorcycle(Number(e.target.value))
+                    setVehicleDistance_motorcycle(parseFloat(e.target.value))
                   }
                 />
               </label>
@@ -310,7 +310,7 @@ export const CarbonFootprintCalculatorVehicle = () => {
             {vehicleCarbonFootprint !== null && (
               <div className="text-xl font-bold mb-4">
                 <p>Your estimated vehicle carbon footprint is: </p>
-                <p>{vehicleCarbonFootprint} kgCO2 per month</p>
+                <p>{vehicleCarbonFootprint.toFixed(3)} kgCO2 per month</p>
               </div>
             )}
             {/* {calculateCarbonFootprintVehicle} */}

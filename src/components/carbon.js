@@ -34,6 +34,7 @@ export const CarbonFootprintCalculator = () => {
   };
 
   const calculateCarbonFootprint = async (homeCarbonFootprint) => {
+    
     const newCarbonData = {
       electric,
       NaturalGas,
@@ -230,7 +231,7 @@ export const CarbonFootprintCalculator = () => {
                 value={electric}
                 placeholder="in kWh"
                 className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
-                onChange={(e) => setElectric(Number(e.target.value))}
+                onChange={(e) => setElectric(parseFloat(e.target.value))}
               />
             </label>
           </div>
@@ -244,7 +245,7 @@ export const CarbonFootprintCalculator = () => {
                 value={NaturalGas}
                 placeholder="in kWh"
                 className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
-                onChange={(e) => setNaturalGas(Number(e.target.value))}
+                onChange={(e) => setNaturalGas(parseFloat(e.target.value))}
               />
             </label>
           </div>
@@ -259,7 +260,7 @@ export const CarbonFootprintCalculator = () => {
                 value={BioMass}
                 placeholder="in kg"
                 className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
-                onChange={(e) => setBioMass(Number(e.target.value))}
+                onChange={(e) => setBioMass(parseFloat(e.target.value))}
               />
             </label>
           </div>
@@ -274,7 +275,7 @@ export const CarbonFootprintCalculator = () => {
                 value={Coal}
                 placeholder="in kg"
                 className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
-                onChange={(e) => setCoal(Number(e.target.value))}
+                onChange={(e) => setCoal(parseFloat(e.target.value))}
               />
             </label>
           </div>
@@ -289,7 +290,7 @@ export const CarbonFootprintCalculator = () => {
                 value={HeatingOil}
                 placeholder="in liters"
                 className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
-                onChange={(e) => setHeatingOil(Number(e.target.value))}
+                onChange={(e) => setHeatingOil(parseFloat(e.target.value))}
               />
             </label>
           </div>
@@ -304,7 +305,7 @@ export const CarbonFootprintCalculator = () => {
                 value={LPG}
                 placeholder="in kg"
                 className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
-                onChange={(e) => setLPG(Number(e.target.value))}
+                onChange={(e) => setLPG(parseFloat(e.target.value))}
               />
             </label>
           </div>
