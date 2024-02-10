@@ -23,7 +23,6 @@ export const CarbonFootprintCalculator = () => {
   const [NumberOfPeople, setNumberOfPeople] = useState("");
   let [homeCarbonFootprint, setHomeCarbonFootprint] = useState(null);
   const [username, setUsername] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
   const [tooltipVisible1, setTooltipVisible1] = useState(false);
 
   const db = getFirestore();
@@ -167,12 +166,11 @@ export const CarbonFootprintCalculator = () => {
 
   const handleCalculate = (e) => {
     if (!Number.isInteger(NumberOfPeople) || NumberOfPeople <= 0) {
-      setErrorMessage("Number of people must be a positive integer");
+      alert("Number of people must be a positive integer.")
       return;
     }
 
-    // Reset error message if validation passes
-    setErrorMessage("");
+
     const electricBillFactor = 0.93;
     const NaturalGasFactor = 0.18;
     const BioMassFactor = 0.2;
@@ -227,7 +225,6 @@ export const CarbonFootprintCalculator = () => {
                 onChange={(e) => setNumberOfPeople(Number(e.target.value))}
               />
             </label>
-            {errorMessage && <span className="text-red-500 ml-2">{errorMessage}</span>}
           </div>
 
           <div className="flex flex-row items-center justify-center mb-4">
