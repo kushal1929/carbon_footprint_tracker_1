@@ -4,6 +4,8 @@ import { getFirestore, collection, query, where, getDocs, orderBy, doc, getDoc, 
 import { Line } from "react-chartjs-2";
 import "chart.js/auto";
 import Header from "./common/Header";
+import Home_card from "./common/Home_card";
+import RecyclingCentersMap from './RecyclingCentersMap';
 import LeaderBoard from "./common/Leaderboard";
 import LoadingSymbol from "./common/LoadingSymbol";
 
@@ -143,7 +145,7 @@ export default function Home() {
           });
         } else {
           navigate(`/verify-email/${email}`);
-          console.log("User not found in Firestore");
+          // console.log("User not found in Firestore");
         }
         setLoading(false);
       })
