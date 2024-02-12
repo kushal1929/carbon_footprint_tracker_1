@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Doughnut } from 'react-chartjs-2';
 import Header from './common/Header';
 import { useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify';
 import {Chart, Title, Legend} from "chart.js/auto"
 import { getFirestore, collection, doc, getDocs, getDoc } from 'firebase/firestore';
 
@@ -76,7 +77,7 @@ const Analytics = () => {
           });
         } catch (error) {
           
-          alert('Error fetching data:');
+          toast.error('Ensure you have filled in the Expenditure in the Carbon Footprint Calculator');
         }
       };
 
@@ -142,9 +143,7 @@ const Analytics = () => {
           ],
         });
       } catch (error) {
-        
-        alert('Error fetching data:');
-
+        toast.error('Ensure you have filled in all 6 categories in the Carbon Footprint Calculator');
       }
     
 
@@ -249,7 +248,11 @@ const Analytics = () => {
 
             />
           
-          ): console.log()}
+          ):(<p
+            className="w-fit bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-xl font-bold text-transparent lg:text-xl">
+             
+             No data available for analysis, please visit the<a href='/consumption-data' class="w-fit font-bold text-blue-600 underline dark:text-blue-500 hover:no-underline"> Carbon Footprint Calculator</a> to start your Carbon Footprint journey Today!</p>)}
+ 
         </div>
     
         <div className='flex justify-center items-center w-full h-4/5 lg:w-1/2  px-5 mt-10 ' >
@@ -270,7 +273,7 @@ const Analytics = () => {
           
         ) : (<p
            className="w-fit bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-xl font-bold text-transparent lg:text-xl">
-            No data available for chart, please visit the <a href='/consumption-data' class="w-fit font-bold text-blue-600 underline dark:text-blue-500 hover:no-underline"> Carbon Footprint Calculator</a> to start your Carbon Footprint journey Today!</p>)}
+            Expenditure data not available ,please visit <a href='/consumption-data' class="w-fit font-bold text-blue-600 underline dark:text-blue-500 hover:no-underline"> Carbon Footprint Calculator</a> to start your Carbon Footprint journey Today!</p>)}
 
      
       </div>

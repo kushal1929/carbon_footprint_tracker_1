@@ -20,7 +20,7 @@ const QuizApp = ({ app }) => {
         const data = await getDocs(collection(db, 'QuizQuestions'));
         const allQuestions = data.docs.map(doc => doc.data());
         const shuffledQuestions = allQuestions.sort(() => Math.random() - 0.5);
-        const selectedQuestions = shuffledQuestions.slice(0, 3);
+        const selectedQuestions = shuffledQuestions.slice(0, 5);
         setQuestions(selectedQuestions);
         setQuizCompleted(false);
       } catch (error) {
@@ -47,7 +47,7 @@ const QuizApp = ({ app }) => {
       } else {
         setQuizCompleted(true);
       }
-    }, 2000);
+    }, 4000);
   };
 
   const renderQuizContent = () => (
@@ -59,8 +59,8 @@ const QuizApp = ({ app }) => {
         {["Option1", "Option2"].map((option, index) => (
           <div
             key={index}
-            className={`text-center w-[60%] mx-auto mt-[2%] mb-[5%] border-amber-300 border-2 p-4 rounded-md hover:bg-amber-400 ${
-              selectedAnswer !== null &&
+            className={`text-center w-[60%] mx-auto mt-[2%] mb-[5%] border-amber-300 border-2 p-4 rounded-md hover:bg-amber-100 ${
+              selectedAnswer !== null && selectedAnswer===index &&
               (selectedAnswer === questions[currentQuestion]?.Correct_Answer
                 ? "bg-green-300"
                 : "bg-red-300")
@@ -79,7 +79,7 @@ const QuizApp = ({ app }) => {
 
       {selectedAnswer !== null && (
         <div className="mt-4">
-          <p className="text-xl text-emerald-700">
+          <p className="text-3xl text-emerald-700">
             {selectedAnswer === questions[currentQuestion]?.Correct_Answer
               ? "Correct!"
               : "Incorrect!"}

@@ -7,6 +7,7 @@ import { prompt2send } from "./Prompt2";
 import { Prompt1fetchData } from "./Prompt1";
 import { Prompt2fetchData } from "./Prompt2";
 import LoadingSymbol from "./common/LoadingSymbol";
+import {toast} from "react-toastify";
 
 export default function ActionPlan(){
 
@@ -32,8 +33,6 @@ export default function ActionPlan(){
            // Reset the flag after requests are complete
         }
       } catch (error) {
-        
-        alert("Error fetching responses");
         setStatus('error');
       }
     };
@@ -76,18 +75,20 @@ export default function ActionPlan(){
       <div className="flex flex-col h-[90%] w-full justify-center items-center">
         <div className="text-3xl mb-6 text-[#005e03] text-center">Please wait while we create your personalized action plan...</div>
         <LoadingSymbol type="spinningBubbles" color="#005e03"/>
-        <div className="text-2xl mt-6 px-4 text-center">Make sure you've filled in the Carbon Footprint Calculator first!</div>
+        <div className="text-2xl mt-6 px-4 text-center">Make sure you've filled in all the 6 categories in Carbon Footprint Calculator first!</div>
       </div>
       </>
     )
   }
   if(status === 'error')
   {
+    toast.error("Fill in all the 6 categories in the Carbon Footprint Calculator");
     return(
       <>
         <Header/>
         <div className="grid h-screen place-content-center bg-white px-4">
           <div className="text-black text-3xl">Oops! Looks like there was some error on our side. Please try again after some time.</div>
+          <div className="text-black text-3xl">Also ensure you have filled in all 6 categories in the <a href='/Consumption-data' class="w-fit font-bold text-blue-600 underline dark:text-blue-500 hover:no-underline">Carbon Footprint Calculator</a> first.</div>
         </div>
       </>
     )
