@@ -22,6 +22,7 @@ module.exports = {
     "./src/components/common/Leaderboard.js",
     "./src/components/Credits.js",
     "./src/components/common/ScrollToBottomButton.js",
+    "./src/components/common/UserDataCard.js",
   ],
   theme: {
     fontFamily: {

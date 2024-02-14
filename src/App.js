@@ -29,6 +29,7 @@ import Feedback from './components/Feedback';
 import Analytics from './components/Analytics';
 import Map from './components/Map.js';
 import Credits from './components/Credits';
+import UserDataCard from './components/common/UserDataCard';
 import { toast } from 'react-toastify';
 
 
@@ -152,6 +153,7 @@ function App() {
         <Route path="/Analytics" element={<Analytics />}/>
         <Route path="/Map" element={<Map />}/>
         <Route path="/Credits" element={<Credits/>} />
+        <Route path="/share-score" element={<UserDataCard/>} />
       </Routes>
     </div>
   );

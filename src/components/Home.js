@@ -8,7 +8,8 @@ import Home_card from "./common/Home_card";
 import RecyclingCentersMap from './RecyclingCentersMap';
 import LeaderBoard from "./common/Leaderboard";
 import LoadingSymbol from "./common/LoadingSymbol";
-import { BsCalculator } from "react-icons/bs";
+import { BsCalculator,BsFillShareFill, BsShareFill  } from "react-icons/bs";
+import './common/Tailwind.css';
 
 export default function Home() {
   const navigate = useNavigate();
@@ -317,7 +318,7 @@ export default function Home() {
           Welcome, {username}!
         </h1>
       </div>
-      <div className="relative flex flex-wrap lg:h-3/5 lg:flex-start">
+      <div className="relative flex flex-wrap lg:h-[65%] lg:flex-start">
         <div className='flex justify-center items-center w-full lg:w-1/2 px-5 mt-5' >
           {chartData.labels && chartData.labels.length > 0 ? 
             (
@@ -386,10 +387,10 @@ export default function Home() {
         </div>
       </div>
 
-    <div className="flex flex-wrap flex-row gap-y-3 place-content-evenly  mb-2 w-full lg:flex-nowrap gap-x-3 px-3 place-content-evenly sm:place-content-evenly px-10 items-stretch justify-stretch mt-5 720px:mt-[20%] lg:mt-[28%] xl:mt-[4%] 2xl:mt-[2.5%]">
+    <div className="flex flex-wrap flex-row gap-y-3 mb-2 w-full lg:flex-nowrap gap-x-3 px-3 place-content-evenly sm:place-content-evenly  items-stretch justify-stretch mt-5 720px:mt-[20%] lg:mt-[28%] xl:mt-[4%] 2xl:mt-[2.5%]">
       <div className="bg-amber-600 flex flex-row place-content-evenly mx-auto w-[80%] block rounded-xl border border-gray-200 p-4 sm:p-8 shadow-xl transition hover:border-lime-300/10 hover:shadow-amber-700/50 ">
         <a href="/consumption-data">
-          <p className="text-xl sm:text-2xl text-white animate-pulse">
+          <p className="text-md sm:text-2xl text-white animate-pulse">
           Fill in the calculator to get detailed analytics and a personalized action plan!
           </p>
         </a>
@@ -397,12 +398,19 @@ export default function Home() {
       </div>
       <div className="bg-amber-500 flex flex-col place-content-evenly mx-auto w-[80%] block rounded-xl border border-gray-200 p-4 sm:p-8 shadow-xl transition hover:border-lime-300/10 hover:shadow-amber-600/50 ">
         <a href="/consumption-data">
-          <p className="text-xl sm:text-2xl text-white ">
+          <p className="text-lg sm:text-2xl text-white ">
            Read our blog to understand what carbon footprint is and how it affects the world         
           </p>
         </a>
       </div>
-      <div className="bg-amber-400 flex flex-col place-content-evenly mx-auto w-[80%] block rounded-xl border border-gray-200 p-8 shadow-xl transition hover:border-lime-300/10 hover:shadow-amber-500/50 ">3</div>
+      <div className="bg-amber-400 flex flex-row place-content-evenly mx-auto w-[80%] block rounded-xl border border-gray-200 p-8 shadow-xl transition hover:border-lime-300/10 hover:shadow-amber-500/50 ">
+          <a href="/share-score">
+            <p className="text-lg sm:text-2xl text-white ">
+              Download,Share score on social media        
+            </p>
+          </a>
+          <BsShareFill className="text-white h-full w-auto"/>
+      </div>
       <div className="bg-amber-300 flex flex-col place-content-evenly mx-auto w-[80%] block rounded-xl border border-gray-200 p-8 shadow-xl transition hover:border-lime-300/10 hover:shadow-amber-400/50 ">4</div>
     </div>
 
