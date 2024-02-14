@@ -16,9 +16,11 @@ export default function Home() {
   const [error, setError] = useState(null);
   const [chartData, setChartData] = useState({});
   const [averageTotalCarbonFootprint, setAverageTotalCarbonFootprint] = useState(null);
+  const [userRank, setUserRank] = useState(null);
 
   const monthsRef = useRef([]);
   const totalCarbonFootprintValuesRef = useRef([]);
+
 
   const calculateAverageTotalCarbonFootprint = async (currentDate) => {
     const db = getFirestore();
@@ -80,6 +82,7 @@ export default function Home() {
         const usersCollection = collection(db, 'users');
         let totalCarbonFootprintSum = 0;
         let totalUsers = 0;
+        let totalCarbonFootprint_rank=[];
         // Iterate through all usernames
       for (const username of username_all) {
         const userDocRef = doc(usersCollection, username, 'Total', currentMonthYear);
@@ -89,11 +92,24 @@ export default function Home() {
           const userData = userDoc.data();
           
           if (userData && userData.totalCarbonFootprint) {
+            totalCarbonFootprint_rank.push({ username: username, totalCarbonFootprint: userData.totalCarbonFootprint });
             totalCarbonFootprintSum += userData.totalCarbonFootprint || 0;
             totalUsers += 1;
           }
         }
       }
+
+      // Sort usernames based on total carbon footprint in ascending order
+      totalCarbonFootprint_rank.sort((a, b) => a.totalCarbonFootprint - b.totalCarbonFootprint);
+      console.log(totalCarbonFootprint_rank);
+      const leaderboardCollectionRef = collection(averageDocRef, "Leaderboard");
+      totalCarbonFootprint_rank.forEach(async (user, index) => {
+        const userDocRef = doc(leaderboardCollectionRef, user.username);
+        await setDoc(userDocRef, { 
+          rankCarbonFootprint: index + 1 ,
+          totalUsers : totalUsers,
+        });// Index starts from 0, so add 1 to get the rank
+      });
 
       const averageTotalCarbonFootprint = totalCarbonFootprintSum / (totalUsers || 1);
             // Fetch user data for the current month
@@ -112,7 +128,7 @@ export default function Home() {
   
     return 0;
   };
-  
+
   const fetchAverage = async () => {
     try {
       const currentDate = new Date();
@@ -124,6 +140,57 @@ export default function Home() {
       alert('Error fetching average:', error.message)
     }
   };
+
+  const fetchCarbonRank= async(current_username)=>{
+    if(current_username!='')
+    {
+      try {
+        const currentDate = new Date();
+        
+        
+        const db=getFirestore();
+        const currentMonthYear = new Intl.DateTimeFormat('en-US', { month: 'long', year: 'numeric' }).format(currentDate);
+        const leaderboardDocRef = doc(db,'Average',currentMonthYear,'Leaderboard',current_username);
+
+          const leaderboardDoc = await getDoc(leaderboardDocRef);
+          if(leaderboardDoc.exists()){
+            const user_rank=leaderboardDoc.data().rankCarbonFootprint + "/"+ leaderboardDoc.data().totalUsers;
+            // console.log(user_rank);
+            return user_rank;
+          }
+          if (currentDate.getDate() < 15) {
+            try {
+              const previousMonthYear = new Intl.DateTimeFormat('en-US', {
+                month: 'long',
+                year: 'numeric',
+              }).format(new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, 1));
+        
+              const previousMonthRankDocRef = doc(db, 'Average', previousMonthYear,'Leaderboard',current_username);
+              const previousMonthRankDoc = await getDoc(previousMonthRankDocRef);
+              if(previousMonthRankDoc.exists()){
+                const user_rank=previousMonthRankDoc.data().rankCarbonFootprint + "/"+ previousMonthRankDoc.data().totalUsers;
+                // console.log(user_rank);
+                return user_rank;
+              }
+            }
+            catch(error){
+
+            }
+          }
+      } catch (error) {
+        // console.log("bruh"+current_username);
+        // alert('Error fetching rank:', error.message)
+      }
+    }
+    
+
+  } 
+
+  useEffect(()=>{
+    const current_username =sessionStorage.getItem("Username");
+    // console.log(current_username);
+    fetchCarbonRank(current_username).then((rank) => setUserRank(rank));
+  },[username]);
   
   useEffect(() => {
     const userEmail = sessionStorage.getItem("User Email");
@@ -159,6 +226,7 @@ export default function Home() {
   }, [navigate]);
 
   sessionStorage.setItem("Username", username);
+
 
   const isFirstRender = useRef(true);
   useEffect(() => {
@@ -272,7 +340,7 @@ export default function Home() {
             ) : (<p>No data available for chart</p>)
           }
         </div>
-        <div className='flex flex-row place-content-evenly w-full lg:w-1/2 gap-x-6 px-3 place-content-evenly sm:place-content-evenly px-10 mt-10 mb-20 items-stretch justify-stretch'>
+        <div className='flex flex-row place-content-evenly w-full  lg:w-1/2 gap-x-3 px-3 place-content-evenly sm:place-content-evenly px-10 mt-10 mb-20 items-stretch justify-stretch'>
           <div
               class=" flex flex-col place-content-evenly w-[50%] block rounded-xl border border-gray-200 p-8 shadow-xl transition hover:border-lime-300/10 hover:shadow-lime-300/20 mx-auto"
           >
@@ -300,18 +368,35 @@ export default function Home() {
           <div
             className="flex flex-col place-content-evenly mx-auto w-[50%] block rounded-xl border border-gray-200 p-8 shadow-xl transition hover:border-lime-300/10 hover:shadow-lime-300/20 "
           >
-            <h2 class="flex mt-[1%] text-center justify-center items-center w-full w-fit text-amber-400 bg-clip-text text-2xl font-extrabold text-amber-400 sm:text-3xl">Average Footprint Across Globe</h2>
+            <h2 class="flex mt-[1%] text-center justify-center items-center w-full w-fit text-amber-400 bg-clip-text text-2xl font-extrabold text-amber-400 sm:text-3xl">Footprint Across Globe</h2>
             <>
-              <p className="font-bold mt-[20%] sm:mt-[10%] text-center text-emerald-700 text-[22px] sm:text-[40px]">
+              <p className="flex mt-[20%] text-center justify-center items-center w-full w-fit text-amber-400 bg-clip-text text-xl font-extrabold text-amber-400 sm:text-2xl">Average</p>
+              <p className="font-bold mt-[5%] sm:mt-[1%] text-center text-emerald-700 text-[22px] sm:text-[40px]">
                 {averageTotalCarbonFootprint !== null ? `${averageTotalCarbonFootprint.toFixed(3)}` : 'Loading...'}
               </p>
               <p className=" text-[15px] text-center text-gray-300 sm:text-[24px]">{averageTotalCarbonFootprint !== null ? 'Kg CO2' :''}</p>
+              <p className="flex mt-[10%] text-center justify-center items-center w-full w-fit text-amber-400 bg-clip-text text-xl font-extrabold text-amber-400 sm:text-2xl">Your Global Rank</p>
+              <p className="font-bold mt-[5%] sm:mt-[1%] text-center text-emerald-700 text-[22px] sm:text-[40px]">{userRank !== null ? `${userRank}`:''}</p>
+              
               <p className=" text-[10px] text-center text-gray-300 sm:text-[15px]">{averageTotalCarbonFootprint !== null ? 'updates 15th of every month' :''}</p>
             </>
 
           </div>
         </div>
       </div>
+
+    <div className="flex flex-wrap flex-row gap-y-3 place-content-evenly  mb-2 w-full lg:flex-nowrap gap-x-3 px-3 place-content-evenly sm:place-content-evenly px-10 items-stretch justify-stretch mt-5 720px:mt-[20%] lg:mt-[28%] xl:mt-[4%] 2xl:mt-[2.5%]">
+      <div className="flex flex-col place-content-evenly mx-auto w-[80%] block rounded-xl border border-gray-200 p-8 shadow-xl transition hover:border-lime-300/10 hover:shadow-lime-300/20 ">
+        <a href="/consumption-data">
+        <p className="text-2xl text-emerald-700 animate-pulse">
+        Advance on Your Green Expedition! Evaluate. Elevate. Excel.
+        </p>
+        </a>
+      </div>
+      <div className="flex flex-col place-content-evenly mx-auto w-[80%] block rounded-xl border border-gray-200 p-8 shadow-xl transition hover:border-lime-300/10 hover:shadow-lime-300/20 ">2</div>
+      <div className="flex flex-col place-content-evenly mx-auto w-[80%] block rounded-xl border border-gray-200 p-8 shadow-xl transition hover:border-lime-300/10 hover:shadow-lime-300/20 ">3</div>
+      <div className="flex flex-col place-content-evenly mx-auto w-[80%] block rounded-xl border border-gray-200 p-8 shadow-xl transition hover:border-lime-300/10 hover:shadow-lime-300/20 ">4</div>
+    </div>
 
     <div className='flex flex-col justify-start items-center w-full h-1/2 mt-5 720px:mt-[20%] lg:mt-[28%] xl:mt-[15%] 2xl:mt-[7.5%]' >
        <LeaderBoard/> 
