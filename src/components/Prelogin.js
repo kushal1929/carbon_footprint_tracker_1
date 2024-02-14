@@ -15,7 +15,7 @@ export const Element = () => {
   };
   
   return (
-    <div className="h-screen max-w-screen bg-cover bg-[url('../../assets/image_1.png')]">
+    <div className="h-screen max-w-screen bg-cover bg-[url('../../assets/image_1.jpg')]">
       <div className="absolute flex items-center h-[90%] w-[95%] my-[3%] mr-[3%] ml-[2%] rounded-[66px] bg-white">
         <div className="w-full relative flex flex-wrap lg:h-full lg:w-[97%] lg:items-start lg:pl-16">
           <div className="flex items-center flex-col w-full h-full lg:w-1/2 lg:items-start lg:mt-[8%]">
@@ -47,7 +47,7 @@ export const Element = () => {
           <div className="relative h-0 w-full lg:h-full lg:w-1/2">
             <img
               alt="HomePage"
-              src={require("../assets/prelogin.png")}
+              src={require("../assets/prelogin.jpg")}
               className="absolute inset-0 h-full w-full object-contain animate-fade animate-once animate-duration-[3000ms] animate-ease-out animate-alternate"
             />
           </div>
