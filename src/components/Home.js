@@ -377,7 +377,7 @@ export default function Home() {
               </p>
               <p className=" text-[15px] text-center text-gray-300 sm:text-[24px]">{averageTotalCarbonFootprint !== null ? 'Kg CO2' :''}</p>
               <p className="flex mt-[10%] text-center justify-center items-center w-full w-fit text-amber-400 bg-clip-text text-xl font-extrabold text-amber-400 sm:text-2xl">Your Global Rank</p>
-              <p className="font-bold mt-[5%] sm:mt-[1%] text-center text-emerald-700 text-[22px] sm:text-[40px]">{userRank !== null ? `${userRank}`:''}</p>
+              <p className="font-bold mt-[5%] sm:mt-[1%] text-center text-emerald-700 text-[22px] sm:text-[40px]">{userRank !== undefined ? `${userRank}`:'Unranked'}</p>
               
               <p className=" text-[10px] text-center text-gray-300 sm:text-[15px]">{averageTotalCarbonFootprint !== null ? 'updates 15th of every month' :''}</p>
             </>
