@@ -2,7 +2,7 @@ import React from 'react';
 import Header from './common/Header';
 import "./common/Tailwind.css";
 
-const BlogPage=()=>{
+const CFblog=()=>{
 return(
         
 
@@ -134,4 +134,4 @@ As the Earth's climate continues to evolve, the impacts on biodiversity and ecos
     );
 };
 
-export default BlogPage;
+export default CFblog;
