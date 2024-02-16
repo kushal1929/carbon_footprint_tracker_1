@@ -208,7 +208,7 @@ export const Flight = () => {
                 type="number"
                 value={flightHours}
                 placeholder="In hrs"
-                className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
+                className="block w-full border-0 rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                 onChange={(e) => handleFlightHoursChange(e.target.value)}
               />
             </label>

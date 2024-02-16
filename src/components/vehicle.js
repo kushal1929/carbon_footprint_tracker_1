@@ -206,7 +206,7 @@ export const CarbonFootprintCalculatorVehicle = () => {
                   type="number"
                   value={vehicleMPG}
                   placeholder="In km/L"
-                  className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
+                  className="block w-full border-0 rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                   onChange={(e) => setVehicleMPG(parseFloat(e.target.value))}
                 />
               </label>
@@ -236,7 +236,7 @@ export const CarbonFootprintCalculatorVehicle = () => {
                   type="number"
                   value={vehicleDistance_car}
                   placeholder="Distance in km"
-                  className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
+                  className="block  border-0 w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                   onChange={(e) =>
                     setVehicleDistance_car(parseFloat(e.target.value))
                   }
@@ -289,7 +289,7 @@ export const CarbonFootprintCalculatorVehicle = () => {
                   type="number"
                   value={vehicleDistance_motorcycle}
                   placeholder="Distance in km"
-                  className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
+                  className="block w-full border-0 rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                   onChange={(e) =>
                     setVehicleDistance_motorcycle(parseFloat(e.target.value))
                   }

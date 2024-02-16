@@ -182,7 +182,7 @@ export const CarbonFootprintCalculatorPublicVehicle = () => {
                 type="number"
                 value={LocalBus}
                 placeholder="Distance in km"
-                className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
+                className="block w-full border-0 rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                 onChange={(e) => setLocalBus(parseFloat(e.target.value))}
               />
             </label>
@@ -197,7 +197,7 @@ export const CarbonFootprintCalculatorPublicVehicle = () => {
                 type="number"
                 value={National_Rail}
                 placeholder="Distance in km"
-                className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
+                className="block w-full border-0 rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                 onChange={(e) => setNation_Rail(parseFloat(e.target.value))}
               />
             </label>

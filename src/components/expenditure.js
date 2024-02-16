@@ -239,7 +239,7 @@ export const CarbonFootprintCalculatorExpenditure = () => {
                   type="number"
                   value={Eating_out}
                   placeholder="In USD"
-                  className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
+                  className="block w-full border-0 rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                   onChange={(e) => setEating_out(parseFloat(e.target.value))}
                 />
               </label>
@@ -251,7 +251,7 @@ export const CarbonFootprintCalculatorExpenditure = () => {
                 <input
                   type="number"
                   placeholder="In USD"
-                  className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
+                  className="block w-full border-0 rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                   value={Car_Maintenance}
                   onChange={(e) => setCar_Maintenance(parseFloat(e.target.value))}
                 />
@@ -266,7 +266,7 @@ export const CarbonFootprintCalculatorExpenditure = () => {
                 <input
                   type="number"
                   placeholder="In USD"
-                  className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
+                  className="block w-full border-0 rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                   value={clothing}
                   onChange={(e) => setclothing(parseFloat(e.target.value))}
                 />
@@ -281,7 +281,7 @@ export const CarbonFootprintCalculatorExpenditure = () => {
                 <input
                   type="number"
                   placeholder="In USD"
-                  className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
+                  className="block w-full border-0 rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                   value={Furniture}
                   onChange={(e) => setFurniture(parseFloat(e.target.value))}
                 />
@@ -296,7 +296,7 @@ export const CarbonFootprintCalculatorExpenditure = () => {
                 <input
                   type="number"
                   placeholder="In USD"
-                  className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
+                  className="block w-full border-0 rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                   value={Domestic_Water}
                   onChange={(e) => setDomestic_Water(parseFloat(e.target.value))}
                 />
@@ -311,7 +311,7 @@ export const CarbonFootprintCalculatorExpenditure = () => {
                 <input
                   type="number"
                   placeholder="In USD"
-                  className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
+                  className="block w-full border-0 rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                   value={Telephone_Internet}
                   onChange={(e) =>
                     setTelephone_Internet(parseFloat(e.target.value))
@@ -328,7 +328,7 @@ export const CarbonFootprintCalculatorExpenditure = () => {
                 <input
                   type="number"
                   placeholder="In USD"
-                  className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
+                  className="block w-full border-0 rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                   value={Computer_Elec}
                   onChange={(e) => setComputer_Elec(parseFloat(e.target.value))}
                 />
@@ -343,7 +343,7 @@ export const CarbonFootprintCalculatorExpenditure = () => {
                 <input
                   type="number"
                   placeholder="In USD"
-                  className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
+                  className="block w-full border-0 rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                   value={Electrical_Appliances}
                   onChange={(e) =>
                     setElectrical_Appliances(parseFloat(e.target.value))
@@ -360,7 +360,7 @@ export const CarbonFootprintCalculatorExpenditure = () => {
                 <input
                   type="number"
                   placeholder="In USD"
-                  className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
+                  className="block w-full border-0 rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                   value={Postage}
                   onChange={(e) => setPostage(parseFloat(e.target.value))}
                 />
@@ -375,7 +375,7 @@ export const CarbonFootprintCalculatorExpenditure = () => {
                 <input
                   type="number"
                   placeholder="In USD"
-                  className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
+                  className="block w-full border-0 rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                   value={Magazines}
                   onChange={(e) => setMagazines(parseFloat(e.target.value))}
                 />
@@ -390,7 +390,7 @@ export const CarbonFootprintCalculatorExpenditure = () => {
                 <input
                   type="number"
                   placeholder="In USD"
-                  className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
+                  className="block w-full border-0 rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                   value={Stationary}
                   onChange={(e) => setStationary(parseFloat(e.target.value))}
                 />
@@ -406,7 +406,7 @@ export const CarbonFootprintCalculatorExpenditure = () => {
                   type="number"
                   value={Hair_SelfCare}
                   placeholder="In USD"
-                  className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
+                  className="block w-full border-0 rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                   onChange={(e) => setHair_SelfCare(parseFloat(e.target.value))}
                 />
               </label>
@@ -420,7 +420,7 @@ export const CarbonFootprintCalculatorExpenditure = () => {
                 <input
                   type="number"
                   placeholder="In USD"
-                  className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
+                  className="block w-full border-0 rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                   value={Pet_Food}
                   onChange={(e) => setPet_Food(parseFloat(e.target.value))}
                 />
@@ -435,7 +435,7 @@ export const CarbonFootprintCalculatorExpenditure = () => {
                 <input
                   type="number"
                   placeholder="In USD"
-                  className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
+                  className="block w-full border-0 rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                   value={Hotel_Stays}
                   onChange={(e) => setHotel_Stays(parseFloat(e.target.value))}
                 />
@@ -450,7 +450,7 @@ export const CarbonFootprintCalculatorExpenditure = () => {
                 <input
                   type="number"
                   placeholder="In USD"
-                  className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
+                  className="block w-full border-0 rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                   value={Insurance}
                   onChange={(e) => setInsurance(parseFloat(e.target.value))}
                 />
@@ -486,7 +486,7 @@ export const CarbonFootprintCalculatorExpenditure = () => {
                   <input
                     type="number"
                     placeholder="In USD"
-                    className="block w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
+                    className="block w-full border-0 rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                     value={Other}
                     onChange={(e) => setOther(parseFloat(e.target.value))}
                   />
