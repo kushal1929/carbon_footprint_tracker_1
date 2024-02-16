@@ -9,12 +9,16 @@ import {
 } from '@heroicons/react/24/outline'
 import { MdRecycling } from "react-icons/md";
 import { RxActivityLog } from "react-icons/rx";
+import { BsShareFill  } from "react-icons/bs";
+import { HiOutlineNewspaper } from "react-icons/hi2";
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
 import './Tailwind.css'
 
 const products = [
   { name: 'Analytics', description: 'Get a better understanding of your Carbon Footprint', href: '/Analytics', icon: ChartPieIcon },
-  { name: 'Recycle', description: 'Find Recycling Centres near you!', href: '/Map', icon: MdRecycling },
+  { name: 'Recycle', description: 'Find Recycling Centres near you', href: '/Map', icon: MdRecycling },
+  { name: 'Blogs', description: 'Discover more about how we can save the environment', href: '/BlogSite', icon: HiOutlineNewspaper  },
+  { name: 'Share', description: 'Donwload your scorecard and share it on social media!', href: '/share-score', icon: BsShareFill},
   { name: 'Feedback', description: 'Let us know where we can improve', href: '/feedback', icon: CursorArrowRaysIcon },
   { name: 'Attributions', description: 'List of Sources ', href: '/Credits', icon: RxActivityLog },
 ]
@@ -82,7 +86,7 @@ const handleLogout = () => {
                       className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
                     >
                       <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                        <item.icon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
+                        <item.icon className="h-6 w-6 text-gray-600 group-hover:text-green-600" aria-hidden="true" />
                       </div>
                       <div className="flex-auto">
                         <a href={item.href} className="block font-semibold text-gray-900">

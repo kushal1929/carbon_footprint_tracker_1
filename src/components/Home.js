@@ -6,7 +6,9 @@ import "chart.js/auto";
 import Header from "./common/Header";
 import LeaderBoard from "./common/Leaderboard";
 import LoadingSymbol from "./common/LoadingSymbol";
-import { BsCalculator,BsFillShareFill, BsShareFill  } from "react-icons/bs";
+import { BsCalculator, BsShareFill  } from "react-icons/bs";
+import { HiOutlineNewspaper } from "react-icons/hi2";
+import { GiTreeGrowth } from "react-icons/gi";
 import './common/Tailwind.css';
 import OneSignal from 'react-onesignal';
 
@@ -402,22 +404,30 @@ export default function Home() {
         </a>
         <BsCalculator className="text-white h-full w-auto"/>
       </div>
-      <div className="items-center bg-amber-500 flex flex-col place-content-evenly mx-auto w-[80%] block rounded-xl border border-gray-200 p-4 sm:p-8 shadow-xl transition hover:border-lime-300/10 hover:shadow-amber-600/50 ">
+      <div className="items-center bg-amber-500 flex flex-row place-content-evenly mx-auto w-[80%] block rounded-xl border border-gray-200 p-4 sm:p-8 shadow-xl transition hover:border-lime-300/10 hover:shadow-amber-600/50 ">
         <a href="/BlogSite">
           <p className="text-lg sm:text-2xl text-white ">
            Read our blog to understand what carbon footprint is and how it affects the world         
           </p>
         </a>
+        <HiOutlineNewspaper className="text-white h-full w-auto"/>
       </div>
       <div className="items-center bg-amber-400 flex flex-row place-content-evenly mx-auto w-[80%] block rounded-xl border border-gray-200 p-8 shadow-xl transition hover:border-lime-300/10 hover:shadow-amber-500/50 ">
+          <a href="/share-score">
+            <p className="text-lg sm:text-2xl text-white ">
+              Click here to discover how to offset you carbon emissions     
+            </p>
+          </a>
+          <GiTreeGrowth className="text-white h-full w-auto"/>
+      </div>
+      <div className="items-center bg-amber-300 flex flex-row place-content-evenly mx-auto w-[80%] block rounded-xl border border-gray-200 p-8 shadow-xl transition hover:border-lime-300/10 hover:shadow-amber-400/50 ">
           <a href="/share-score">
             <p className="text-lg sm:text-2xl text-white ">
               Download,Share score on social media        
             </p>
           </a>
-          <BsShareFill className="text-white h-full w-auto"/>
+          <BsShareFill className="text-white h-[80%] w-auto"/>
       </div>
-      <div className="bg-amber-300 flex flex-col place-content-evenly mx-auto w-[80%] block rounded-xl border border-gray-200 p-8 shadow-xl transition hover:border-lime-300/10 hover:shadow-amber-400/50 ">4</div>
     </div>
 
     <div className='flex flex-col justify-start items-center w-full h-1/2 mt-5 720px:mt-[20%] lg:mt-[28%] xl:mt-[15%] 2xl:mt-[7.5%]' >
