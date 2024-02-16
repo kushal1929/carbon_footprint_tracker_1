@@ -23,6 +23,10 @@ module.exports = {
     "./src/components/Credits.js",
     "./src/components/common/ScrollToBottomButton.js",
     "./src/components/common/UserDataCard.js",
+    "./src/components/common/components/Blog",
+    "./src/components/common/components/BlogSite",
+    "node_modules/flowbite-react/lib/esm/**/*.js"
+
   ],
   theme: {
     fontFamily: {
@@ -31,7 +35,9 @@ module.exports = {
     },
   },
   plugins: [
-    require('tailwindcss-animated')
+    require('tailwindcss-animated'),
+    require('flowbite/plugin'),
+    
   ],
 }
 
