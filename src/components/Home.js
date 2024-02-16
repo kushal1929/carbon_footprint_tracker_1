@@ -10,7 +10,9 @@ import LeaderBoard from "./common/Leaderboard";
 import LoadingSymbol from "./common/LoadingSymbol";
 import { BsCalculator,BsFillShareFill, BsShareFill  } from "react-icons/bs";
 import './common/Tailwind.css';
+import OneSignal from 'react-onesignal';
 
+  const onesignal_api = process.env.REACT_APP_ONESIGNAL_KEY;
 export default function Home() {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
@@ -187,6 +189,12 @@ export default function Home() {
     
 
   } 
+
+  useEffect(() => {
+    OneSignal.init({
+      appId: onesignal_api
+    });
+  }, []);
 
   useEffect(()=>{
     const current_username =sessionStorage.getItem("Username");
