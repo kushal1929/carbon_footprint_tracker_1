@@ -4,8 +4,6 @@ import { getFirestore, collection, query, where, getDocs, orderBy, doc, getDoc, 
 import { Line } from "react-chartjs-2";
 import "chart.js/auto";
 import Header from "./common/Header";
-import Home_card from "./common/Home_card";
-import RecyclingCentersMap from './RecyclingCentersMap';
 import LeaderBoard from "./common/Leaderboard";
 import LoadingSymbol from "./common/LoadingSymbol";
 import { BsCalculator,BsFillShareFill, BsShareFill  } from "react-icons/bs";
@@ -144,7 +142,7 @@ export default function Home() {
   };
 
   const fetchCarbonRank= async(current_username)=>{
-    if(current_username!='')
+    if(current_username!=='')
     {
       try {
         const currentDate = new Date();
