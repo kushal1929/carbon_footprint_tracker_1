@@ -415,7 +415,7 @@ export default function Home() {
       <div className="items-center bg-amber-400 flex flex-row place-content-evenly mx-auto w-[80%] block rounded-xl border border-gray-200 p-8 shadow-xl transition hover:border-lime-300/10 hover:shadow-amber-500/50 ">
           <a href="/BlogSite/CFOffset">
             <p className="text-lg sm:text-2xl text-white ">
-              Click here to discover how to offset you carbon emissions     
+              Click here to discover how to offset your carbon emissions     
             </p>
           </a>
           <GiTreeGrowth className="text-white h-full w-auto"/>
