@@ -212,7 +212,7 @@ export const CarbonFootprintCalculatorVehicle = () => {
         </div>
 
         <div className="flex flex-row items-center flex-wrap bg-white w-full h-[90%]">
-          <p className="w-full pt-5 text:black bg-white  sm:text-xl md:text-xl lg:text-xl xl:text-xl 2xl:text-xl text-center z-10">
+          <p className="w-full pt-5 text:black bg-white  sm:text-xl md:text-xl lg:text-xl xl:text-xl 2xl:text-xl text-center">
               Note: Please fill in the details once a month
               <FaQuestionCircle className="mx-auto"
                 onMouseEnter={toggleTooltip1}

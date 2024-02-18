@@ -31,7 +31,7 @@ const UserDataCard = () => {
         const leaderboardDocSnapshot = await getDoc(leaderboardDocRef);
         const rankCarbonFootprint = leaderboardDocSnapshot.exists() ? leaderboardDocSnapshot.data().rankCarbonFootprint : 'Unranked';
         const totalUsers = leaderboardDocSnapshot.exists() ? leaderboardDocSnapshot.data().totalUsers : '';
-        const globalRank = rankCarbonFootprint !== 'Unranked'? `${rankCarbonFootprint}/${totalUsers}`:`${rankCarbonFootprint}`;
+        const globalRank = rankCarbonFootprint !== 'Unranked'? `${rankCarbonFootprint}`:`${rankCarbonFootprint}`;
 
         // Set the user data state
         setUserData({ username, carbonScore, globalRank });
