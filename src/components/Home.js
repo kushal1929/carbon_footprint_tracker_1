@@ -423,7 +423,7 @@ export default function Home() {
       <div className="items-center bg-amber-300 flex flex-row place-content-evenly mx-auto w-[80%] block rounded-xl border border-gray-200 p-8 shadow-xl transition hover:border-lime-300/10 hover:shadow-amber-400/50 ">
           <a href="/share-score">
             <p className="text-lg sm:text-2xl text-white ">
-              Download,Share score on social media        
+              Download your scorecard and share it!       
             </p>
           </a>
           <BsShareFill className="text-white h-[80%] w-auto"/>

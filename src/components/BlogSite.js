@@ -6,7 +6,7 @@ const BlogSite=()=>{
     return(
         <>
         <Header/>
-        <div class="flex flex-row place-content-evenly   gap-x-3 px-3 py-3  lg:p relative flex flex-wrap lg:h-[55%] lg:flex-start">
+        <div class="flex flex-row justify-start gap-x-6 px-3 py-3  lg:p relative flex flex-wrap lg:h-[55%] lg:flex-start">
     <div class="bg-white shadow-md border border-grey-500 rounded-lg max-w-sm mb-5">
         <a href="/BlogSite/CFblog">
             <img class="rounded-t-lg" src="https://carbonneutral.com.au/wp-content/uploads/2023/02/carbon-footprint-1.jpg" alt=""/>
