@@ -4,12 +4,11 @@ import "./common/Tailwind.css";
 
 const CFblog=()=>{
 return(
-        
 
     <>
     <Header className="sticky top-0"/>
     <main class="pt-4 pb-16 lg:pt-0 lg:pb-24 bg-white antialiased"></main>
-        <div class="flex justify-between px-4 mx-auto max-w-screen-xl ">
+        <div class="flex justify-between px-4 py-4 mx-auto max-w-screen-xl ">
             <article class="mx-auto w-full max-w-2xl format format-sm sm:format-base lg:format-lg format-blue ">
 
 

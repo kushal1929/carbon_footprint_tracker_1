@@ -32,6 +32,7 @@ import Credits from './components/Credits';
 import UserDataCard from './components/common/UserDataCard';
 import CFblog from './components/CFblog';
 import BlogSite from './components/BlogSite';
+import CFOffset from './components/CFOffset';
 import { toast } from 'react-toastify';
 
 
@@ -158,6 +159,7 @@ function App() {
         <Route path="/share-score" element={<UserDataCard/>} />
         <Route path="/BlogSite" element={<BlogSite/>} />
         <Route path="/BlogSite/CFblog" element={<CFblog/>} />
+        <Route path="/BlogSite/CFOffset" element={<CFOffset/>} />
 
       </Routes>
     </div>
