@@ -90,7 +90,7 @@ const UserDataCard = () => {
                   Carbon Footprint: {userData.carbonScore.toFixed(3)} KgCO2
                 </div>
                 <div className='font-WorkSans text-[5vw] sm:text-[3vh] mb-[6%]'>
-                  Global Rank: {userData.globalRank}
+                  Ecolibrium Rank: {userData.globalRank}
                 </div>
                 <div className='font-WorkSans text-[4vw] sm:text-[2.5vh] text-center'>
                   Join me and begin your journey to save the environment at<b className='text-green-800'> ecolibrium.app </b>!

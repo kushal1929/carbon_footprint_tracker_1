@@ -326,7 +326,7 @@ export default function Home() {
           Welcome, {username}!
         </h1>
       </div>
-      <div className="relative flex flex-wrap lg:h-[65%] lg:flex-start">
+      <div className="relative flex flex-wrap lg:h-[75%] lg:flex-start">
         <div className='flex justify-center items-center w-full lg:w-1/2 px-5 mt-5' >
           {chartData.labels && chartData.labels.length > 0 ? 
             (
@@ -413,7 +413,7 @@ export default function Home() {
         <HiOutlineNewspaper className="text-white h-full w-auto"/>
       </div>
       <div className="items-center bg-amber-400 flex flex-row place-content-evenly mx-auto w-[80%] block rounded-xl border border-gray-200 p-8 shadow-xl transition hover:border-lime-300/10 hover:shadow-amber-500/50 ">
-          <a href="/share-score">
+          <a href="/BlogSite/CFOffset">
             <p className="text-lg sm:text-2xl text-white ">
               Click here to discover how to offset you carbon emissions     
             </p>
