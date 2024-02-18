@@ -326,7 +326,7 @@ export default function Home() {
           Welcome, {username}!
         </h1>
       </div>
-      <div className="relative flex flex-wrap lg:h-[65%] lg:flex-start">
+      <div className="relative flex flex-wrap lg:h-[75%] lg:flex-start">
         <div className='flex justify-center items-center w-full lg:w-1/2 px-5 mt-5' >
           {chartData.labels && chartData.labels.length > 0 ? 
             (

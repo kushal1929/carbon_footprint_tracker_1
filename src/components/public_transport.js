@@ -24,6 +24,21 @@ export const CarbonFootprintCalculatorPublicVehicle = () => {
     setTooltipVisible1(!tooltipVisible1);
   };
 
+  const handleLocalBus = (value) => {
+    if (parseFloat(value) < 0) {
+      alert("Distance traveled in local bus cannot be negative");
+    } else {
+      setLocalBus(value);
+    }
+  };
+
+  const handleNationalRail = (value) => {
+    if (parseFloat(value) < 0) {
+      alert("Distance traveled in National Rail cannot be negative");
+    } else {
+      setNation_Rail(value);
+    }
+  };
 
   const db = getFirestore();
   const usersCollection = collection(db, "users");
@@ -183,7 +198,7 @@ export const CarbonFootprintCalculatorPublicVehicle = () => {
                 value={LocalBus}
                 placeholder="Distance in km"
                 className="block w-full border-0 rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
-                onChange={(e) => setLocalBus(parseFloat(e.target.value))}
+                onChange={(e) => handleLocalBus(e.target.value)}
               />
             </label>
           </div>
@@ -198,7 +213,7 @@ export const CarbonFootprintCalculatorPublicVehicle = () => {
                 value={National_Rail}
                 placeholder="Distance in km"
                 className="block w-full border-0 rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
-                onChange={(e) => setNation_Rail(parseFloat(e.target.value))}
+                onChange={(e) => handleNationalRail(e.target.value)}
               />
             </label>
           </div>

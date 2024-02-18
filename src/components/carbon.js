@@ -33,6 +33,62 @@ export const CarbonFootprintCalculator = () => {
     setTooltipVisible1(!tooltipVisible1);
   };
 
+  const handleElectricChange = (value) => {
+    if (parseFloat(value) <0) {
+      alert("Electricity consumption cannot be negative");
+    } else {
+      setElectric(value);
+    }
+  };
+
+  const handleNaturalGasChange = (value) => {
+    if (parseFloat(value) <0) {
+      alert("Natural gas consumption cannot be negative");
+    } else {
+      setNaturalGas(value);
+    }
+  };
+
+  const handleBioMassChange = (value) => {
+    if (parseFloat(value)<0) {
+      alert("Biomass consumption cannot be negative");
+    } else {
+      setBioMass(value);
+    }
+  };
+
+  const handleLPGChange = (value) => {
+    if (parseFloat(value)<0) {
+      alert("LPG consumption cannot be negative");
+    } else {
+      setLPG(value);
+    }
+  };
+
+  const handleCoalChange = (value) => {
+    if (parseFloat(value) < 0) {
+      alert("Coal consumption cannot be negative");
+    } else {
+      setCoal(value);
+    }
+  };
+
+  const handleHeatingOilChange = (value) => {
+    if (parseFloat(value) < 0) {
+      alert("Heating oil consumption cannot be negative");
+    } else {
+      setHeatingOil(value);
+    }
+  };
+
+  // const handleNumberOfPeopleChange = (value) => {
+  //   if (parseFloat(value)>0) {
+  //     setNumberOfPeople(value);
+  //   } else if(parseFloat(value) <=0) {
+  //     alert("Number of people must be a positive integer.");
+  //   }
+  // };
+
   const calculateCarbonFootprint = async (homeCarbonFootprint) => {
     
     const newCarbonData = {
@@ -166,10 +222,9 @@ export const CarbonFootprintCalculator = () => {
 
   const handleCalculate = (e) => {
     if (!Number.isInteger(NumberOfPeople) || NumberOfPeople <= 0) {
-      alert("Number of people must be a positive integer.")
-      return;
+       alert("Number of people must be a positive integer.")
+       return;
     }
-
 
     const electricBillFactor = 0.93;
     const NaturalGasFactor = 0.18;
@@ -199,23 +254,29 @@ export const CarbonFootprintCalculator = () => {
 
       <div className="flex flex-row items-center flex-wrap bg-white w-full h-[90%]">
         <p className="w-full pt-5 text:black bg-white  sm:text-xl md:text-xl lg:text-xl xl:text-xl 2xl:text-xl text-center z-10">
-              Note: Please fill in the details once a month
-              <FaQuestionCircle className="mx-auto"
-                onMouseEnter={toggleTooltip1}
-                onMouseLeave={toggleTooltip1}
-              />
-              {tooltipVisible1 && (
-                <div className="bg-white p-2 rounded shadow-lg z-10">
-                  <div className="flex flex-col z-10">
-                    <p className="text-xs">If you wish to update some values in the current month then you will have to update all the fields in the current screen.</p>
-                  </div>
-                </div>
-              )}
+          Note: Please fill in the details once a month
+          <FaQuestionCircle
+            className="mx-auto"
+            onMouseEnter={toggleTooltip1}
+            onMouseLeave={toggleTooltip1}
+          />
+          {tooltipVisible1 && (
+            <div className="bg-white p-2 rounded shadow-lg z-10">
+              <div className="flex flex-col z-10">
+                <p className="text-xs">
+                  If you wish to update some values in the current month then
+                  you will have to update all the fields in the current screen.
+                </p>
+              </div>
+            </div>
+          )}
         </p>
         <div className="flex items-center flex-col w-full h-full lg:w-1/2 lg:mt-[1%] space-y-0 py-20">
           <div className="flex flex-row items-center justify-center mb-4 mx-3">
-            <span className="sm:mr-2 font-medium">Number of members in household :</span>
-            
+            <span className="sm:mr-2 font-medium">
+              Number of members in household :
+            </span>
+
             <label className="relative w-1/2 sm:w-auto block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center -ml-4 sm:ml-2">
               <input
                 type="number"
@@ -229,15 +290,13 @@ export const CarbonFootprintCalculator = () => {
 
           <div className="flex flex-row items-center justify-center mb-4">
             <span className="mr-2 font-medium">Electricity :</span>
-            <label
-              className="relative w-1/2 sm:w-auto block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2"
-            >
+            <label className="relative w-1/2 sm:w-auto block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
               <input
                 type="number"
                 value={electric}
                 placeholder="in kWh"
                 className="block w-full rounded-sm border-0 bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
-                onChange={(e) => setElectric(parseFloat(e.target.value))}
+                onChange={(e) => handleElectricChange(e.target.value)}
               />
             </label>
           </div>
@@ -251,7 +310,7 @@ export const CarbonFootprintCalculator = () => {
                 value={NaturalGas}
                 placeholder="in kWh"
                 className="block w-full border-0 rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
-                onChange={(e) => setNaturalGas(parseFloat(e.target.value))}
+                onChange={(e) => handleNaturalGasChange(e.target.value)}
               />
             </label>
           </div>
@@ -266,7 +325,7 @@ export const CarbonFootprintCalculator = () => {
                 value={BioMass}
                 placeholder="in kg"
                 className="block w-full border-0 rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
-                onChange={(e) => setBioMass(parseFloat(e.target.value))}
+                onChange={(e) => handleBioMassChange(e.target.value)}
               />
             </label>
           </div>
@@ -281,7 +340,7 @@ export const CarbonFootprintCalculator = () => {
                 value={Coal}
                 placeholder="in kg"
                 className="block w-full border-0 rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
-                onChange={(e) => setCoal(parseFloat(e.target.value))}
+                onChange={(e) => handleCoalChange(e.target.value)}
               />
             </label>
           </div>
@@ -296,7 +355,7 @@ export const CarbonFootprintCalculator = () => {
                 value={HeatingOil}
                 placeholder="in liters"
                 className="block w-full border-0 rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
-                onChange={(e) => setHeatingOil(parseFloat(e.target.value))}
+                onChange={(e) => handleHeatingOilChange(e.target.value)}
               />
             </label>
           </div>
@@ -311,7 +370,7 @@ export const CarbonFootprintCalculator = () => {
                 value={LPG}
                 placeholder="in kg"
                 className="block w-full border-0 rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
-                onChange={(e) => setLPG(parseFloat(e.target.value))}
+                onChange={(e) => handleLPGChange(e.target.value)}
               />
             </label>
           </div>
@@ -327,8 +386,8 @@ export const CarbonFootprintCalculator = () => {
 
           {homeCarbonFootprint !== null && (
             <div className="text-xl font-bold mb-4">
-              Your estimated carbon footprint is: {homeCarbonFootprint.toFixed(3)} kgCO2
-              per month
+              Your estimated carbon footprint is:{" "}
+              {homeCarbonFootprint.toFixed(3)} kgCO2 per month
             </div>
           )}
           {/* {calculateCarbonFootprint} */}

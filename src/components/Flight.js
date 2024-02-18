@@ -30,7 +30,11 @@ export const Flight = () => {
   };
 
   const handleFlightHoursChange = (value) => {
-    setFlightHours(value);
+    if (parseFloat(value) < 0) {
+      alert("Flight hours cannot be negative");
+    } else {
+      setFlightHours(value);
+    }
   };
 
   const saveFlightDetails = async () => {

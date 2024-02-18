@@ -13,6 +13,7 @@ import { FaQuestionCircle } from "react-icons/fa";
 import "./common/Tailwind.css";
 
 export const CarbonFootprintCalculatorExpenditure = () => {
+    const [currency, setCurrency] = useState("USD");
     const [Eating_out, setEating_out] = useState("");
     const [Car_Maintenance, setCar_Maintenance] = useState("");
     const [clothing, setclothing] = useState("");
@@ -43,6 +44,124 @@ export const CarbonFootprintCalculatorExpenditure = () => {
     };
     const toggleTooltip1 = () => {
       setTooltipVisible1(!tooltipVisible1);
+    };
+
+     // Function to handle currency change
+     const handleCurrencyChange = (event) => {
+       setCurrency(event.target.value);
+     };
+
+    const handlEatingout = (value) => {
+      if (parseFloat(value) < 0) {
+        alert("Expenditure cannot be negative");
+      } else {
+        setEating_out(value);
+      }
+    };
+    const handleCar_Main = (value) => {
+      if (parseFloat(value) < 0) {
+        alert("Expenditure cannot be negative");
+      } else {
+        setCar_Maintenance(value);
+      }
+    };
+    const handleClothing= (value) => {
+      if (parseFloat(value) < 0) {
+        alert("Expenditure cannot be negative");
+      } else {
+        setclothing(value);
+      }
+    };
+    const handleFurniture = (value) => {
+      if (parseFloat(value) < 0) {
+        alert("Expenditure cannot be negative");
+      } else {
+        setFurniture(value);
+      }
+    };
+    const handledomestic_water = (value) => {
+      if (parseFloat(value) < 0) {
+        alert("Expenditure cannot be negative");
+      } else {
+        setDomestic_Water(value);
+      }
+    };
+    const handleTelephone_Net = (value) => {
+      if (parseFloat(value) < 0) {
+        alert("Expenditure cannot be negative");
+      } else {
+        setTelephone_Internet(value);
+      }
+    };
+    const handleComputer_Elec = (value) => {
+      if (parseFloat(value) < 0) {
+        alert("Expenditure cannot be negative");
+      } else {
+        setComputer_Elec(value);
+      }
+    };
+    const handleElectric_App= (value) => {
+      if (parseFloat(value) < 0) {
+        alert("Expenditure cannot be negative");
+      } else {
+        setElectrical_Appliances(value);
+      }
+    };
+    const handlePostage = (value) => {
+      if (parseFloat(value) < 0) {
+        alert("Expenditure cannot be negative");
+      } else {
+        setPostage(value);
+      }
+    };
+    const handleMagazines= (value) => {
+      if (parseFloat(value) < 0) {
+        alert("Expenditure cannot be negative");
+      } else {
+        setMagazines(value);
+      }
+    };
+    const handleStationary = (value) => {
+      if (parseFloat(value) < 0) {
+        alert("Expenditure cannot be negative");
+      } else {
+        setStationary(value);
+      }
+    };
+    const handleHair = (value) => {
+      if (parseFloat(value) < 0) {
+        alert("Expenditure cannot be negative");
+      } else {
+        setHair_SelfCare(value);
+      }
+    };
+    const handlePet_Food = (value) => {
+      if (parseFloat(value) < 0) {
+        alert("Expenditure cannot be negative");
+      } else {
+        setPet_Food(value);
+      }
+    };
+    const handleHotel= (value) => {
+      if (parseFloat(value) < 0) {
+        alert("Expenditure cannot be negative");
+      } else {
+        setHotel_Stays(value);
+      }
+    };
+    const handleInsurance = (value) => {
+      if (parseFloat(value) < 0) {
+        alert("Expenditure cannot be negative");
+      } else {
+        setInsurance(value);
+      }
+    };
+    const handleOther = (value) => {
+      if (parseFloat(value) < 0) {
+        alert("Expenditure cannot be negative");
+      } else {
+        setOther(value);
+      }
     };
 
     const calculateCarbonFootprintExpenditure = async (
@@ -170,7 +289,8 @@ export const CarbonFootprintCalculatorExpenditure = () => {
         }
     };
 
-    const handleExpenditureCalculate = () => {
+    const handleExpenditureCalculate = () => {  
+        const conversionFactor = currency === "INR" ? 1 / 80 : 1;
         const Eating_outFactor = 0.22;
         const Car_MaintenanceFactor = 0.16;
         const clothingFactor = 0.62;
@@ -189,6 +309,7 @@ export const CarbonFootprintCalculatorExpenditure = () => {
         const OtherLegalFactor = 0.47;
 
         const totalExpenditureCarbonFootprint =
+            (
             Eating_out * Eating_outFactor +
             Car_Maintenance * Car_MaintenanceFactor +
             clothing * clothingFactor +
@@ -204,7 +325,7 @@ export const CarbonFootprintCalculatorExpenditure = () => {
             Pet_Food * Pet_FoodFactor +
             Hotel_Stays * Hotel_StaysFactor +
             Insurance * InsuranceFactor +
-            Other * OtherLegalFactor;
+            Other * OtherLegalFactor)*conversionFactor;
 
         setExpenditureCarbonFootprint(totalExpenditureCarbonFootprint);
         calculateCarbonFootprintExpenditure(totalExpenditureCarbonFootprint);
@@ -218,42 +339,65 @@ export const CarbonFootprintCalculatorExpenditure = () => {
 
         <div className="flex flex-row items-center flex-wrap bg-white w-full h-[90%]">
           <p className="w-full pt-5 text:black bg-white  sm:text-xl md:text-xl lg:text-xl xl:text-xl 2xl:text-xl text-center z-10">
-                  Note: Please fill in the details once a month
-                  <FaQuestionCircle className="mx-auto"
-                    onMouseEnter={toggleTooltip1}
-                    onMouseLeave={toggleTooltip1}
-                  />
-                  {tooltipVisible1 && (
-                    <div className="bg-white p-2 rounded shadow-lg z-10">
-                      <div className="flex flex-col z-10">
-                        <p className="text-xs">If you wish to update some values in the current month then you will have to update all the fields in the current screen.</p>
-                      </div>
-                    </div>
-                  )}
-            </p>
+            Note: Please fill in the details once a month
+            <FaQuestionCircle
+              className="mx-auto"
+              onMouseEnter={toggleTooltip1}
+              onMouseLeave={toggleTooltip1}
+            />
+            {tooltipVisible1 && (
+              <div className="bg-white p-2 rounded shadow-lg z-10">
+                <div className="flex flex-col z-10">
+                  <p className="text-xs">
+                    If you wish to update some values in the current month then
+                    you will have to update all the fields in the current
+                    screen.
+                  </p>
+                </div>
+              </div>
+            )}
+          </p>
           <div className="flex items-center flex-col w-full h-full lg:w-1/2 lg:mt-[1%] space-y-0 py-20">
+
+            <div className="flex flex-wrap flex-row items-center mb-4">
+              <label htmlFor="currency" className="mr-2 font-medium">
+                Select Currency:
+              </label>
+              <select
+                id="currency"
+                value={currency}
+                className="block rounded-sm bg-white px-2 py-2 text-sm font-medium border border-gray-300 focus:outline-none focus:border-blue-500"
+                onChange={(e) => setCurrency(e.target.value)}
+              >
+                <option value="USD">USD</option>
+                <option value="INR">INR</option>
+              </select>
+            </div>
+
             <div className="flex flex-row items-center justify-center mb-4">
               <span className="mr-2 font-medium">Food:</span>
               <label className="relative block w-1/2 sm:w-auto rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
                 <input
                   type="number"
-                  value={Eating_out}
-                  placeholder="In USD"
+                  placeholder={currency === "USD" ? "In USD" : "In Rupees"}
                   className="block w-full border-0 rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
-                  onChange={(e) => setEating_out(parseFloat(e.target.value))}
+                  value={Eating_out}
+                  onChange={(e) => handlEatingout(e.target.value)}
                 />
               </label>
             </div>
-
+            
+            <br/>
+            
             <div className="flex flex-row items-center justify-center mb-4">
               <span className="mr-2 font-medium">Car Maintenance:</span>
               <label className="relative w-1/2 sm:w-auto block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
                 <input
                   type="number"
-                  placeholder="In USD"
+                  placeholder={currency === "USD" ? "In USD" : "In Rupees"}
                   className="block w-full border-0 rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                   value={Car_Maintenance}
-                  onChange={(e) => setCar_Maintenance(parseFloat(e.target.value))}
+                  onChange={(e) => handleCar_Main(e.target.value)}
                 />
               </label>
             </div>
@@ -265,10 +409,10 @@ export const CarbonFootprintCalculatorExpenditure = () => {
               <label className="relative w-1/2 sm:w-auto block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
                 <input
                   type="number"
-                  placeholder="In USD"
+                  placeholder={currency === "USD" ? "In USD" : "In Rupees"}
                   className="block w-full border-0 rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                   value={clothing}
-                  onChange={(e) => setclothing(parseFloat(e.target.value))}
+                  onChange={(e) => handleClothing(e.target.value)}
                 />
               </label>
             </div>
@@ -280,10 +424,10 @@ export const CarbonFootprintCalculatorExpenditure = () => {
               <label className="relative w-1/2 sm:w-auto block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
                 <input
                   type="number"
-                  placeholder="In USD"
+                  placeholder={currency === "USD" ? "In USD" : "In Rupees"}
                   className="block w-full border-0 rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                   value={Furniture}
-                  onChange={(e) => setFurniture(parseFloat(e.target.value))}
+                  onChange={(e) => handleFurniture(e.target.value)}
                 />
               </label>
             </div>
@@ -295,10 +439,10 @@ export const CarbonFootprintCalculatorExpenditure = () => {
               <label className="relative w-1/2 sm:w-auto block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
                 <input
                   type="number"
-                  placeholder="In USD"
+                  placeholder={currency === "USD" ? "In USD" : "In Rupees"}
                   className="block w-full border-0 rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                   value={Domestic_Water}
-                  onChange={(e) => setDomestic_Water(parseFloat(e.target.value))}
+                  onChange={(e) => handledomestic_water(e.target.value)}
                 />
               </label>
             </div>
@@ -310,12 +454,10 @@ export const CarbonFootprintCalculatorExpenditure = () => {
               <label className="relative w-1/2 sm:w-auto block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
                 <input
                   type="number"
-                  placeholder="In USD"
+                  placeholder={currency === "USD" ? "In USD" : "In Rupees"}
                   className="block w-full border-0 rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                   value={Telephone_Internet}
-                  onChange={(e) =>
-                    setTelephone_Internet(parseFloat(e.target.value))
-                  }
+                  onChange={(e) => handleTelephone_Net(e.target.value)}
                 />
               </label>
             </div>
@@ -327,10 +469,10 @@ export const CarbonFootprintCalculatorExpenditure = () => {
               <label className="relative w-1/2 sm:w-auto block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
                 <input
                   type="number"
-                  placeholder="In USD"
+                  placeholder={currency === "USD" ? "In USD" : "In Rupees"}
                   className="block w-full border-0 rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                   value={Computer_Elec}
-                  onChange={(e) => setComputer_Elec(parseFloat(e.target.value))}
+                  onChange={(e) => handleComputer_Elec(e.target.value)}
                 />
               </label>
             </div>
@@ -342,12 +484,10 @@ export const CarbonFootprintCalculatorExpenditure = () => {
               <label className="relative w-1/2 sm:w-auto block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
                 <input
                   type="number"
-                  placeholder="In USD"
+                  placeholder={currency === "USD" ? "In USD" : "In Rupees"}
                   className="block w-full border-0 rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                   value={Electrical_Appliances}
-                  onChange={(e) =>
-                    setElectrical_Appliances(parseFloat(e.target.value))
-                  }
+                  onChange={(e) => handleElectric_App(e.target.value)}
                 />
               </label>
             </div>
@@ -359,10 +499,10 @@ export const CarbonFootprintCalculatorExpenditure = () => {
               <label className="relative w-1/2 sm:w-auto block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
                 <input
                   type="number"
-                  placeholder="In USD"
+                  placeholder={currency === "USD" ? "In USD" : "In Rupees"}
                   className="block w-full border-0 rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                   value={Postage}
-                  onChange={(e) => setPostage(parseFloat(e.target.value))}
+                  onChange={(e) => handlePostage(e.target.value)}
                 />
               </label>
             </div>
@@ -374,10 +514,10 @@ export const CarbonFootprintCalculatorExpenditure = () => {
               <label className="relative w-1/2 sm:w-auto block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
                 <input
                   type="number"
-                  placeholder="In USD"
+                  placeholder={currency === "USD" ? "In USD" : "In Rupees"}
                   className="block w-full border-0 rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                   value={Magazines}
-                  onChange={(e) => setMagazines(parseFloat(e.target.value))}
+                  onChange={(e) => handleMagazines(e.target.value)}
                 />
               </label>
             </div>
@@ -389,10 +529,10 @@ export const CarbonFootprintCalculatorExpenditure = () => {
               <label className="relative w-1/2 sm:w-auto block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
                 <input
                   type="number"
-                  placeholder="In USD"
+                  placeholder={currency === "USD" ? "In USD" : "In Rupees"}
                   className="block w-full border-0 rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                   value={Stationary}
-                  onChange={(e) => setStationary(parseFloat(e.target.value))}
+                  onChange={(e) => handleStationary(e.target.value)}
                 />
               </label>
             </div>
@@ -404,10 +544,10 @@ export const CarbonFootprintCalculatorExpenditure = () => {
               <label className="relative w-1/2 sm:w-auto block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
                 <input
                   type="number"
-                  value={Hair_SelfCare}
-                  placeholder="In USD"
+                  placeholder={currency === "USD" ? "In USD" : "In Rupees"}
                   className="block w-full border-0 rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
-                  onChange={(e) => setHair_SelfCare(parseFloat(e.target.value))}
+                  value={Hair_SelfCare}
+                  onChange={(e) => handleHair(e.target.value)}
                 />
               </label>
             </div>
@@ -419,10 +559,10 @@ export const CarbonFootprintCalculatorExpenditure = () => {
               <label className="relative w-1/2 sm:w-auto block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
                 <input
                   type="number"
-                  placeholder="In USD"
+                  placeholder={currency === "USD" ? "In USD" : "In Rupees"}
                   className="block w-full border-0 rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                   value={Pet_Food}
-                  onChange={(e) => setPet_Food(parseFloat(e.target.value))}
+                  onChange={(e) => handlePet_Food(e.target.value)}
                 />
               </label>
             </div>
@@ -434,10 +574,10 @@ export const CarbonFootprintCalculatorExpenditure = () => {
               <label className="relative w-1/2 sm:w-auto block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
                 <input
                   type="number"
-                  placeholder="In USD"
+                  placeholder={currency === "USD" ? "In USD" : "In Rupees"}
                   className="block w-full border-0 rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                   value={Hotel_Stays}
-                  onChange={(e) => setHotel_Stays(parseFloat(e.target.value))}
+                  onChange={(e) => handleHotel(e.target.value)}
                 />
               </label>
             </div>
@@ -449,10 +589,10 @@ export const CarbonFootprintCalculatorExpenditure = () => {
               <label className="relative w-1/2 sm:w-auto block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
                 <input
                   type="number"
-                  placeholder="In USD"
+                  placeholder={currency === "USD" ? "In USD" : "In Rupees"}
                   className="block w-full border-0 rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                   value={Insurance}
-                  onChange={(e) => setInsurance(parseFloat(e.target.value))}
+                  onChange={(e) => handleInsurance(e.target.value)}
                 />
               </label>
             </div>
@@ -485,10 +625,10 @@ export const CarbonFootprintCalculatorExpenditure = () => {
                 <label className="relative w-1/2 sm:w-auto block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 flex flex-row flex-col items-center ml-2">
                   <input
                     type="number"
-                    placeholder="In USD"
+                    placeholder={currency === "USD" ? "In USD" : "In Rupees"}
                     className="block w-full border-0 rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                     value={Other}
-                    onChange={(e) => setOther(parseFloat(e.target.value))}
+                    onChange={(e) => handleOther(e.target.value)}
                   />
                 </label>
               </div>
@@ -503,9 +643,13 @@ export const CarbonFootprintCalculatorExpenditure = () => {
               </a>
             </button>
             <br />
+            
             {ExpenditureCarbonFootprint !== null && (
               <div className="text-xl font-bold mb-4">
-                <p>Your estimated carbon footprint from misc expenditures is: </p>
+                
+                <p>
+                  Your estimated carbon footprint from misc expenditures is:{" "}
+                </p>
                 {ExpenditureCarbonFootprint} kgCO2 per month
               </div>
             )}
@@ -513,8 +657,11 @@ export const CarbonFootprintCalculatorExpenditure = () => {
           </div>
 
           <div className="flex lg:h-full w-0 lg:w-1/2 px-10 py-10">
-          <img className="object-contain" src={require("../assets/expenditure.jpg")}/>
-        </div>
+            <img
+              className="object-contain"
+              src={require("../assets/expenditure.jpg")}
+            />
+          </div>
         </div>
       </div>
     );

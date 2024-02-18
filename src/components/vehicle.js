@@ -32,6 +32,34 @@ export const CarbonFootprintCalculatorVehicle = () => {
     const toggleTooltip1 = () => {
       setTooltipVisible1(!tooltipVisible1);
     };
+
+    const handlevehicleMPG = (value)=>{
+      if (parseFloat(value)<0){
+        alert('Mileage cannot be negative')
+      }
+      else{
+        setVehicleMPG(value);
+      }
+    };
+
+    const handlecardistance = (value) => {
+      if (parseFloat(value) < 0) {
+        alert("Distance traveled in car cannot be negative");
+      }
+      else{
+        setVehicleDistance_car(value);
+      }
+    };
+
+    const handlemotordistance = (value) => {
+      if (parseFloat(value) < 0) {
+        alert("Distance traveled in motorcycle cannot be negative");
+      }
+      else{
+        setVehicleDistance_motorcycle(value);
+      }
+    };
+
     const calculateCarbonFootprintVehicle = async (vehicleCarbonFootprint) => {
         const newvehicledata ={
             vehicleMPG,
@@ -207,7 +235,7 @@ export const CarbonFootprintCalculatorVehicle = () => {
                   value={vehicleMPG}
                   placeholder="In km/L"
                   className="block w-full border-0 rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
-                  onChange={(e) => setVehicleMPG(parseFloat(e.target.value))}
+                  onChange={(e) => handlevehicleMPG(parseFloat(e.target.value))}
                 />
               </label>
             </div>
@@ -238,7 +266,7 @@ export const CarbonFootprintCalculatorVehicle = () => {
                   placeholder="Distance in km"
                   className="block  border-0 w-full rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                   onChange={(e) =>
-                    setVehicleDistance_car(parseFloat(e.target.value))
+                    handlecardistance(parseFloat(e.target.value))
                   }
                 />
               </label>
@@ -291,7 +319,7 @@ export const CarbonFootprintCalculatorVehicle = () => {
                   placeholder="Distance in km"
                   className="block w-full border-0 rounded-sm bg-white px-2 py-2 text-sm font-medium group-hover:bg-transparent"
                   onChange={(e) =>
-                    setVehicleDistance_motorcycle(parseFloat(e.target.value))
+                    handlemotordistance(parseFloat(e.target.value))
                   }
                 />
               </label>
