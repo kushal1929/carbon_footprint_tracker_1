@@ -29,7 +29,7 @@ return(
                     <p>In recent years, climate change has become an undeniable and urgent global concern. As the Earth's climate undergoes unprecedented shifts, the need for collective action has never been more critical.</p>
                     <p>At the heart of this crisis lies the concept of carbon footprint - a measure of the total greenhouse gas emissions an individual, organization, or community is responsible for. As we navigate the complexities of climate change, understanding and reducing our carbon footprint becomes paramount.</p>
                     <figure><img src="https://static.wixstatic.com/media/b6e72c_bca6d7ea9795433da82a5ca31d56c433~mv2_d_2467_1215_s_2.jpg" alt=""/>
-                        <figcaption>Digital art by Anonymous</figcaption>
+                        <figcaption>Image Source: Global Coin Report, 2018</figcaption>
                     </figure>
                     <h3>The Growing Concern of Climate Change:</h3>
                     <p>Climate change, driven by human activities such as burning fossil fuels, deforestation, and industrial processes, has resulted in rising temperatures, extreme weather events, and disruptions to ecosystems worldwide. According to the Intergovernmental Panel on Climate Change (IPCC), human activities have caused approximately 1.0°C of global warming above pre-industrial levels.</p> 
@@ -53,9 +53,10 @@ As the Earth's climate continues to evolve, the impacts on biodiversity and ecos
                     
                     
                     
-                    
+                    <figure>
                     <img src="https://www.researchgate.net/publication/336548178/figure/fig1/AS:814083376951296@1571104010275/CO2-emissions-by-sectors-in-Taiwan-1996-2016.ppm" alt=""/>
-                    
+                    <figcaption>Source: Energy Bureau</figcaption>
+                    </figure>
                     
                     <blockquote>
                         <p>With complex, systemic challenges such as climate, there are no individual winners. Collectively addressing carbon impact means we all win</p>
