@@ -24,7 +24,7 @@ const UserDataCard = () => {
         // Fetch carbon score from users/{username}/Total/{currentMonthYear}
         const userDocRef = doc(db, 'users', username, 'Total', currentMonthYear);
         const userDocSnapshot = await getDoc(userDocRef);
-        const carbonScore = userDocSnapshot.exists() ? userDocSnapshot.data().totalCarbonFootprint : 'N/A';
+        const carbonScore = userDocSnapshot.exists() ? userDocSnapshot.data().totalCarbonFootprint : 0.000;
 
         // Fetch global rank from Average/{currentMonthYear}/Leaderboard/{username}
         const leaderboardDocRef = doc(db, 'Average', currentMonthYear, 'Leaderboard', username);
