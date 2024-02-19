@@ -34,6 +34,7 @@ import CFblog from './components/CFblog';
 import BlogSite from './components/BlogSite';
 import CFOffset from './components/CFOffset';
 import { toast } from 'react-toastify';
+import WeeklyTargets from './components/WeeklyTargets';
 
 
 function App() {
@@ -160,7 +161,7 @@ function App() {
         <Route path="/BlogSite" element={<BlogSite/>} />
         <Route path="/BlogSite/CFblog" element={<CFblog/>} />
         <Route path="/BlogSite/CFOffset" element={<CFOffset/>} />
-
+        <Route path="/WeeklyTargets" element={<WeeklyTargets />} />
       </Routes>
     </div>
   );

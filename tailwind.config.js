@@ -26,6 +26,7 @@ module.exports = {
     "./src/components/common/UserDataCard.js",
     "./src/components/common/components/Blog",
     "./src/components/common/components/BlogSite",
+    "./src/components/WeeklyTargets.js",
     "node_modules/flowbite-react/lib/esm/**/*.js"
 
   ],
