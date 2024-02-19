@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { getFirestore, doc, setDoc, getDoc } from 'firebase/firestore';
 import Header from './common/Header';
 import './common/Tailwind.css';
+import { FaQuestionCircle } from 'react-icons/fa';
+import {toast} from 'react-toastify';
 
 function WeeklyTargets() {
   const [targets, setTargets] = useState({
@@ -14,6 +16,12 @@ function WeeklyTargets() {
     lastResetTimestamp: null,
     lastFilledDate : null,
   });
+
+  const [tooltipVisible1, setTooltipVisible1] = useState(false);
+  const toggleTooltip1 = () => {
+    setTooltipVisible1(!tooltipVisible1);
+  };
+
   const [isEditing, setIsEditing] = useState({
     publicTransportTarget: false,
     walkOrCycleTarget: false,
@@ -109,9 +117,9 @@ function WeeklyTargets() {
     try {
 
       const db = getFirestore();
-      console.log(username,"username");
+      // console.log(username,"username");
       const userDocRef = doc(db, 'weeklytargets', username);
-      console.log(userDocRef.path,'path')
+      // console.log(userDocRef.path,'path')
       await setDoc(userDocRef, {
         ...targets,
         publicTransportCount: 0,
@@ -121,9 +129,9 @@ function WeeklyTargets() {
         lastResetTimestamp: new Date(),
         lastFilledDate: new Date(),
       });
-      console.log('Counts reset successfully.');
+      toast.success('Week complete all values are refreshed');
     } catch (error) {
-      console.error('Error resetting counts:', error);
+      // console.error('Error resetting counts:', error);
     }
   };
 
@@ -151,7 +159,7 @@ function WeeklyTargets() {
         [targetName]: false,
       }));
     } catch (error) {
-      console.error('Error updating target:', error);
+      // console.error('Error updating target:', error);
     }
   };
 
@@ -172,12 +180,12 @@ function WeeklyTargets() {
           },
           { merge: true }
         );
-        console.log('Count incremented successfully for:', targetName);
+        toast.success('Count incremented successfully for:', targetName);
       } else {
-        console.error('Document does not exist.');
+        // console.error('Document does not exist.');
       }
     } catch (error) {
-      console.error('Error incrementing count:', error);
+      // console.error('Error incrementing count:', error);
     }
   };
   
@@ -210,43 +218,81 @@ function WeeklyTargets() {
   return (
     <div>
       <Header />
-      <h2>Weekly Targets</h2>
-      <div>
+      <div className='flex flex-col items-center mt-[5%]'>
+        <h1>Weekly Targets</h1>
+        <FaQuestionCircle
+              className="mx-auto"
+              onMouseEnter={toggleTooltip1}
+              onMouseLeave={toggleTooltip1}
+            />
+            {tooltipVisible1 && (
+              <div className="bg-white p-2 rounded shadow-lg z-10">
+                <div className="flex flex-col z-10">
+                  <p className="text-xs">
+                    If you wish to Edit the Target values then it will result in the week to be started at the updation time and all previous progress will be nullified.
+                  </p>
+                </div>
+              </div>
+            )}
+      </div>
+
+      <div className='flex flex-col items-center mt-[5%]'>
         <div>
+          <h2 className='text-center font-bold text-amber-500 text-xl'>Targets you have set</h2>
           <strong>Use public transport or carpooling to go to work:</strong>{' '}
           {!isEditing.publicTransportTarget ? (
-            <>
-              {targets.publicTransportTarget}
-              <button onClick={() => setIsEditing(prevState => ({ ...prevState, publicTransportTarget: true }))}>Edit</button>
-            </>
+            <div className='text-center'>
+              <p>
+                {targets.publicTransportTarget}
+              </p>
+              <p>
+                <button onClick={() => setIsEditing(prevState => ({ ...prevState, publicTransportTarget: true }))}>Edit</button>
+              </p>
+
+            </div>
           ) : (
-            <>
-              <select value={targets.publicTransportTarget} onChange={(e) => handleDropdownChange('publicTransportTarget', parseInt(e.target.value))}>
-                {[...Array(7)].map((_, index) => (
-                  <option key={index} value={index + 1}>{index + 1}</option>
-                ))}
-              </select>
-              <button onClick={() => handleUpdateTarget('publicTransportTarget')}>Update</button>
-            </>
+            <div className='text-center'>
+              <p>
+                <select value={targets.publicTransportTarget} onChange={(e) => handleDropdownChange('publicTransportTarget', parseInt(e.target.value))}>
+                  {[...Array(7)].map((_, index) => (
+                    <option key={index} value={index + 1}>{index + 1}</option>
+                  ))}
+                </select>
+              </p>
+              <p>
+                <button onClick={() => handleUpdateTarget('publicTransportTarget')}>Update</button>
+              </p>
+
+            </div>
           )}
         </div>
 
         <div>
           <strong>Go by walk or cycle/bike for errands within 2-3km radius:</strong>{' '}
           {!isEditing.walkOrCycleTarget ? (
-            <>
-              {targets.walkOrCycleTarget}
-              <button onClick={() => setIsEditing(prevState => ({ ...prevState, walkOrCycleTarget: true }))}>Edit</button>
-            </>
+            <div className='text-center'>
+              <p>
+                {targets.walkOrCycleTarget}
+              </p>
+              <p>
+                <button onClick={() => setIsEditing(prevState => ({ ...prevState, walkOrCycleTarget: true }))}>Edit</button>
+              </p>
+
+            </div>
           ) : (
-            <>
-              <select value={targets.walkOrCycleTarget} onChange={(e) => handleDropdownChange('walkOrCycleTarget', parseInt(e.target.value))}>
-                {[...Array(7)].map((_, index) => (
-                  <option key={index} value={index + 1}>{index + 1}</option>
-                ))}
-              </select>
-              <button onClick={() => handleUpdateTarget('walkOrCycleTarget')}>Update</button>
-            </>
+            <div className='text-center'>
+              <p>
+                <select value={targets.walkOrCycleTarget} onChange={(e) => handleDropdownChange('walkOrCycleTarget', parseInt(e.target.value))}>
+                  {[...Array(7)].map((_, index) => (
+                    <option key={index} value={index + 1}>{index + 1}</option>
+                  ))}
+                </select>
+              </p>
+              <p>
+                  <button onClick={() => handleUpdateTarget('walkOrCycleTarget')}>Update</button>
+              </p>
+
+            </div>
           )}
         </div>
 
@@ -288,26 +334,54 @@ function WeeklyTargets() {
           )}
         </div> */}
 
+
         <div>
           <strong>Consumption of vegetarian food or low meat food:</strong>{' '}
           {!isEditing.vegetarianFoodTarget ? (
-            <>
-              {targets.vegetarianFoodTarget}
-              <button onClick={() => setIsEditing(prevState => ({ ...prevState, vegetarianFoodTarget: true }))}>Edit</button>
-            </>
+            <div className='text-center'>
+              <p>
+                {targets.vegetarianFoodTarget}
+              </p>
+              <p>
+                <button onClick={() => setIsEditing(prevState => ({ ...prevState, vegetarianFoodTarget: true }))}>Edit</button>
+              </p>            
+            </div>
           ) : (
-            <>
-              <select value={targets.vegetarianFoodTarget} onChange={(e) => handleDropdownChange('vegetarianFoodTarget', parseInt(e.target.value))}>
-                {[...Array(7)].map((_, index) => (
-                  <option key={index} value={index + 1}>{index + 1}</option>
-                ))}
-              </select>
-              <button onClick={() => handleUpdateTarget('vegetarianFoodTarget')}>Update</button>
-            </>
+            <div className='text-center'>
+              <p>
+                <select value={targets.vegetarianFoodTarget} onChange={(e) => handleDropdownChange('vegetarianFoodTarget', parseInt(e.target.value))}>
+                  {[...Array(7)].map((_, index) => (
+                    <option key={index} value={index + 1}>{index + 1}</option>
+                  ))}
+                </select>
+              </p>
+              <p>
+               <button onClick={() => handleUpdateTarget('vegetarianFoodTarget')}>Update</button>
+              </p>
+            </div>
           )}
         </div>
       </div>
-      <div>
+      <div className='flex flex-col items-center mt-[5%]'>
+        <h2 className='text-center font-bold text-amber-500 text-xl'>Your progress across the week</h2>
+          <div>
+            <strong>Public Transport progress:</strong>{' '}
+            {targets.publicTransportCount+"/"+targets.publicTransportTarget}
+          </div>
+
+          <div>
+            <strong>Walk or cycle progress:</strong>{' '}
+            {targets.walkOrCycleCount+"/"+targets.walkOrCycleTarget}
+          </div>
+          
+          <div>
+            <strong>Food progress:</strong>{' '}
+            {targets.vegetarianFoodCount+"/"+targets.vegetarianFoodTarget}
+          </div>
+      </div>
+      {formFilledForToday && <p className="text-center text-2xl text-red-700 mt-[2%]">You have already filled today</p>}
+      <div className='flex flex-col items-center mt-[5%]'>
+        <h2 className='text-center font-bold text-amber-500 text-xl'>Today's progress</h2>
         <div>
           <strong>Did you use public transport or carpool to go to work today?</strong>{' '}
           <button onClick={() => handleIncrementCount('publicTransport', true)}>Yes</button>
@@ -339,7 +413,8 @@ function WeeklyTargets() {
 
         {/* Add more questions here as needed */}
       </div>
-      {formFilledForToday && <p>Filled for the day</p>}
+
+
     </div>
   );
 }
