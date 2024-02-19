@@ -93,7 +93,7 @@ If you do not have node.js in your system, refer to the [documentation](https://
    ```
 4. Add the .env file in the root
 
-5. `npm start` in the root to run  
+5. `npm start` in the root to run it on a local server
   
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
