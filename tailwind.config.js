@@ -8,6 +8,7 @@ module.exports = {
     "./src/components/common/Home_card.js",
     "./src/components/ConsumptionData.js",
     "./src/components/Prelogin_2.js",
+    "./src/components/Prelogin_3.js",
     "./src/components/carbon.js",
     "./src/components/Prelogin.js",
     ".src/components/EatingHabits.js",

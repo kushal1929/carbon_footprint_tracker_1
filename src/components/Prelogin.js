@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import Prelogin_2 from './Prelogin_2';
+import Prelogin_3 from './Prelogin_3';
 import * as React from "react";
 import './common/Tailwind.css'
 import ScrollToBottomButton from '../components/common/ScrollToBottomButton';
@@ -70,6 +71,7 @@ function Prelogin() {
     <> 
       <Element/>
       <Prelogin_2/>
+      <div className='hidden sm:block'> <Prelogin_3/> </div>
     </>
   );
 }
