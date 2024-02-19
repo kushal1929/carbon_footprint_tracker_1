@@ -1,19 +1,152 @@
-<h1>Ecolibrium</h1>
 
-<h2>Overview</h2>
-<p>Ecolibrium is a web application designed to empower users to calculate, visualize, and track their carbon footprint. The app provides an intuitive interface for users to input various lifestyle choices, including transportation and eating habits, enabling them to estimate and monitor their environmental impact. Users can explore graphical representations of their carbon footprint over time and receive tailored recommendations to reduce their ecological footprint.</p>
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://github.com/othneildrew/Best-README-Template">
+    <img src="src/assets/Ecolibrium_Logo.png" alt="Logo" width="80" height="80">
+  </a>
+  <h3 align="center">Ecolibrium.app </h3>
+  <p align="center">
+    Track and Reduce Your Carbon Footprint Today!
+    <br />
+    <a href="https://ecolibrium.app/"><strong>Kickstart your Carbon Journey Today »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
+   
+  </p>
+</div>
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ol>
+</details>
 
-<h2>Features</h2>
-<p>Carbon Footprint Calculation: Users can easily input details about their daily activities, such as transportation, energy usage, and eating habits, to calculate their carbon footprint.</p>
 
-<h2>Personalized Suggestions</h2>
-<p>Based on user input, Ecolibrium offers customized suggestions for reducing carbon footprint. These recommendations cover areas like sustainable transportation, energy conservation, and eco-friendly dietary choices.</p>
+## About The Project
+Even though Carbon Emissions have been placed under the microscope in recent years, there is still a dearth of accesible tools with personalised guidance for individuals to track and reduce their Carbon Footprint. With Carbon Consciousness only becoming more in vogue as time passes, we want to help you consolidate your efforts in fighting climate change. Ecolibrium has provided the perfect service to analyze and help you achiev your sustainabilty goals.
 
-<h2>Graphical Representation</h2>
-<p>Ecolibrium generates interactive graphs to visually represent the user's carbon footprint over time, fostering a better understanding of the impact of their choices on the environment.</p>
+Here's why:
+* We quantify each action in your month in terms of emissions and give you the hard numbers of your progress.
+* Based on your responses, we provide personalized suggestions to improve your carbon footprint
+* We provide a one stop interface for many sustainabilty related needs for you.
 
-<h2>Monthly Eating Habits Survey</h2>
-<p>Users are prompted to share information about their eating habits on a monthly basis, refining the carbon footprint calculation and enabling personalized recommendations.</p>
+This project aims aims to contribute to the United Nations Sutainable Development Goals
 
-<h2>User Account and History</h2>
-<p>Users can create accounts to track their carbon footprint history, monitor progress over time, and set goals for reducing their environmental impact.</p>
+* SDG 12: Ensuring `sustainable consumption and production` patterns, which is key to sustain the livelihoods of current and future generations
+* SDG 13: To take urgent `climate action` to combat global warming and its impacts
+
+#### Visit [ecolibrium.app](https://ecolibrium.app/) to make your first steps towards a Cleaner Tomorrow!
+
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+### Built With
+We have used the follwing technologies to build this app:-
+
+* React: ReactJS is a JavaScript library for building user interfaces, providing a declarative and efficient way to create dynamic and interactive front-end applications.
+* Firebase:Google Firebase is a comprehensive mobile and web application development platform that offers real-time database management and authorization.
+* OneSignal: OneSignal is a push notification service that enables us to send messages and updates to users across various platforms, helping us engage and retain app users effectively.
+* Google Cloud Run: Google Cloud Run is a serverless platform offering scalability, flexibility, and ease of deployment, ensuring optimal performance and resource utilization.
+
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+<!-- GETTING STARTED -->
+## Getting Started
+To get a local copy up and running follow these simple example steps.
+### Prerequisites
+
+If you do not have node.js in your system, refer to the [documentation](https://nodejs.org/en/) for steps to install.
+### Installation
+1. Please contact us at ecofootprinttracker@gmail.com for the API Keys
+
+2. Clone the repo
+   ```sh
+   git clone https://github.com/ShreeshaM07/eco-footprint-tracker.git
+   ```
+3. Install NPM packages
+   ```sh
+   npm install
+   ```
+4. Add the .env file in the root
+  
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+<!-- USAGE EXAMPLES -->
+## Features
+
+* Carbon Footprint Calculator: Easily measure your carbon footprint with our intuitive calculator. Input your daily activities, transportation methods, and lifestyle choices to get a personalized assessment of your environmental impact.
+
+* Personalized Sustainability: Receive actionable and personalized suggestions to reduce your carbon footprint based on your individual lifestyle. From energy-saving tips to eco-friendly transportation alternatives, we provide practical steps for a greener life.
+
+* Graphical Analysis: Visualize your carbon footprint data through interactive charts and graphs. Understand the breakdown of your emissions and track your progress over time. Gain insights into areas where you can make the most significant impact.
+
+* Competitive Leaderboard: Engage in friendly competition, track progress, and motivate peers through challenges and leaderboards.
+   
+* Interactive Map for Recycling Locations: Locate nearby recycling centers to offset your carbon footprint.
+   
+* Carbon Blogs: Check out our newsletter to update yourselves on the latest happennings in the sphere of Carbon Consciouness.
+* Quizes: Put your knowledge to the test against a few questions designed to question your daily choices and their impact on your carbon footprint.
+ 
+
+
+_For further features, visit our [website](https://ecolibrium.app/)_
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- CONTACT -->
+## Contact
+
+For any assistance, don't hesitate to contact us at ecofootprinttracker@gmail.com
+
+### Team Matrix
+ Abhay Lejith
+ 
+ Aditya Pal
+ 
+ Shishir Ashok
+ 
+ Shreesha M
+
+Website Link: [Ecolibrium - Carbon Footprint Tracker](https://ecolibrium.app/)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
