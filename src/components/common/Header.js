@@ -23,8 +23,8 @@ const products = [
   { name: 'Attributions', description: 'List of Sources ', href: '/Credits', icon: RxActivityLog },
 ]
 const callsToAction = [
-  { name: 'Watch demo', href: '#', icon: PlayCircleIcon },
-  { name: 'Contact sales', href: '#', icon: PhoneIcon },
+  { name: 'Coming soon', href: '#', icon: PlayCircleIcon },
+  { name: 'Coming soon', href: '#', icon: PhoneIcon },
 ]
 
 function classNames(...classes) {
@@ -124,6 +124,9 @@ const handleLogout = () => {
           <a href="/Quiz" className="text-sm font-semibold leading-6 text-gray-900">
             Quiz
           </a>
+          <a href="/WeeklyTargets" className="text-sm font-semibold leading-6 text-gray-900">
+            Weekly Targets
+          </a>
 
 
         </Popover.Group>
@@ -199,6 +202,12 @@ const handleLogout = () => {
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   Quiz
+                </a>
+                <a
+                  href="/WeeklyTargets"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                >
+                  Weekly Targets
                 </a>
               </div>
               

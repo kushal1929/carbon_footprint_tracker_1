@@ -84,11 +84,30 @@ export default function Prelogin_3()
                             color="green-400"
                         />    
                         <InfoCard
+                            heading="Weekly Targets"
+                            content="Users can set and act on weekly targets to reduce their carbon footprint."
+                            url='targets_ss.png'
+                            color="green-400"
+                        />   
+                    </div>
+                </div>
+            </section>
+            <br/><br/>
+            <section>
+                <div className="mx-auto max-w-screen-2xl px-4 py-8 sm:px-6 lg:px-8">
+                    <div className="grid grid-cols-1 gap-4 md:grid-cols-2 ">  
+                        <InfoCard
                             heading="Interactive Map for Recycling Locations"
                             content=" Locate nearby recycling facilities for convenient waste
                             management."
                             url='maps_ss.png'
-                            color="green-400"
+                            color="green-500"
+                        />   
+                        <InfoCard
+                            heading="Shareable score card"
+                            content=" Aesthetic Ecolibrium score card which can be downloaded to share monthly achievements on social media."
+                            url='scorecard_ss.png'
+                            color="green-500"
                         />   
                     </div>
                 </div>

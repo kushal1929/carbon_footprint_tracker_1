@@ -59,13 +59,10 @@ export default function Prelogin_2()
             </div>
 
             <div class="block rounded-xl border border-gray-200 p-8 shadow-xl shadow-green-900 transition hover:border-lime-300/10 hover:shadow-emerald-500 hover:shadow-lime-300/10">
-              <h2 class="mt-4 text-xl font-bold text-black">
-                User-Friendly Interface
-              </h2>
+              <h2 class="mt-4 text-xl font-bold text-black">Weekly Targets</h2>
 
               <p class="mt-1 text-sm text-black-300">
-                Our user-friendly interface ensures easy navigation and
-                accessibility, making sustainability engaging.
+                Users can set and act on weekly targets to reduce their carbon footprint.
               </p>
             </div>
 
@@ -77,6 +74,8 @@ export default function Prelogin_2()
                 sustainability journey through analytics.
               </p>
             </div>
+
+            
           </div>
         </div>
       </section>
