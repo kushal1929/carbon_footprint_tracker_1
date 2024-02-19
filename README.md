@@ -92,6 +92,8 @@ If you do not have node.js in your system, refer to the [documentation](https://
    npm install
    ```
 4. Add the .env file in the root
+
+5. `npm start` in the root to run  
   
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -112,8 +114,10 @@ If you do not have node.js in your system, refer to the [documentation](https://
 * Interactive Map for Recycling Locations: Locate nearby recycling centers to offset your carbon footprint.
    
 * Carbon Blogs: Check out our newsletter to update yourselves on the latest happennings in the sphere of Carbon Consciouness.
+
 * Quizes: Put your knowledge to the test against a few questions designed to question your daily choices and their impact on your carbon footprint.
- 
+
+* Weekly Targets: Users can set and act on weekly targets to reduce their carbon footprint. Thus keeping the users motivated towards the goal.
 
 
 _For further features, visit our [website](https://ecolibrium.app/)_
