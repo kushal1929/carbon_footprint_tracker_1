@@ -23,7 +23,7 @@ const products = [
   { name: 'Attributions', description: 'List of Sources ', href: '/Credits', icon: RxActivityLog },
 ]
 const callsToAction = [
-  { name: 'Coming soon', href: '#', icon: PlayCircleIcon },
+  { name: 'Watch Demo', href: 'https://www.youtube.com/watch?v=Ts6X30IcguY', icon: PlayCircleIcon },
   { name: 'Coming soon', href: '#', icon: PhoneIcon },
 ]
 

@@ -16,6 +16,11 @@ export default function BasicTextFields({ title, setPassword, setEmail, handleAc
     }
   };
 
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      handleRegister();
+    }
+  };
     
 
 return(
@@ -30,7 +35,7 @@ return(
       </p>
     </div>
 
-    <form action="" className="mx-auto mb-0 mt-8 max-w-md space-y-4">
+    <form action="" className="mx-auto mb-0 mt-8 max-w-md space-y-4" >
       <div>
         <label htmlFor="email" className="sr-only">Email</label>
 
@@ -40,6 +45,7 @@ return(
             className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
             placeholder="Enter email"
             onChange={(e) => setEmail(e.target.value)}
+            onKeyDown={handleKeyPress}
           />
 
           <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
@@ -72,6 +78,7 @@ return(
               className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
               placeholder="Enter password"
               onChange={(e) => setPassword(e.target.value)}
+              onKeyDown={handleKeyPress}
             />
 
             <span
