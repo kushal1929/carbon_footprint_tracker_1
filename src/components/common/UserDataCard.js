@@ -71,7 +71,7 @@ const UserDataCard = () => {
     <div className='h-full w-full flex flex-col items-center mt-10 sm:mt-0 justify-start sm:justify-center'>
       {userData ? (
         <>
-        <div className="w-[90vw] h-[90vw] sm:h-3/5 pt-1 sm:w-[60vh] bg-cover bg-[url('../../assets/image_1.jpg')]" ref={cardRef}>
+        <div className="w-[90vw] h-[105vw] sm:h-3/5 pt-1 sm:w-[65vh] md:w-[70vh] bg-cover bg-[url('../../assets/image_1.jpg')]" ref={cardRef}>
             <div className="relative flex items-center h-[90%] w-[92%] m-[4%] rounded-[66px] bg-white pt-[5%]">
               <div className="relative w-full h-full flex flex-col items-center ">
                 <div className='h-[10%] mb-[2%]'>
@@ -80,15 +80,21 @@ const UserDataCard = () => {
                     className='h-full'      
                   />
                 </div>
-                <div className='font-PJSbold text-[7vw] sm:text-[5vh] mb-[4%]'>
+                <div className='font-PJSbold text-[6vw] sm:text-[5vh] mb-[4%]'>
                   Amazing {userData.username} !
                 </div>
-                <div className='font-WorkSans text-[6vw] sm:text-[4vh] mb-[4%]'>
+                <div className='font-WorkSans text-[6vw] mb-[2%] sm:text-[4vh] mb-[4%]'>
                   Stats this month
                 </div>
-                <div className='font-WorkSans text-[5vw] sm:text-[3vh] mb-[4%]'>
-                  Carbon Footprint: {userData.carbonScore.toFixed(3)} KgCO2
+                <div className='flex flex-row'>
+                  <div className='font-WorkSans text-[5vw] sm:text-[3vh] mb-[4%]'>
+                    Carbon Footprint: {userData.carbonScore.toFixed(3)} 
+                  </div>
+                  <div className='font-WorkSans text-[3vw] mt-[2.25%] text-gray-400 sm:text-[2vh] mb-[2%]'>
+                    Kg CO2
+                  </div>
                 </div>
+
                 <div className='font-WorkSans text-[5vw] sm:text-[3vh] mb-[6%]'>
                   Ecolibrium Rank: {userData.globalRank}
                 </div>
@@ -107,7 +113,7 @@ const UserDataCard = () => {
               Download
             </span>
           </button>
-         <p className='text-center text-2xl'>Download your scorecard and share it with your friends on social media!</p>
+         <p className='text-center text-xl sm:text-2xl '>Download your scorecard and share it with your friends on social media!</p>
         </>
 
       ) : (
