@@ -37,7 +37,7 @@
     <li><a href="#contact">Contact</a></li>
   </ol>
 </details>
-
+<p align="right">(<a href="#ecolibriumapp-">back to top</a>)</p>
 
 ## About The Project
 Even though Carbon Emissions have been placed under the microscope in recent years, there is still a dearth of accesible tools with personalised guidance for individuals to track and reduce their Carbon Footprint. With Carbon Consciousness only becoming more in vogue as time passes, we want to help you consolidate your efforts in fighting climate change. Ecolibrium has provided the perfect service to analyze and help you achiev your sustainabilty goals.
@@ -68,7 +68,7 @@ We have used the follwing technologies to build this app:-
 * OneSignal: OneSignal is a push notification service that enables us to send messages and updates to users across various platforms, helping us engage and retain app users effectively.
 * Google Cloud Run: Google Cloud Run is a serverless platform offering scalability, flexibility, and ease of deployment, ensuring optimal performance and resource utilization.
 
-
+<p align="right">(<a href="#ecolibriumapp-">back to top</a>)</p>
 
 
 
@@ -95,7 +95,7 @@ If you do not have node.js in your system, refer to the [documentation](https://
 
 5. `npm start` in the root to run it on a local server
   
-
+<p align="right">(<a href="#ecolibriumapp-">back to top</a>)</p>
 
 
 
@@ -124,7 +124,7 @@ _For further features, visit our [website](https://ecolibrium.app/)_
 
 
 
-
+<p align="right">(<a href="#ecolibriumapp-">back to top</a>)</p>
 
 
 
@@ -149,7 +149,7 @@ For any assistance, don't hesitate to contact us at ecofootprinttracker@gmail.co
 
 Website Link: [Ecolibrium - Carbon Footprint Tracker](https://ecolibrium.app/)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#ecolibriumapp-">back to top</a>)</p>
 
 [🔼 Back to top](#ecolibriumapp-)
 
