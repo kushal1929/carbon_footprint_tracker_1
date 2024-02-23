@@ -56,7 +56,7 @@ This project aims aims to contribute to the United Nations Sutainable Developmen
 
 
 
-<p align="right">(<a href="#Ecolibrium.app">back to top</a>)</p>
+
 
 
 
@@ -70,7 +70,7 @@ We have used the follwing technologies to build this app:-
 
 
 
-<p align="right">(<a href="#Ecolibrium.app">back to top</a>)</p>
+
 
 
 
@@ -96,7 +96,6 @@ If you do not have node.js in your system, refer to the [documentation](https://
 5. `npm start` in the root to run it on a local server
   
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
@@ -122,7 +121,6 @@ If you do not have node.js in your system, refer to the [documentation](https://
 
 _For further features, visit our [website](https://ecolibrium.app/)_
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
