@@ -152,5 +152,7 @@ For any assistance, don't hesitate to contact us at ecofootprinttracker@gmail.co
 Website Link: [Ecolibrium - Carbon Footprint Tracker](https://ecolibrium.app/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+<br><hr>
+[🔼 Back to top](#Ecolibrium.app)
 
 
