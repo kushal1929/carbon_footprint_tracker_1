@@ -151,6 +151,6 @@ Website Link: [Ecolibrium - Carbon Footprint Tracker](https://ecolibrium.app/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-[🔼 Back to top](#ecolibrium.app-)
+[🔼 Back to top](#ecolibriumapp-)
 
 
