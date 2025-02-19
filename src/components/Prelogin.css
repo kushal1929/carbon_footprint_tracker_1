@@ -1,0 +1,376 @@
+html{
+    height:100%;
+  }
+  body{
+    height:100%;
+  }
+  #root{
+    height:100%;
+  }
+  .App{
+    height:100%;
+  }
+  
+  .element { 
+    display: flex; 
+    background-color: transparent; 
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: center;
+    height:100%;
+    
+    } 
+  
+    .page2{ background-color: transparent; 
+      display: flex; 
+      flex-direction: column; 
+      justify-content: center; 
+      } 
+    
+  .element .image-background { 
+    background-image: url(../../public/images/image_1.png); 
+    background-position: 50% 50%; 
+    background-size: cover; 
+    height: 100%; width: 100%;
+    flex-grow: 1; } 
+    
+  .element .white-rectangle { 
+    background-color: #ffffff; 
+    border-radius: 66px; 
+    height: 93%; 
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 2%;
+    
+    position: relative; 
+    
+    
+    display: flex; 
+    justify-content: center;  
+      /* flex-flow: nowrap; */  
+    flex-wrap:wrap; 
+    align-content: stretch; 
+    padding: 15px;
+    gap: 5px;
+    flex-direction: row;
+    }
+  /*
+    .white-rectangle > div{
+      background: #ffecb3;
+      border: 3px solid #000000;
+      border-radius: 5px;
+      padding: 8px;
+    }
+  */
+  
+    .left-half { 
+      /* flex:1 1 100px; */
+      flex-grow:1;
+      
+  
+      display: flex;
+      
+      justify-content: flex-start; 
+      align-items: stretch; 
+      /* flex-flow: column; */ 
+      flex-direction: column;  
+      min-width: 300px;
+      max-height: 46vw;
+    }
+   
+  
+  
+  /*
+    .left-half > div{
+      background: #c1b89b;
+      border: 3px solid #000000;
+      border-radius: 5px;
+      padding: 8px;
+    }
+  */
+    .heading { 
+      /* flex:0 1 auto; */
+      display: flex;
+      flex-grow:0;
+      flex-shrink:1;
+      height: 30%;
+      
+      align-items: center;
+    }
+  
+    .heading .text { 
+      color: #000000; 
+      font-family: "Plus Jakarta Sans-Bold", Helvetica; 
+      font-size: 7vw; 
+      font-weight: 700; 
+      letter-spacing: 0; 
+      line-height: 80px; 
+      padding-left: 10%;
+      
+      
+    }
+    .phrase { 
+      /* flex:0 1 auto; */
+      flex-grow:0;
+      flex-shrink:1;
+      height: auto;
+      
+      
+      align-items: stretch; 
+      display: flex; 
+      flex-direction: column; 
+    }
+  
+    .phrase .text1{
+      height: 2vw;
+      margin:revert-layer;
+    }
+    .phrase .text2{
+      height: 2vw;
+      margin-top: 1vw;
+    }
+  
+    .phrase .text11{
+      color: #333333; 
+      font-family: "Work Sans-Regular", Helvetica; 
+      font-size: 2vw; 
+      font-weight: 400; 
+      letter-spacing: 0; 
+      line-height: 30px;
+      padding-left: 10%;
+    }
+  
+    .phrase .text22{
+      color: #333333; 
+      font-family: "Work Sans-Regular", Helvetica; 
+      font-size: 2vw; 
+      font-weight: 400; 
+      letter-spacing: 0; 
+      line-height: 30px;
+      padding-left: 10%;
+    }
+  
+  
+    .buttons{ 
+      /* flex:0 1 auto; */
+      flex-grow:1;
+      flex-shrink:1;
+  
+      display: flex;
+      
+      justify-content: flex-start; 
+      align-items: flex-start; 
+      /* flex-flow: row; */ 
+      flex-direction: row;  
+      margin-top: 2vw;
+  
+    }
+  
+    .buttons .signup{
+      margin-left: 10%;
+      background-color: #050505; 
+      border-radius: 16px; 
+      gap: 10px; 
+      overflow: hidden; 
+      padding: 1.9vw 2vw; 
+      height: 4vw;
+  
+      display: flex;
+      align-items: center;
+      justify-content: center;
+   
+    }
+  
+    .signup_text{
+      color: #ffffff; 
+      font-family: "Work Sans-Medium", Helvetica; 
+      font-size: 1.8vw; 
+      font-weight: 500; 
+      letter-spacing: 0; 
+      margin-top: -1px; 
+      position: relative; 
+      white-space: nowrap; 
+      width: fit-content;
+    }
+  
+    .buttons .login{
+      margin-left: 2%;
+      background-color: #ffffff; 
+      border-radius: 16px; 
+      gap: 10px; 
+      overflow: hidden; 
+      padding: 1.9vw 2vw; 
+      height: 4vw;
+      border-color: #000000;
+      border-width: 0.2vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  
+    }
+  
+    .login_text{
+      color: #333333; 
+      font-family: "Work Sans-Medium", Helvetica; 
+      font-size: 1.8vw; 
+      font-weight: 500; 
+      letter-spacing: 0; 
+      margin-top: -1px; 
+      position: relative; 
+      white-space: nowrap; 
+      width: fit-content;
+      line-height: 0px;
+    }
+  
+  
+      
+              
+    .right-half { 
+      /* flex:1 1 100px; */
+      flex-grow:1;
+      display: flex;
+      flex-basis: 0;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height:50vw;
+      max-height: 46vw;
+      
+    }
+  
+    .box { height: 60vw; width: 40vw; } 
+  
+    .box .front_img {
+      background-image: url(../../public/images/front_img.png); 
+      background-position: 50% 50%;  
+      background-repeat: no-repeat;
+      background-size: contain;
+      height:100%;width: auto;
+      
+    }
+    
+   /* .box .image-group { height: 680px; position: fixed; width: 690px; } 
+    
+    .box .overlap-group { height: 100%; position: relative; } 
+    
+    .box .stroke-1 { 
+      background-color: #ffffff; 
+      border: 2px solid; 
+      border-color: #111111; 
+      border-radius: 48px; 
+      height: 72%; 
+      left: 71px; 
+      position: absolute; 
+      top: 61px; 
+      width: 60%; } 
+      
+    .box .stroke-2 { 
+      background-color: #ffffff; 
+      border: 2px solid; 
+      border-color: #111111; 
+      border-radius: 40px; 
+      height: 60%; 
+      left: 343px; 
+      position: absolute; 
+      top: 255px; 
+      width: 51%; } 
+      
+    .box .frame { 
+      background-image: url(../public/images/leaves2.jpg); 
+      background-position: 50% 50%; 
+      background-size: cover; 
+      border-radius: 58px; 
+      height: 57%; 
+      left: 0; 
+      position: absolute; 
+      top: 291px; 
+      width: 40%; } 
+      
+    .box .frame-2 { 
+      background-image: url(../public/images/leaves1.jpeg); 
+      background-position: 50% 50%; 
+      background-size: cover; 
+      border-radius: 51px; 
+      height: 90%; 
+      left: 199px; 
+      position: absolute; 
+      top: 0; 
+      width: 52%; }*/
+  
+  
+  
+      @media screen and (max-width: 768px){
+  
+        .element .white-rectangle{
+          flex-direction: column;
+          justify-content: flex-start;
+          margin-top: 5%;
+  
+        }
+        .left-half{
+          flex-grow: 0;
+          align-items: center;
+          height: 90vw;
+          max-height: none;
+        }
+        .left-half .heading .text{
+            padding-left: 0;
+            font-size: 12vw;
+        }
+        .heading{
+          height: 50%;
+        }
+        .phrase{
+          width:80vw;
+        }
+        .phrase .text1{
+          text-align: center;
+        }
+        .phrase .text2{
+          text-align: center;
+        }
+        .phrase .text11{
+          padding-left: 0;
+          font-size: 5vw;
+        }
+        .phrase .text22{
+          padding-left: 0;
+          font-size: 5vw;
+        }
+  
+  
+        .buttons{
+          flex-grow: 0;
+          margin-top: 20vw;
+        }
+        .buttons .signup{
+          
+          margin-left: 0;
+          padding: 1.9vw 6vw; 
+          height: 10vw;
+        }
+  
+        .buttons .login{
+          padding: 1.9vw 6vw; 
+          height: 10vw;
+        }
+  
+        .signup_text{
+          font-size: 4vw;
+        }
+        .login_text{
+          font-size: 4vw;
+        }
+  
+        .right-half{
+        justify-content:flex-start;
+        max-height:none;
+        }
+  
+        .box{
+          height:100%;
+          width:100%;
+          display: flex;flex-direction: column;justify-content: flex-start; 
+        }
+        
+      }
