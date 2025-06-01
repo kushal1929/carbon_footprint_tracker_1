@@ -225,6 +225,7 @@ const Analytics = () => {
     <div className='flex justify-center py-6 '>
       <h1
         className="px-4 text-center w-fit bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-5xl font-extrabold text-transparent lg:text-7xl"
+        style={{ paddingBottom: '10px' }}
       >
         Analyze your Carbon Footprint!
 
@@ -232,7 +233,7 @@ const Analytics = () => {
     </div>
     <div
       class="h-full justify-center mx-[5%] lg:mx-[15%] rounded bg-white">
-    <div className="relative flex justify-center items-center flex-wrap lg:h-full lg:flex-start">
+    <div className="relative flex justify-center items-center flex-wrap lg:h-full lg:flex-start" style={{ marginTop: '-5  0px' }}>
 
       <div className='flex items-center w-full h-4/5 lg:w-1/2 gap-x-6 px-3 lg:px-10 mt-10 mb-5 items-stretch justify-stretch' >
         

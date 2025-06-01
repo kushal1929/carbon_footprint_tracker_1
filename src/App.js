@@ -28,11 +28,7 @@ import Quiz from './components/Quiz.js';
 import Feedback from './components/Feedback';
 import Analytics from './components/Analytics';
 import Map from './components/Map.js';
-import Credits from './components/Credits';
 import UserDataCard from './components/common/UserDataCard';
-import CFblog from './components/CFblog';
-import BlogSite from './components/BlogSite';
-import CFOffset from './components/CFOffset';
 import { toast } from 'react-toastify';
 import WeeklyTargets from './components/WeeklyTargets';
 
@@ -156,11 +152,7 @@ function App() {
         <Route path="/feedback" element={<Feedback />}/>
         <Route path="/Analytics" element={<Analytics />}/>
         <Route path="/Map" element={<Map />}/>
-        <Route path="/Credits" element={<Credits/>} />
         <Route path="/share-score" element={<UserDataCard/>} />
-        <Route path="/BlogSite" element={<BlogSite/>} />
-        <Route path="/BlogSite/CFblog" element={<CFblog/>} />
-        <Route path="/BlogSite/CFOffset" element={<CFOffset/>} />
         <Route path="/WeeklyTargets" element={<WeeklyTargets />} />
       </Routes>
     </div>

@@ -94,13 +94,6 @@ const UserDataCard = () => {
                     Kg CO2
                   </div>
                 </div>
-
-                <div className='font-WorkSans text-[5vw] sm:text-[3vh] mb-[6%]'>
-                  Ecolibrium Rank: {userData.globalRank}
-                </div>
-                <div className='font-WorkSans text-[4vw] sm:text-[2.5vh] text-center'>
-                  Join me and begin your journey to save the environment at<b className='text-green-800'> ecolibrium.app </b>!
-                </div>
               </div>
             </div>   
         </div>

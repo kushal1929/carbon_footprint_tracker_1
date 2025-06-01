@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const maps_api = process.env.REACT_APP_MAPS_KEY;
+const maps_api = "AIzaSyBr6mvrBHvhLnMEjcjlpx64cyNjZ57mmwE";
 
 const RecyclingCentersMap = () => {
   const [infowindow, setInfowindow] = useState(null);
@@ -15,7 +15,7 @@ const RecyclingCentersMap = () => {
     const initialize = (userLocation) => {
       mapInstance = new window.google.maps.Map(document.getElementById('map'), {
         center: userLocation,
-        zoom: 15,
+        zoom: 12,
       });
 
       infowindowInstance = new window.google.maps.InfoWindow();
@@ -112,9 +112,11 @@ const RecyclingCentersMap = () => {
       handleGetPosition();
     } else {
       // Load the Google Maps API script
+      // Load the Google Maps API script
       const script = document.createElement('script');
-      script.src = maps_api;
+      script.src = `https://maps.googleapis.com/maps/api/js?key=${maps_api}&libraries=places`;
       script.async = true;
+
 
       script.onload = () => {
         // Ensure the script is loaded before calling initialize

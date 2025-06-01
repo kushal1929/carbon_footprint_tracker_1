@@ -8,7 +8,7 @@ import {
   getDocs,
 } from "firebase/firestore";
 
-const geminiAPIkey = process.env.REACT_APP_AI_KEY;
+const geminiAPIkey = "AIzaSyBkCJ0FeaAFHeuSgjVMRxpXUZn39jfXneU";
 
 export function Prompt1fetchData(){
   const [userData, setUserData] = useState([]);

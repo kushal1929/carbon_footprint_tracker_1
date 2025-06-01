@@ -18,7 +18,8 @@ export default function BasicTextFields({ title, setPassword, setEmail, handleAc
     
 
 return(
-    <section className="bg-white">
+    <section className="bg-white"
+    style={{ backgroundImage: `url(${require('../assets/image_1.jpg')})` }}>
     <div className="lg:grid lg:min-h-screen lg:grid-cols-12">
         <aside className="relative block h-16 lg:order-last lg:col-span-5 lg:h-full xl:col-span-6">
         <img
@@ -38,11 +39,11 @@ return(
             </div>
 
             <h1 className="mt-6 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl">
-            Welcome to ECOLIBRIUM!
+            Welcome to ECOSENSE!
             </h1>
 
             <p className="mt-4 leading-relaxed text-gray-500">
-            Start Your Green Odyssey! Measure. Improve. Thrive. Ecolibrium - Your Personal Guide to a Greener, Healthier Tomorrow!
+            Start Your Green Odyssey! Measure. Improve. Thrive. Ecosense - Your Personal Guide to a Greener, Healthier Tomorrow!
             </p>
 
             <form action="#" className="mt-8 grid grid-cols-6 gap-6">

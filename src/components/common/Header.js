@@ -17,14 +17,9 @@ import './Tailwind.css'
 const products = [
   { name: 'Analytics', description: 'Get a better understanding of your Carbon Footprint', href: '/Analytics', icon: ChartPieIcon },
   { name: 'Recycle', description: 'Find Recycling Centres near you', href: '/Map', icon: MdRecycling },
-  { name: 'Blogs', description: 'Discover more about how we can save the environment', href: '/BlogSite', icon: HiOutlineNewspaper  },
-  { name: 'Share', description: 'Donwload your scorecard and share it on social media!', href: '/share-score', icon: BsShareFill},
   { name: 'Feedback', description: 'Let us know where we can improve', href: '/feedback', icon: CursorArrowRaysIcon },
-  { name: 'Attributions', description: 'List of Sources ', href: '/Credits', icon: RxActivityLog },
 ]
 const callsToAction = [
-  { name: 'Watch Demo', href: 'https://www.youtube.com/watch?v=Ts6X30IcguY', icon: PlayCircleIcon },
-  { name: 'Coming soon', href: '#', icon: PhoneIcon },
 ]
 
 function classNames(...classes) {
@@ -113,7 +108,9 @@ const handleLogout = () => {
               </Popover.Panel>
             </Transition>
           </Popover>
-
+          <a href="/home" className="text-sm font-semibold leading-6 text-gray-900">
+            Home
+          </a>        
           <a href="/consumption-data" className="text-sm font-semibold leading-6 text-gray-900">
             Carbon Footprint Calculator
           </a>

@@ -7,7 +7,7 @@ export default function Map(){
     return(
         <>
             <Header />
-            <div className='flex flex-col justify-center items-center h-[90vh] w-full gap-x-6 px-2 sm:px-[10%] items-stretch '>
+            <div className='flex flex-col justify-center items-center h-[90vh] w-full gap-x-6 px-2 sm:px-[10%] items-stretch' style={{ backgroundColor: '#FFFCF7',  }}>
                 <div className=' mx-auto flex mt-[3%] pb-4 w-fit bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-5xl'>
                 Recycling Centers near you !
                 </div>

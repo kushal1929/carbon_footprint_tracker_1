@@ -28,48 +28,48 @@ const UsernameInput = () => {
         navigate('/home');
       }
     } catch (error) {
-     
       alert('Error creating username: ' + error.message);
     }
   };
 
   return (
-    <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
-  <div className="mx-auto max-w-lg text-center">
-    <h1 className="text-2xl font-bold sm:text-3xl">Ecolibrium!</h1>
+    <div
+      className="bg-cover bg-center min-h-screen h-screen flex items-center justify-center"
+      style={{ backgroundImage: `url(${require('../assets/image_1.jpg')})` }}
+    >
+      <div className="w-full max-w-lg px-8 py-10 bg-white bg-opacity-90 rounded-lg shadow-lg">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold sm:text-3xl">Welcome to Ecosense!</h1>
+          <p className="mt-4 text-gray-500">Please Enter your Username below</p>
+        </div>
 
-    <p className="mt-4 text-gray-500">
-      Please Enter your Username below
-    </p>
-  </div>
+        <form action="" className="mt-8 space-y-4">
+          <div>
+            <label htmlFor="Username" className="sr-only">Username</label>
+            <div className="relative">
+              <input
+                type="text"
+                value={username}
+                className="w-full rounded-lg border-gray-200 p-4 text-sm shadow-sm"
+                onChange={(e) => setUsername(e.target.value)}
+                placeholder="Enter your username"
+              />
+            </div>
+          </div>
 
-  <form action="" className="mx-auto mb-0 mt-8 max-w-md space-y-4">
-    <div>
-      <label htmlFor="Username" className="sr-only">Username</label>
-
-      <div className="relative">
-        <input
-          type="text"
-          value={username}
-          className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
-          onChange={(e) => setUsername(e.target.value)}
-          placeholder="Enter your username"
-        />
+          <div className="flex justify-center">
+            <Button
+              variant="contained"
+              type="button"
+              className="inline-block bg-blue-500 px-5 py-3 text-sm font-medium text-white"
+              onClick={handleUsernameSubmit}
+            >
+              Submit
+            </Button>
+          </div>
+        </form>
       </div>
     </div>
-
-    <div className="flex justify-center">
-      <Button
-        variant='contained'
-        type="button"
-        className="inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white"
-        onClick={handleUsernameSubmit}
-      >
-       Submit
-      </Button>
-    </div>
-  </form>
-  </div>
   );
 };
 
