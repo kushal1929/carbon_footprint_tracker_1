@@ -136,16 +136,11 @@ _For further features, visit our [website](https://ecolibrium.app/)_
 <!-- CONTACT -->
 ## Contact
 
-For any assistance, don't hesitate to contact us at ecofootprinttracker@gmail.com
+For any assistance, don't hesitate to contact us at kushalnagaraj2002@gmail.com
 
 ### Team Matrix
- Abhay Lejith
- 
- Aditya Pal
- 
- Shishir Ashok
- 
- Shreesha M
+1)BINDU G
+2)B N KUSHAL
 
 Website Link: [Ecolibrium - Carbon Footprint Tracker](https://ecolibrium.app/)
 
