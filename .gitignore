@@ -1,12 +1,18 @@
 # dependencies
-node_modules/
+/node_modules
+/.pnp
+.pnp.js
 
-# build outputs
-dist/
-build/
+# testing
+/coverage
 
-# environment files
-.env
+# production
+/build
 
 # misc
 .DS_Store
+.env
+.npmrc
+
+# cache
+/.cache
